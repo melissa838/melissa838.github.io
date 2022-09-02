@@ -14,7 +14,7 @@
 </li>
 </ul>
 <h4 id="2-SVM的工作过程"><a href="#2-SVM的工作过程" class="headerlink" title="2.SVM的工作过程"></a>2.SVM的工作过程</h4><h6 id="2-1-线性数据"><a href="#2-1-线性数据" class="headerlink" title="2.1.线性数据"></a>2.1.线性数据</h6><blockquote>
-<p>   为了更好地理解SVM的工作流程，我们引入一个例子。假如在一个$xy$坐标系上有很多红色和蓝色的点，将这些点看作是我们要处理的两个(categories)类别<code>(red,blue)</code>，而我们的数据具有两个(features)特征<script type="math/tex">x</script>和$y$，我们想要找到一个(classifier)判别器，当我们给定一个坐标$(x,y)$，判别器会给出    该坐标所属的类别<script type="math/tex">red</script>或<script type="math/tex">blue</script>，具体描述如下图。</p>
+<p>   为了更好地理解SVM的工作流程，我们引入一个例子。假如在一个$xy$坐标系上有很多红色和蓝色的点，将这些点看作是我们要处理的两个(categories)类别<code>(red,blue)</code>，而我们的数据具有两个(features)特征$x$和$y$，我们想要找到一个(classifier)判别器，当我们给定一个坐标$(x,y)$，判别器会给出    该坐标所属的类别$red$或$blue$，具体描述如下图。</p>
 </blockquote>
 <p><img src="https://d33wubrfki0l68.cloudfront.net/bb6acfd742447bab1e4c619cad0d9aec9e6d58bd/7381d/static/52081a1b625e8ba22c00210d547b4f1a/ae702/plot_original.png" alt="support vector machines svm"></p>
 <blockquote>
