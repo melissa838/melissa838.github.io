@@ -198,7 +198,7 @@
       
       
       <div class="post-body">
-          <h1 align="center"><a target="_blank" rel="noopener" href="https://github.com/HubSpot/pace">Progress bar</a> for <a target="_blank" rel="noopener" href="https://github.com/theme-next">NexT</a></h1>
+          <h1 align="center"><a href="https://github.com/HubSpot/pace">Progress bar</a> for <a href="https://github.com/theme-next">NexT</a></h1>
 
 <h1 align="center">Installation</h1>
 
@@ -219,7 +219,7 @@
 <p>Enable module in <strong>NexT</strong> <code>_config.yml</code> file and select your theme:</p>
 <figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">pace:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line">  <span class="comment"># Themes list:</span></span><br><span class="line">  <span class="comment"># big-counter | bounce | barber-shop | center-atom | center-circle | center-radar | center-simple</span></span><br><span class="line">  <span class="comment"># corner-indicator | fill-left | flat-top | flash | loading-bar | mac-osx | material | minimal</span></span><br><span class="line">  <span class="attr">theme:</span> <span class="string">minimal</span></span><br></pre></td></tr></table></figure>
 
-<p><strong>And, if you wants to use the CDN, then need to set:</strong> (you also need to find your corresponding theme css link in <a target="_blank" rel="noopener" href="https://www.jsdelivr.com/package/npm/pace-js?path=themes">jsdelivr</a>)</p>
+<p><strong>And, if you wants to use the CDN, then need to set:</strong> (you also need to find your corresponding theme css link in <a href="https://www.jsdelivr.com/package/npm/pace-js?path=themes">jsdelivr</a>)</p>
 <figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">vendors:</span></span><br><span class="line">  <span class="string">...</span></span><br><span class="line">  <span class="attr">pace:</span> <span class="string">//cdn.jsdelivr.net/npm/pace-js@1/pace.min.js</span></span><br><span class="line">  <span class="attr">pace_css:</span> <span class="string">//cdn.jsdelivr.net/npm/pace-js@1/themes/blue/pace-theme-minimal.css</span></span><br></pre></td></tr></table></figure>
 
 <h1 align="center">Update</h1>
@@ -384,7 +384,7 @@ $(document).ready(function() {
 
         
 <div class="busuanzi-count">
-  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  <script data-pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
     <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
       <span class="post-meta-item-icon">
         <i class="fa fa-user"></i>
@@ -419,6 +419,7 @@ $(document).ready(function() {
   
   <script color='0,0,255' opacity='0.5' zIndex='-1' count='99' src="/lib/canvas-nest/canvas-nest.min.js"></script>
   <script src="/lib/anime.min.js"></script>
+  <script src="/lib/pjax/pjax.min.js"></script>
   <script src="/lib/velocity/velocity.min.js"></script>
   <script src="/lib/velocity/velocity.ui.min.js"></script>
 
@@ -431,6 +432,65 @@ $(document).ready(function() {
 
 
 <script src="/js/next-boot.js"></script>
+
+  <script>
+var pjax = new Pjax({
+  selectors: [
+    'head title',
+    '#page-configurations',
+    '.content-wrap',
+    '.post-toc-wrap',
+    '.languages',
+    '#pjax'
+  ],
+  switches: {
+    '.post-toc-wrap': Pjax.switches.innerHTML
+  },
+  analytics: false,
+  cacheBust: false,
+  scrollTo : !CONFIG.bookmark.enable
+});
+
+window.addEventListener('pjax:success', () => {
+  document.querySelectorAll('script[data-pjax], script#page-configurations, #pjax script').forEach(element => {
+    var code = element.text || element.textContent || element.innerHTML || '';
+    var parent = element.parentNode;
+    parent.removeChild(element);
+    var script = document.createElement('script');
+    if (element.id) {
+      script.id = element.id;
+    }
+    if (element.className) {
+      script.className = element.className;
+    }
+    if (element.type) {
+      script.type = element.type;
+    }
+    if (element.src) {
+      script.src = element.src;
+      // Force synchronous loading of peripheral JS.
+      script.async = false;
+    }
+    if (element.dataset.pjax !== undefined) {
+      script.dataset.pjax = '';
+    }
+    if (code !== '') {
+      script.appendChild(document.createTextNode(code));
+    }
+    parent.appendChild(script);
+  });
+  NexT.boot.refresh();
+  // Define Motion Sequence & Bootstrap Motion.
+  if (CONFIG.motion.enable) {
+    NexT.motion.integrator
+      .init()
+      .add(NexT.motion.middleWares.subMenu)
+      .add(NexT.motion.middleWares.postList)
+      .bootstrap();
+  }
+  NexT.utils.updateSidebarPosition();
+});
+</script>
 
 
   <script defer src="/lib/three/three.min.js"></script>
@@ -452,11 +512,16 @@ $(document).ready(function() {
 
 
 
+    <div id="pjax">
   
 
   
 
   
 
+    </div>
 </body>
 </html>
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/clicklove.js"></script>
+
