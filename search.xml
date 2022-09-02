@@ -1,0 +1,994 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title>SVM简介</title>
+    <url>/2022/09/02/SVM%E7%AE%80%E4%BB%8B/</url>
+    <content><![CDATA[<h1 id="SVM"><a href="#SVM" class="headerlink" title="SVM"></a>SVM</h1><blockquote>
+<p>   支持向量机（SVM），是一个用于解决<strong>二分类</strong>问题的有监督机器学习模型。</p>
+</blockquote>
+<h4 id="1-SVM的两个优点"><a href="#1-SVM的两个优点" class="headerlink" title="1.SVM的两个优点"></a>1.SVM的两个优点</h4><ul>
+<li><p>更高的速度</p>
+</li>
+<li><p>在有一定的样本数量支持下（成千上万张），具有比其他模型有更好的效果</p>
+<span id="more"></span></li>
+</ul>
+<h4 id="2-SVM的工作过程"><a href="#2-SVM的工作过程" class="headerlink" title="2.SVM的工作过程"></a>2.SVM的工作过程</h4><h6 id="2-1-线性数据"><a href="#2-1-线性数据" class="headerlink" title="2.1.线性数据"></a>2.1.线性数据</h6><blockquote>
+<p>   为了更好地理解SVM的工作流程，我们引入一个例子。假如在一个$xy$坐标系上有很多红色和蓝色的点，将这些点看作是我们要处理的两个(categories)类别<code>(red,blue)</code>，而我们的数据具有两个(features)特征$$x$$和$y$，我们想要找到一个(classifier)判别器，当我们给定一个坐标$(x,y)$，判别器会给出    该坐标所属的类别$$red$$或$$blue$$，具体描述如下图。</p>
+</blockquote>
+<p><img src="https://d33wubrfki0l68.cloudfront.net/bb6acfd742447bab1e4c619cad0d9aec9e6d58bd/7381d/static/52081a1b625e8ba22c00210d547b4f1a/ae702/plot_original.png" alt="support vector machines svm"></p>
+<blockquote>
+<p>   SVM对于以上给定的数据点，能够给出一条最好的划分两个样本的直线，使得直线的一边全部都是$red$，另一边全部都是$blue$。</p>
+</blockquote>
+<p><img src="https://d33wubrfki0l68.cloudfront.net/ddde7b980851a9c12b72cee173debe8794962820/54f9b/static/57fd2448dfb67cfff990f32191463e80/ae702/plot_hyperplanes_2.png" alt="support vector machines svm"></p>
+<blockquote>
+<p>   但是，能够划分的直线有无数条，那一条才是最好的呢？对于SVM来说，最好的划分直线就是让两边最近的点离直线的距离最近。如图所示</p>
+</blockquote>
+<p><img src="https://d33wubrfki0l68.cloudfront.net/b33ca241f49a2ffc8b57a62558efd876410a49ac/56c8c/static/7002b9ebbacb0e878edbf30e8ff5b01c/ae702/plot_hyperplanes_annotated.png" alt="support vector machines svm"></p>
+<h6 id="2-2-非线性数据"><a href="#2-2-非线性数据" class="headerlink" title="2.2.非线性数据"></a>2.2.非线性数据</h6><blockquote>
+<p>对于线性数据来说，很容易就找到了最优分割线，但对于一些非线性数据来说，用线性分割线来分割就显得比较困难了。如下</p>
+</blockquote>
+<p><img src="https://d33wubrfki0l68.cloudfront.net/a80bfcd16e1c9e1235f6afb112afba3988e31bb4/7276f/static/2631f704a0b3f6e31246294578a7d777/95f64/plot_circle_01.png" alt="support vector machines svm"></p>
+<blockquote>
+<p>在二位坐标$xy$上，想找到一条分割线来进行分割两个类别是非常困难的。所以我们增加一个坐标系$z$，我们令$z&#x3D;x^2+y^2$，将原来二维的数据映射到三维空间上，如下图</p>
+</blockquote>
+<p><img src="https://d33wubrfki0l68.cloudfront.net/1ecdc513142b40c1162efa613f6b4f8eb996cdbd/f9ac6/static/9f18ce83bab159464cc138a653e3fc63/dbc4f/plot_circle_02.png" alt="support vector machines svm"></p>
+<blockquote>
+<p>这样，我们就可以巧妙地用一个平面分割两个类别的数据。我们来看一下</p>
+</blockquote>
+<p><img src="https://monkeylearn.com/static/250face99659fab3c5402676fd8dd420/dbc4f/plot_circle_03.png" alt="support vector machines svm"></p>
+<blockquote>
+<p>将它重新映射回二位平面上</p>
+</blockquote>
+<p><img src="https://d33wubrfki0l68.cloudfront.net/6fc63b6e6ea9adc551d4245acfb6d1bc48d5ca69/2e42a/static/a4dc8a44f6a8adf55df920a602668a42/95f64/plot_circle_04.png" alt="support vector machines svm"></p>
+<blockquote>
+<p>由此，我们就可以轻松地找到一个分割线来分割两个类别</p>
+</blockquote>
+<blockquote>
+<p>原来是在二维平面上找 $$a · b &#x3D; xa · xb  +  ya · yb +  (xa² + ya²) · (xb² + yb²)$$ 找$$x$$和$$y$$的最优解，转化成在三位空间中找 $$a · b &#x3D; xa · xb  +  ya · yb  +  za · zb$$ 找$$x$$和$$y$$的最优解</p>
+</blockquote>
+<blockquote>
+<p>所以，对于一些非线性的数据来说，增加一个维度进行计算是SVM常用的方法</p>
+</blockquote>
+<h6 id="3-SVM的代码实现"><a href="#3-SVM的代码实现" class="headerlink" title="3.SVM的代码实现"></a>3.SVM的代码实现</h6><p>导入模块</p>
+<pre><code>import numpy as np
+import joblib
+from sklearn import svm
+import matplotlib.pyplot as plt
+</code></pre>
+<p>预定义要处理的点</p>
+<pre><code>x = [[20, 10], [4, 5], [18, 9], [10, 7], [9, 1], [13, 18]]
+x = np.array(x)
+y = [1, 1, 0, 0, 1, 0]
+y = np.array(y)
+</code></pre>
+<p>训练模型</p>
+<pre><code>model = svm.SVC(C=10, kernel=&#39;linear&#39;)
+model.fit(x, y)
+</code></pre>
+<p>预测点所处的类别</p>
+<pre><code>X=[[20, 10], [4, 5], [18, 9], [10, 7], [9, 1], [13, 18]]
+# predict
+a = [[100, 100]]
+for i in range(len(X)):
+a_pre = model.predict([X[i]])
+if a_pre[0]==0:
+    plt.scatter(np.array(X)[i:i+1,0],np.array(X)[i:i+1,1],s=40,c=&#39;b&#39;)
+else:
+    plt.scatter(np.array(X)[i:i+1,0],np.array(X)[i:i+1,1],s=40,c=&#39;r&#39;)
+</code></pre>
+<p>对应的支持向量机</p>
+<pre><code>Support_vector = model.support_vectors_
+print(&quot;Support_vector:&quot;, Support_vector)
+</code></pre>
+<p>对应参数</p>
+<pre><code>w = model.coef_
+print(&quot;w:&quot;, w)
+b = model.intercept_
+print(&quot;b:&quot;, b)
+</code></pre>
+<p>画出结果图</p>
+<pre><code>if w[0, 1] != 0:
+    xx = np.arange(0, 20, 0.1)
+    # optimal boundary
+    yy = -w[0, 0]/w[0, 1] * xx - b/w[0, 1]
+    plt.scatter(xx, yy, s=4)
+    # support vector
+    # b1 = Support_vector[0, 1] + w[0, 0]/w[0, 1] * Support_vector[0, 0]
+    # b2 = Support_vector[1, 1] + w[0, 0]/w[0, 1] * Support_vector[1, 0]
+    # yy1 = -w[0, 0] / w[0, 1] * xx + b1
+    # plt.scatter(xx, yy1, s=4)
+    # yy2 = -w[0, 0] / w[0, 1] * xx + b2
+    # plt.scatter(xx, yy2, s=4)
+else:
+    xx = np.ones(100) * (-b) / w[0, 0]
+    yy = np.arange(0, 10, 0.1)
+    plt.scatter(xx, yy)
+plt.show()
+</code></pre>
+]]></content>
+  </entry>
+  <entry>
+    <title>英语六级陌生词（上）</title>
+    <url>/2022/09/02/%E8%8B%B1%E8%AF%AD%E5%85%AD%E7%BA%A7%E9%99%8C%E7%94%9F%E8%AF%8D/</url>
+    <content><![CDATA[<p>最近正在准备英语六级，遇到了一系列我平时不怎么遇到的陌生的单词，在这里进行归纳统计一下，以加深印象。</p>
+<span id="more"></span>
+
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>abide</td>
+<td>v.忍受，服从</td>
+</tr>
+<tr>
+<td>antagonism</td>
+<td>n.敌对，对立</td>
+</tr>
+<tr>
+<td>antenna</td>
+<td>n.天线，触角</td>
+</tr>
+<tr>
+<td>antibiotic</td>
+<td>n.抗生素</td>
+</tr>
+<tr>
+<td>antonym</td>
+<td>n.反义词</td>
+</tr>
+<tr>
+<td>appal</td>
+<td>vt.使惊骇</td>
+</tr>
+<tr>
+<td>appease</td>
+<td>vt.安抚，姑息</td>
+</tr>
+<tr>
+<td>appraise</td>
+<td>vt.估计，评价</td>
+</tr>
+<tr>
+<td>apron</td>
+<td>n.围裙</td>
+</tr>
+<tr>
+<td>arithmetic</td>
+<td>n.算术</td>
+</tr>
+<tr>
+<td>artery</td>
+<td>n.动脉</td>
+</tr>
+<tr>
+<td>articulate</td>
+<td>vt.明确表达，清晰的说</td>
+</tr>
+<tr>
+<td>assign</td>
+<td>vt.分配，指定</td>
+</tr>
+<tr>
+<td>assorted</td>
+<td>adj.各种各样的</td>
+</tr>
+<tr>
+<td>astray</td>
+<td>adv.丢失，误入歧途地</td>
+</tr>
+<tr>
+<td>baffle</td>
+<td>vt.使困惑，使受挫</td>
+</tr>
+<tr>
+<td>bait</td>
+<td>n.诱饵  vt.引诱</td>
+</tr>
+<tr>
+<td>barracks</td>
+<td>n.兵营</td>
+</tr>
+<tr>
+<td>battalion</td>
+<td>n.营，队伍</td>
+</tr>
+<tr>
+<td>bead</td>
+<td>n.珠子</td>
+</tr>
+<tr>
+<td>beak</td>
+<td>n.鸟</td>
+</tr>
+<tr>
+<td>buckle</td>
+<td>n.锁扣  vt.扣住</td>
+</tr>
+<tr>
+<td>bust</td>
+<td>vt.打破  n.半身像，胸围</td>
+</tr>
+<tr>
+<td>butcher</td>
+<td>n.屠夫  vt.屠杀</td>
+</tr>
+<tr>
+<td>bystander</td>
+<td>n.旁观者</td>
+</tr>
+<tr>
+<td>caravan</td>
+<td>n.车</td>
+</tr>
+<tr>
+<td>cardboard</td>
+<td>n.硬纸板  adj.虚假的</td>
+</tr>
+<tr>
+<td>carton</td>
+<td>n.硬纸盒</td>
+</tr>
+<tr>
+<td>cavity</td>
+<td>n.腔，洞</td>
+</tr>
+<tr>
+<td>census</td>
+<td>n.统计，人口普查</td>
+</tr>
+<tr>
+<td>charter</td>
+<td>n.章程  vt.许可</td>
+</tr>
+<tr>
+<td>chore</td>
+<td>n.日常事务</td>
+</tr>
+<tr>
+<td>civic</td>
+<td>adj.城市的，市民的</td>
+</tr>
+<tr>
+<td>clash</td>
+<td>n.&#x2F;vt.冲突，争执</td>
+</tr>
+<tr>
+<td>cling</td>
+<td>vt.&#x2F;vi.紧抱  vi.附着</td>
+</tr>
+<tr>
+<td>clog</td>
+<td>n.鞋  vt.&#x2F;vi.阻塞</td>
+</tr>
+<tr>
+<td>cockpit</td>
+<td>n.驾驶舱</td>
+</tr>
+<tr>
+<td>cohesion</td>
+<td>n.粘合，结合</td>
+</tr>
+<tr>
+<td>colon</td>
+<td>n.冒号</td>
+</tr>
+<tr>
+<td>colonel</td>
+<td>n.上校</td>
+</tr>
+<tr>
+<td>comma</td>
+<td>n.逗号</td>
+</tr>
+<tr>
+<td>conceit</td>
+<td>n.自负</td>
+</tr>
+<tr>
+<td>console</td>
+<td>vt.安慰</td>
+</tr>
+<tr>
+<td>constrain</td>
+<td>vt.强迫，强制，限制</td>
+</tr>
+<tr>
+<td>contagious</td>
+<td>adj.接触感染的</td>
+</tr>
+<tr>
+<td>contemplate</td>
+<td>vt.考虑</td>
+</tr>
+<tr>
+<td>contempt</td>
+<td>n.鄙视</td>
+</tr>
+<tr>
+<td>contend</td>
+<td>vt.声称，认为  vi.争夺</td>
+</tr>
+<tr>
+<td>contract</td>
+<td>n.合同，协议  vi.收缩  vt.感染，与…签订合同</td>
+</tr>
+<tr>
+<td>contrive</td>
+<td>vt.设计</td>
+</tr>
+<tr>
+<td>convene</td>
+<td>vt.召集</td>
+</tr>
+<tr>
+<td>converge</td>
+<td>vi.聚集，相交</td>
+</tr>
+<tr>
+<td>convict</td>
+<td>vt.定罪</td>
+</tr>
+<tr>
+<td>convoy</td>
+<td>n.车队</td>
+</tr>
+<tr>
+<td>crate</td>
+<td>n.纸箱</td>
+</tr>
+<tr>
+<td>crave</td>
+<td>vt.渴望，恳请</td>
+</tr>
+<tr>
+<td>crouch</td>
+<td>vi.蹲</td>
+</tr>
+<tr>
+<td>crunch</td>
+<td>vt.发出破裂的声音</td>
+</tr>
+<tr>
+<td>cue</td>
+<td>n.&#x2F;vt.暗示</td>
+</tr>
+<tr>
+<td>culminate</td>
+<td>vt.告终</td>
+</tr>
+<tr>
+<td>curtail</td>
+<td>vt.缩短，减缩</td>
+</tr>
+<tr>
+<td>cyberspace</td>
+<td>n.网络空间</td>
+</tr>
+<tr>
+<td>damp</td>
+<td>adj.潮湿的  n.湿气  vt.弄湿</td>
+</tr>
+<tr>
+<td>decree</td>
+<td>n.法令  vt.裁定，颁布</td>
+</tr>
+<tr>
+<td>delude</td>
+<td>vt.欺骗</td>
+</tr>
+<tr>
+<td>demographic</td>
+<td>adj.人口统计</td>
+</tr>
+<tr>
+<td>denounce</td>
+<td>vt.谴责</td>
+</tr>
+<tr>
+<td>depot</td>
+<td>n.仓库</td>
+</tr>
+<tr>
+<td>depreciate</td>
+<td>vi.跌价  vt.折扣，贬低</td>
+</tr>
+<tr>
+<td>deprive</td>
+<td>vt.剥夺</td>
+</tr>
+<tr>
+<td>deputy</td>
+<td>n.副手，代理</td>
+</tr>
+<tr>
+<td>derail</td>
+<td>vt.使脱轨</td>
+</tr>
+<tr>
+<td>deregulate</td>
+<td>vt.接触对…的控制</td>
+</tr>
+<tr>
+<td>despise</td>
+<td>vt.鄙视</td>
+</tr>
+<tr>
+<td>despite</td>
+<td>prep.尽管</td>
+</tr>
+<tr>
+<td>deter</td>
+<td>vt.制止</td>
+</tr>
+<tr>
+<td>detriment</td>
+<td>n.损害</td>
+</tr>
+<tr>
+<td>diminish</td>
+<td>vt.&#x2F;vi.减少  vt.贬低</td>
+</tr>
+<tr>
+<td>discern</td>
+<td>vt.识别，看出</td>
+</tr>
+<tr>
+<td>discrepancy</td>
+<td>n.差异</td>
+</tr>
+<tr>
+<td>disperse</td>
+<td>vt.&#x2F;vi.分散，驱散</td>
+</tr>
+<tr>
+<td>dodge</td>
+<td>vt.&#x2F;vi.躲避</td>
+</tr>
+<tr>
+<td>dough</td>
+<td>n.生面团，钱</td>
+</tr>
+<tr>
+<td>doze</td>
+<td>vi.&#x2F;n.打盹儿</td>
+</tr>
+<tr>
+<td>dread</td>
+<td>n.恐惧  vt.&#x2F;vi.害怕</td>
+</tr>
+<tr>
+<td>dwarf</td>
+<td>n.侏儒</td>
+</tr>
+<tr>
+<td>elicit</td>
+<td>vt.引出</td>
+</tr>
+<tr>
+<td>emancipate</td>
+<td>vt.解放</td>
+</tr>
+<tr>
+<td>embark</td>
+<td>vt.使上船，使从事于  vi.上船，从事</td>
+</tr>
+<tr>
+<td>emigrate</td>
+<td>vi.移民</td>
+</tr>
+<tr>
+<td>eminent</td>
+<td>adj.杰出的</td>
+</tr>
+<tr>
+<td>enact</td>
+<td>vt.扮演，进行</td>
+</tr>
+<tr>
+<td>endeavour</td>
+<td>n.&#x2F;vi.努力</td>
+</tr>
+<tr>
+<td>errand</td>
+<td>n.差事</td>
+</tr>
+<tr>
+<td>exponent</td>
+<td>n.拥护者</td>
+</tr>
+<tr>
+<td>exposition</td>
+<td>n.阐述，博览会</td>
+</tr>
+<tr>
+<td>fable</td>
+<td>n.寓言</td>
+</tr>
+<tr>
+<td>faction</td>
+<td>n.派别</td>
+</tr>
+<tr>
+<td>flock</td>
+<td>n.群，一大群  vi.聚集</td>
+</tr>
+<tr>
+<td>foil</td>
+<td>n.箔  vt.挫折，制止</td>
+</tr>
+<tr>
+<td>forehead</td>
+<td>n.额头</td>
+</tr>
+<tr>
+<td>fringe</td>
+<td>n.刘海，边缘</td>
+</tr>
+<tr>
+<td>frown</td>
+<td>vi.&#x2F;n.皱眉</td>
+</tr>
+<tr>
+<td>futile</td>
+<td>adj.徒然的</td>
+</tr>
+<tr>
+<td>gleam</td>
+<td>n.微光  vi.闪烁</td>
+</tr>
+<tr>
+<td>handy</td>
+<td>adj.易使用的</td>
+</tr>
+<tr>
+<td>haul</td>
+<td>vt.拖，拉</td>
+</tr>
+<tr>
+<td>haven</td>
+<td>n.保护区，避难所</td>
+</tr>
+<tr>
+<td>herald</td>
+<td>n.预兆  vt.预示，宣布</td>
+</tr>
+<tr>
+<td>humane</td>
+<td>adj.仁慈的</td>
+</tr>
+<tr>
+<td>imminent</td>
+<td>adj.即将到来的</td>
+</tr>
+<tr>
+<td>incidence</td>
+<td>n.发生率</td>
+</tr>
+<tr>
+<td>incumbent</td>
+<td>adj.现任的</td>
+</tr>
+<tr>
+<td>indifferent</td>
+<td>adj.漠不关心的</td>
+</tr>
+<tr>
+<td>inflate</td>
+<td>vt.&#x2F;vi.使膨胀，使涨价</td>
+</tr>
+<tr>
+<td>inflict</td>
+<td>vt.使遭受打击</td>
+</tr>
+<tr>
+<td>ingenious</td>
+<td>adj.精巧的</td>
+</tr>
+<tr>
+<td>inherent</td>
+<td>adj.固有的</td>
+</tr>
+<tr>
+<td>inhibit</td>
+<td>vt.阻止</td>
+</tr>
+<tr>
+<td>insult</td>
+<td>vt.侮辱</td>
+</tr>
+<tr>
+<td>interim</td>
+<td>adj.暂时的</td>
+</tr>
+<tr>
+<td>intermittent</td>
+<td>adj.间歇的</td>
+</tr>
+<tr>
+<td>intervene</td>
+<td>vi.介入，干涉</td>
+</tr>
+<tr>
+<td>intrinsic</td>
+<td>adj.固有的</td>
+</tr>
+<tr>
+<td>judicial</td>
+<td>adj.司法的</td>
+</tr>
+<tr>
+<td>landlady</td>
+<td>n.房东</td>
+</tr>
+<tr>
+<td>lass</td>
+<td>n.女孩</td>
+</tr>
+<tr>
+<td>lavish</td>
+<td>adj.大量的，大方的  vt.挥霍</td>
+</tr>
+</tbody></table>
+]]></content>
+  </entry>
+  <entry>
+    <title>Hello World</title>
+    <url>/2022/09/02/hello-world/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><span id="more"></span>
+
+<h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>英语六级陌生词（下）</title>
+    <url>/2022/09/02/%E8%8B%B1%E8%AF%AD%E5%85%AD%E7%BA%A7%E9%99%8C%E7%94%9F%E8%AF%8D%EF%BC%88%E4%B8%8B%EF%BC%89/</url>
+    <content><![CDATA[<p>这篇文章接着上一篇文章，继续总结一些英语六级中不常见过的单词。</p>
+<span id="more"></span>
+
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>likewise</td>
+<td>adv.同样地</td>
+</tr>
+<tr>
+<td>logistics</td>
+<td>n.物流</td>
+</tr>
+<tr>
+<td>loophole</td>
+<td>n.漏洞</td>
+</tr>
+<tr>
+<td>loot</td>
+<td>n.战利品  vt.&#x2F;vi.打劫</td>
+</tr>
+<tr>
+<td>mar</td>
+<td>vt.损毁</td>
+</tr>
+<tr>
+<td>marshal</td>
+<td>n.元帅</td>
+</tr>
+<tr>
+<td>metabolism</td>
+<td>n.新陈代谢</td>
+</tr>
+<tr>
+<td>metaphor</td>
+<td>n.暗喻</td>
+</tr>
+<tr>
+<td>meticulous</td>
+<td>adj.小心的</td>
+</tr>
+<tr>
+<td>midwife</td>
+<td>n.助产员</td>
+</tr>
+<tr>
+<td>mindset</td>
+<td>n.观念模式</td>
+</tr>
+<tr>
+<td>morale</td>
+<td>n.士气，斗志</td>
+</tr>
+<tr>
+<td>mow</td>
+<td>vt.&#x2F;vi.修剪</td>
+</tr>
+<tr>
+<td>mug</td>
+<td>n.马克杯</td>
+</tr>
+<tr>
+<td>mule</td>
+<td>n.骡子</td>
+</tr>
+<tr>
+<td>mutter</td>
+<td>n.&#x2F;vt.&#x2F;vi.嘀咕</td>
+</tr>
+<tr>
+<td>navy</td>
+<td>n.海军</td>
+</tr>
+<tr>
+<td>nitrogen</td>
+<td>n.氮气</td>
+</tr>
+<tr>
+<td>notwithstanding</td>
+<td>prep.&#x2F;adv.尽管</td>
+</tr>
+<tr>
+<td>obese</td>
+<td>adj.肥胖的</td>
+</tr>
+<tr>
+<td>onset</td>
+<td>n.开端</td>
+</tr>
+<tr>
+<td>oppress</td>
+<td>vt.压迫，压制</td>
+</tr>
+<tr>
+<td>optic</td>
+<td>adj.光学的</td>
+</tr>
+<tr>
+<td>outing</td>
+<td>n.远足</td>
+</tr>
+<tr>
+<td>overhaul</td>
+<td>vt.彻底检修  n.检修</td>
+</tr>
+<tr>
+<td>partisan</td>
+<td>n.坚定的支持者</td>
+</tr>
+<tr>
+<td>pat</td>
+<td>n.&#x2F;vt.轻拍</td>
+</tr>
+<tr>
+<td>peddle</td>
+<td>vt.销售，传播</td>
+</tr>
+<tr>
+<td>peep</td>
+<td>vi.窥视，偷看</td>
+</tr>
+<tr>
+<td>pesticide</td>
+<td>n.杀虫剂</td>
+</tr>
+<tr>
+<td>petition</td>
+<td>n.请愿书，申请书  vt.&#x2F;vi.恳请</td>
+</tr>
+<tr>
+<td>pierce</td>
+<td>vt.扎破  vt.&#x2F;vi.冲破</td>
+</tr>
+<tr>
+<td>pillar</td>
+<td>n.支柱，柱子</td>
+</tr>
+<tr>
+<td>pit</td>
+<td>n.深坑，矿井</td>
+</tr>
+<tr>
+<td>plaza</td>
+<td>n.广场，购物中心</td>
+</tr>
+<tr>
+<td>plough</td>
+<td>n.&#x2F;vt.&#x2F;vi.犁</td>
+</tr>
+<tr>
+<td>plumber</td>
+<td>n.水暖工</td>
+</tr>
+<tr>
+<td>plumbing</td>
+<td>n.管道系统</td>
+</tr>
+<tr>
+<td>podcast</td>
+<td>n.博客</td>
+</tr>
+<tr>
+<td>portfolio</td>
+<td>n.文件夹</td>
+</tr>
+<tr>
+<td>poster</td>
+<td>n.画报</td>
+</tr>
+<tr>
+<td>pot</td>
+<td>n.锅，壶</td>
+</tr>
+<tr>
+<td>pottery</td>
+<td>n.陶器</td>
+</tr>
+<tr>
+<td>premium</td>
+<td>n.保险费，额外费用  adj.优质的</td>
+</tr>
+<tr>
+<td>prestige</td>
+<td>n.声望</td>
+</tr>
+<tr>
+<td>profile</td>
+<td>n.轮廓，概述  vt.扼要介绍</td>
+</tr>
+<tr>
+<td>prop</td>
+<td>n.道具支撑物  vt.支撑</td>
+</tr>
+<tr>
+<td>proverb</td>
+<td>n.谚语</td>
+</tr>
+<tr>
+<td>punch</td>
+<td>vt.拳打  vi.打孔</td>
+</tr>
+<tr>
+<td>pyramid</td>
+<td>n.金字塔</td>
+</tr>
+<tr>
+<td>quota</td>
+<td>n.配额，定额</td>
+</tr>
+<tr>
+<td>rally</td>
+<td>n.公众集会</td>
+</tr>
+<tr>
+<td>recede</td>
+<td>vi.逐渐减弱</td>
+</tr>
+<tr>
+<td>rehabilitate</td>
+<td>vt.使康复</td>
+</tr>
+<tr>
+<td>relentless</td>
+<td>adj.不停的，严格的</td>
+</tr>
+<tr>
+<td>retreat</td>
+<td>vi.&#x2F;n.退却，撤退</td>
+</tr>
+<tr>
+<td>rib</td>
+<td>n.肋骨</td>
+</tr>
+<tr>
+<td>rip</td>
+<td>vt.撕破</td>
+</tr>
+<tr>
+<td>rod</td>
+<td>n.杆</td>
+</tr>
+<tr>
+<td>saddle</td>
+<td>n.马鞍  vt.给…装马鞍</td>
+</tr>
+<tr>
+<td>sarcasm</td>
+<td>n.讽刺</td>
+</tr>
+<tr>
+<td>segregate</td>
+<td>vt.分隔</td>
+</tr>
+<tr>
+<td>servant</td>
+<td>n.仆人</td>
+</tr>
+<tr>
+<td>shorthand</td>
+<td>n.速记</td>
+</tr>
+<tr>
+<td>shrimp</td>
+<td>n.虾</td>
+</tr>
+<tr>
+<td>sinister</td>
+<td>adj.邪恶的</td>
+</tr>
+<tr>
+<td>socket</td>
+<td>n.插座，插口</td>
+</tr>
+<tr>
+<td>sodium</td>
+<td>n.钠</td>
+</tr>
+<tr>
+<td>summit</td>
+<td>n.最高点，会议</td>
+</tr>
+<tr>
+<td>superficial</td>
+<td>adj.粗略的，表面的</td>
+</tr>
+<tr>
+<td>thrift</td>
+<td>n.节俭，节约</td>
+</tr>
+<tr>
+<td>toil</td>
+<td>n.苦工  vi.辛勤耕种</td>
+</tr>
+<tr>
+<td>tract</td>
+<td>n.传单，大片（土地，森林）</td>
+</tr>
+<tr>
+<td>tread</td>
+<td>vt.&#x2F;vi.踩踏  n.步法</td>
+</tr>
+<tr>
+<td>trim</td>
+<td>vt.修剪  n.镶边  adj.苗条的</td>
+</tr>
+<tr>
+<td>trolley</td>
+<td>n.小推车</td>
+</tr>
+<tr>
+<td>verge</td>
+<td>n.绿地</td>
+</tr>
+<tr>
+<td>vicinity</td>
+<td>n.邻近地区</td>
+</tr>
+<tr>
+<td>webcast</td>
+<td>n.网络直播</td>
+</tr>
+<tr>
+<td>wedge</td>
+<td>n.楔子</td>
+</tr>
+</tbody></table>
+]]></content>
+  </entry>
+</search>
