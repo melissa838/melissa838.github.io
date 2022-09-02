@@ -22,7 +22,7 @@
 
   <meta name="description" content="SVM    支持向量机（SVM），是一个用于解决二分类问题的有监督机器学习模型。  1.SVM的两个优点 更高的速度  在有一定的样本数量支持下（成千上万张），具有比其他模型有更好的效果">
 <meta property="og:type" content="article">
-<meta property="og:title" content="jimore">
+<meta property="og:title" content="SVM简介">
 <meta property="og:url" content="http://example.com/2022/09/02/SVM%E7%AE%80%E4%BB%8B/index.html">
 <meta property="og:site_name" content="jimore">
 <meta property="og:description" content="SVM    支持向量机（SVM），是一个用于解决二分类问题的有监督机器学习模型。  1.SVM的两个优点 更高的速度  在有一定的样本数量支持下（成千上万张），具有比其他模型有更好的效果">
@@ -34,8 +34,8 @@
 <meta property="og:image" content="https://d33wubrfki0l68.cloudfront.net/1ecdc513142b40c1162efa613f6b4f8eb996cdbd/f9ac6/static/9f18ce83bab159464cc138a653e3fc63/dbc4f/plot_circle_02.png">
 <meta property="og:image" content="https://monkeylearn.com/static/250face99659fab3c5402676fd8dd420/dbc4f/plot_circle_03.png">
 <meta property="og:image" content="https://d33wubrfki0l68.cloudfront.net/6fc63b6e6ea9adc551d4245acfb6d1bc48d5ca69/2e42a/static/a4dc8a44f6a8adf55df920a602668a42/95f64/plot_circle_04.png">
-<meta property="article:published_time" content="2022-09-02T04:22:18.969Z">
-<meta property="article:modified_time" content="2022-09-02T05:14:49.018Z">
+<meta property="article:published_time" content="2022-09-02T05:15:45.000Z">
+<meta property="article:modified_time" content="2022-09-02T05:16:12.591Z">
 <meta property="article:author" content="jimore">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://d33wubrfki0l68.cloudfront.net/bb6acfd742447bab1e4c619cad0d9aec9e6d58bd/7381d/static/52081a1b625e8ba22c00210d547b4f1a/ae702/plot_original.png">
@@ -53,7 +53,7 @@
   };
 </script>
 
-  <title> | jimore</title>
+  <title>SVM简介 | jimore</title>
   
 
 
@@ -201,7 +201,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          
+          SVM简介
         </h1>
 
         <div class="post-meta">
@@ -212,7 +212,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2022-09-02 12:22:18 / 修改时间：13:14:49" itemprop="dateCreated datePublished" datetime="2022-09-02T12:22:18+08:00">2022-09-02</time>
+              <time title="创建时间：2022-09-02 13:15:45 / 修改时间：13:16:12" itemprop="dateCreated datePublished" datetime="2022-09-02T13:15:45+08:00">2022-09-02</time>
             </span>
 
           
@@ -245,31 +245,31 @@
 <h4 id="2-SVM的工作过程"><a href="#2-SVM的工作过程" class="headerlink" title="2.SVM的工作过程"></a>2.SVM的工作过程</h4><h6 id="2-1-线性数据"><a href="#2-1-线性数据" class="headerlink" title="2.1.线性数据"></a>2.1.线性数据</h6><blockquote>
 <p>   为了更好地理解SVM的工作流程，我们引入一个例子。假如在一个$xy$坐标系上有很多红色和蓝色的点，将这些点看作是我们要处理的两个(categories)类别<code>(red,blue)</code>，而我们的数据具有两个(features)特征$x$和$y$，我们想要找到一个(classifier)判别器，当我们给定一个坐标$(x,y)$，判别器会给出    该坐标所属的类别$$red$$或$$blue$$，具体描述如下图。</p>
 </blockquote>
-<p><img src="https://d33wubrfki0l68.cloudfront.net/bb6acfd742447bab1e4c619cad0d9aec9e6d58bd/7381d/static/52081a1b625e8ba22c00210d547b4f1a/ae702/plot_original.png" alt="support vector machines svm"></p>
+<p><img src="https://d33wubrfki0l68.cloudfront.net/bb6acfd742447bab1e4c619cad0d9aec9e6d58bd/7381d/static/52081a1b625e8ba22c00210d547b4f1a/ae702/plot_original.png" alt="support vector machines svm"></p>
 <blockquote>
 <p>   SVM对于以上给定的数据点，能够给出一条最好的划分两个样本的直线，使得直线的一边全部都是$red$，另一边全部都是$blue$。</p>
 </blockquote>
-<p><img src="https://d33wubrfki0l68.cloudfront.net/ddde7b980851a9c12b72cee173debe8794962820/54f9b/static/57fd2448dfb67cfff990f32191463e80/ae702/plot_hyperplanes_2.png" alt="support vector machines svm"></p>
+<p><img src="https://d33wubrfki0l68.cloudfront.net/ddde7b980851a9c12b72cee173debe8794962820/54f9b/static/57fd2448dfb67cfff990f32191463e80/ae702/plot_hyperplanes_2.png" alt="support vector machines svm"></p>
 <blockquote>
 <p>   但是，能够划分的直线有无数条，那一条才是最好的呢？对于SVM来说，最好的划分直线就是让两边最近的点离直线的距离最近。如图所示</p>
 </blockquote>
-<p><img src="https://d33wubrfki0l68.cloudfront.net/b33ca241f49a2ffc8b57a62558efd876410a49ac/56c8c/static/7002b9ebbacb0e878edbf30e8ff5b01c/ae702/plot_hyperplanes_annotated.png" alt="support vector machines svm"></p>
+<p><img src="https://d33wubrfki0l68.cloudfront.net/b33ca241f49a2ffc8b57a62558efd876410a49ac/56c8c/static/7002b9ebbacb0e878edbf30e8ff5b01c/ae702/plot_hyperplanes_annotated.png" alt="support vector machines svm"></p>
 <h6 id="2-2-非线性数据"><a href="#2-2-非线性数据" class="headerlink" title="2.2.非线性数据"></a>2.2.非线性数据</h6><blockquote>
 <p>对于线性数据来说，很容易就找到了最优分割线，但对于一些非线性数据来说，用线性分割线来分割就显得比较困难了。如下</p>
 </blockquote>
-<p><img src="https://d33wubrfki0l68.cloudfront.net/a80bfcd16e1c9e1235f6afb112afba3988e31bb4/7276f/static/2631f704a0b3f6e31246294578a7d777/95f64/plot_circle_01.png" alt="support vector machines svm"></p>
+<p><img src="https://d33wubrfki0l68.cloudfront.net/a80bfcd16e1c9e1235f6afb112afba3988e31bb4/7276f/static/2631f704a0b3f6e31246294578a7d777/95f64/plot_circle_01.png" alt="support vector machines svm"></p>
 <blockquote>
 <p>在二位坐标$xy$上，想找到一条分割线来进行分割两个类别是非常困难的。所以我们增加一个坐标系$z$，我们令$z&#x3D;x^2+y^2$，将原来二维的数据映射到三维空间上，如下图</p>
 </blockquote>
-<p><img src="https://d33wubrfki0l68.cloudfront.net/1ecdc513142b40c1162efa613f6b4f8eb996cdbd/f9ac6/static/9f18ce83bab159464cc138a653e3fc63/dbc4f/plot_circle_02.png" alt="support vector machines svm"></p>
+<p><img src="https://d33wubrfki0l68.cloudfront.net/1ecdc513142b40c1162efa613f6b4f8eb996cdbd/f9ac6/static/9f18ce83bab159464cc138a653e3fc63/dbc4f/plot_circle_02.png" alt="support vector machines svm"></p>
 <blockquote>
 <p>这样，我们就可以巧妙地用一个平面分割两个类别的数据。我们来看一下</p>
 </blockquote>
-<p><img src="https://monkeylearn.com/static/250face99659fab3c5402676fd8dd420/dbc4f/plot_circle_03.png" alt="support vector machines svm"></p>
+<p><img src="https://monkeylearn.com/static/250face99659fab3c5402676fd8dd420/dbc4f/plot_circle_03.png" alt="support vector machines svm"></p>
 <blockquote>
 <p>将它重新映射回二位平面上</p>
 </blockquote>
-<p><img src="https://d33wubrfki0l68.cloudfront.net/6fc63b6e6ea9adc551d4245acfb6d1bc48d5ca69/2e42a/static/a4dc8a44f6a8adf55df920a602668a42/95f64/plot_circle_04.png" alt="support vector machines svm"></p>
+<p><img src="https://d33wubrfki0l68.cloudfront.net/6fc63b6e6ea9adc551d4245acfb6d1bc48d5ca69/2e42a/static/a4dc8a44f6a8adf55df920a602668a42/95f64/plot_circle_04.png" alt="support vector machines svm"></p>
 <blockquote>
 <p>由此，我们就可以轻松地找到一个分割线来分割两个类别</p>
 </blockquote>
@@ -280,25 +280,61 @@
 <p>所以，对于一些非线性的数据来说，增加一个维度进行计算是SVM常用的方法</p>
 </blockquote>
 <h6 id="3-SVM的代码实现"><a href="#3-SVM的代码实现" class="headerlink" title="3.SVM的代码实现"></a>3.SVM的代码实现</h6><p>导入模块</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> joblib</span><br><span class="line"><span class="keyword">from</span> sklearn <span class="keyword">import</span> svm</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br></pre></td></tr></table></figure>
-
+<pre><code>import numpy as np
+import joblib
+from sklearn import svm
+import matplotlib.pyplot as plt
+</code></pre>
 <p>预定义要处理的点</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">x = [[<span class="number">20</span>, <span class="number">10</span>], [<span class="number">4</span>, <span class="number">5</span>], [<span class="number">18</span>, <span class="number">9</span>], [<span class="number">10</span>, <span class="number">7</span>], [<span class="number">9</span>, <span class="number">1</span>], [<span class="number">13</span>, <span class="number">18</span>]]</span><br><span class="line">x = np.array(x)</span><br><span class="line">y = [<span class="number">1</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">0</span>]</span><br><span class="line">y = np.array(y)</span><br></pre></td></tr></table></figure>
-
+<pre><code>x = [[20, 10], [4, 5], [18, 9], [10, 7], [9, 1], [13, 18]]
+x = np.array(x)
+y = [1, 1, 0, 0, 1, 0]
+y = np.array(y)
+</code></pre>
 <p>训练模型</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">model = svm.SVC(C=<span class="number">10</span>, kernel=<span class="string">&#x27;linear&#x27;</span>)</span><br><span class="line">model.fit(x, y)</span><br></pre></td></tr></table></figure>
-
+<pre><code>model = svm.SVC(C=10, kernel=&#39;linear&#39;)
+model.fit(x, y)
+</code></pre>
 <p>预测点所处的类别</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">X=[[<span class="number">20</span>, <span class="number">10</span>], [<span class="number">4</span>, <span class="number">5</span>], [<span class="number">18</span>, <span class="number">9</span>], [<span class="number">10</span>, <span class="number">7</span>], [<span class="number">9</span>, <span class="number">1</span>], [<span class="number">13</span>, <span class="number">18</span>]]</span><br><span class="line"><span class="comment"># predict</span></span><br><span class="line">a = [[<span class="number">100</span>, <span class="number">100</span>]]</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(X)):</span><br><span class="line">a_pre = model.predict([X[i]])</span><br><span class="line"><span class="keyword">if</span> a_pre[<span class="number">0</span>]==<span class="number">0</span>:</span><br><span class="line">    plt.scatter(np.array(X)[i:i+<span class="number">1</span>,<span class="number">0</span>],np.array(X)[i:i+<span class="number">1</span>,<span class="number">1</span>],s=<span class="number">40</span>,c=<span class="string">&#x27;b&#x27;</span>)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    plt.scatter(np.array(X)[i:i+<span class="number">1</span>,<span class="number">0</span>],np.array(X)[i:i+<span class="number">1</span>,<span class="number">1</span>],s=<span class="number">40</span>,c=<span class="string">&#x27;r&#x27;</span>)</span><br></pre></td></tr></table></figure>
-
+<pre><code>X=[[20, 10], [4, 5], [18, 9], [10, 7], [9, 1], [13, 18]]
+# predict
+a = [[100, 100]]
+for i in range(len(X)):
+a_pre = model.predict([X[i]])
+if a_pre[0]==0:
+    plt.scatter(np.array(X)[i:i+1,0],np.array(X)[i:i+1,1],s=40,c=&#39;b&#39;)
+else:
+    plt.scatter(np.array(X)[i:i+1,0],np.array(X)[i:i+1,1],s=40,c=&#39;r&#39;)
+</code></pre>
 <p>对应的支持向量机</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Support_vector = model.support_vectors_</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;Support_vector:&quot;</span>, Support_vector)</span><br></pre></td></tr></table></figure>
-
+<pre><code>Support_vector = model.support_vectors_
+print(&quot;Support_vector:&quot;, Support_vector)
+</code></pre>
 <p>对应参数</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">w = model.coef_</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;w:&quot;</span>, w)</span><br><span class="line">b = model.intercept_</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;b:&quot;</span>, b)</span><br></pre></td></tr></table></figure>
-
+<pre><code>w = model.coef_
+print(&quot;w:&quot;, w)
+b = model.intercept_
+print(&quot;b:&quot;, b)
+</code></pre>
 <p>画出结果图</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> w[<span class="number">0</span>, <span class="number">1</span>] != <span class="number">0</span>:</span><br><span class="line">    xx = np.arange(<span class="number">0</span>, <span class="number">20</span>, <span class="number">0.1</span>)</span><br><span class="line">    <span class="comment"># optimal boundary</span></span><br><span class="line">    yy = -w[<span class="number">0</span>, <span class="number">0</span>]/w[<span class="number">0</span>, <span class="number">1</span>] * xx - b/w[<span class="number">0</span>, <span class="number">1</span>]</span><br><span class="line">    plt.scatter(xx, yy, s=<span class="number">4</span>)</span><br><span class="line">    <span class="comment"># support vector</span></span><br><span class="line">    <span class="comment"># b1 = Support_vector[0, 1] + w[0, 0]/w[0, 1] * Support_vector[0, 0]</span></span><br><span class="line">    <span class="comment"># b2 = Support_vector[1, 1] + w[0, 0]/w[0, 1] * Support_vector[1, 0]</span></span><br><span class="line">    <span class="comment"># yy1 = -w[0, 0] / w[0, 1] * xx + b1</span></span><br><span class="line">    <span class="comment"># plt.scatter(xx, yy1, s=4)</span></span><br><span class="line">    <span class="comment"># yy2 = -w[0, 0] / w[0, 1] * xx + b2</span></span><br><span class="line">    <span class="comment"># plt.scatter(xx, yy2, s=4)</span></span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    xx = np.ones(<span class="number">100</span>) * (-b) / w[<span class="number">0</span>, <span class="number">0</span>]</span><br><span class="line">    yy = np.arange(<span class="number">0</span>, <span class="number">10</span>, <span class="number">0.1</span>)</span><br><span class="line">    plt.scatter(xx, yy)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+<pre><code>if w[0, 1] != 0:
+    xx = np.arange(0, 20, 0.1)
+    # optimal boundary
+    yy = -w[0, 0]/w[0, 1] * xx - b/w[0, 1]
+    plt.scatter(xx, yy, s=4)
+    # support vector
+    # b1 = Support_vector[0, 1] + w[0, 0]/w[0, 1] * Support_vector[0, 0]
+    # b2 = Support_vector[1, 1] + w[0, 0]/w[0, 1] * Support_vector[1, 0]
+    # yy1 = -w[0, 0] / w[0, 1] * xx + b1
+    # plt.scatter(xx, yy1, s=4)
+    # yy2 = -w[0, 0] / w[0, 1] * xx + b2
+    # plt.scatter(xx, yy2, s=4)
+else:
+    xx = np.ones(100) * (-b) / w[0, 0]
+    yy = np.arange(0, 10, 0.1)
+    plt.scatter(xx, yy)
+plt.show()
+</code></pre>
 
     </div>
 
@@ -314,7 +350,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="http://example.com/2022/09/02/SVM%E7%AE%80%E4%BB%8B/" title="">http://example.com/2022/09/02/SVM简介/</a>
+    <a href="http://example.com/2022/09/02/SVM%E7%AE%80%E4%BB%8B/" title="SVM简介">http://example.com/2022/09/02/SVM简介/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
@@ -331,13 +367,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2022/09/02/hello-world/" rel="prev" title="Hello World">
-      <i class="fa fa-chevron-left"></i> Hello World
+    <a href="/2022/09/02/test/" rel="prev" title="test">
+      <i class="fa fa-chevron-left"></i> test
     </a></div>
-      <div class="post-nav-item">
-    <a href="/2022/09/02/test/" rel="next" title="test">
-      test <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -451,7 +484,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共978字</span>
+  <span class="post-count">博客全站共985字</span>
 </div>
 
 
