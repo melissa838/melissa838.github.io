@@ -3,81 +3,99 @@
   <entry>
     <title>SVM简介</title>
     <url>/2022/09/02/SVM%E7%AE%80%E4%BB%8B/</url>
-    <content><![CDATA[<h1 id="SVM"><a href="#SVM" class="headerlink" title="SVM"></a>SVM</h1><blockquote>
-<p>   支持向量机（SVM），是一个用于解决<strong>二分类</strong>问题的有监督机器学习模型。</p>
+    <content><![CDATA[<h1>SVM</h1>
+<blockquote>
+<p>支持向量机（SVM），是一个用于解决<strong>二分类</strong>问题的有监督机器学习模型。</p>
 </blockquote>
-<h4 id="1-SVM的两个优点"><a href="#1-SVM的两个优点" class="headerlink" title="1.SVM的两个优点"></a>1.SVM的两个优点</h4><ul>
-<li><p>更高的速度</p>
+<h4 id="1-SVM的两个优点">1.SVM的两个优点</h4>
+<ul>
+<li>
+<p>更高的速度</p>
 </li>
-<li><p>在有一定的样本数量支持下（成千上万张），<font color="red">具有</font>比其他模型有更好的效果</p>
+<li>
+<p>在有一定的样本数量支持下（成千上万张），<font color="red">具有</font>比其他模型有更好的效果</p>
 <span id="more"></span>
 </li>
 </ul>
-<h4 id="2-SVM的工作过程"><a href="#2-SVM的工作过程" class="headerlink" title="2.SVM的工作过程"></a>2.SVM的工作过程</h4><h6 id="2-1-线性数据"><a href="#2-1-线性数据" class="headerlink" title="2.1.线性数据"></a>2.1.线性数据</h6><blockquote>
-<p>   为了更好地理解SVM的工作流程，我们引入一个例子。假如在一个$xy$坐标系上有很多红色和蓝色的点，将这些点看作是我们要处理的两个(categories)类别<code>(red,blue)</code>，而我们的数据具有两个(features)特征$x$和$y$，我们想要找到一个(classifier)判别器，当我们给定一个坐标$(x,y)$，判别器会给出    该坐标所属的类别$red$或$blue$，具体描述如下图。</p>
-</blockquote>
-<p><img src="https://d33wubrfki0l68.cloudfront.net/bb6acfd742447bab1e4c619cad0d9aec9e6d58bd/7381d/static/52081a1b625e8ba22c00210d547b4f1a/ae702/plot_original.png" alt="support vector machines svm"></p>
+<h4 id="2-SVM的工作过程">2.SVM的工作过程</h4>
+<h6 id="2-1-线性数据">2.1.线性数据</h6>
 <blockquote>
-<p>   SVM对于以上给定的数据点，能够给出一条最好的划分两个样本的直线，使得直线的一边全部都是$red$，另一边全部都是$blue$。</p>
+<p>为了更好地理解SVM的工作流程，我们引入一个例子。假如在一个$xy$坐标系上有很多红色和蓝色的点，将这些点看作是我们要处理的两个(categories)类别<code>(red,blue)</code>，而我们的数据具有两个(features)特征$x$和$y$，我们想要找到一个(classifier)判别器，当我们给定一个坐标$(x,y)$，判别器会给出    该坐标所属的类别$red$或$blue$，具体描述如下图。</p>
 </blockquote>
-<p><img src="https://d33wubrfki0l68.cloudfront.net/ddde7b980851a9c12b72cee173debe8794962820/54f9b/static/57fd2448dfb67cfff990f32191463e80/ae702/plot_hyperplanes_2.png" alt="support vector machines svm"></p>
+<p><img src="https://d33wubrfki0l68.cloudfront.net/bb6acfd742447bab1e4c619cad0d9aec9e6d58bd/7381d/static/52081a1b625e8ba22c00210d547b4f1a/ae702/plot_original.png" alt="support vector machines svm" /></p>
 <blockquote>
-<p>   但是，能够划分的直线有无数条，那一条才是最好的呢？对于SVM来说，最好的划分直线就是让两边最近的点离直线的距离最近。如图所示</p>
+<p>SVM对于以上给定的数据点，能够给出一条最好的划分两个样本的直线，使得直线的一边全部都是$red$，另一边全部都是$blue$。</p>
 </blockquote>
-<p><img src="https://d33wubrfki0l68.cloudfront.net/b33ca241f49a2ffc8b57a62558efd876410a49ac/56c8c/static/7002b9ebbacb0e878edbf30e8ff5b01c/ae702/plot_hyperplanes_annotated.png" alt="support vector machines svm"></p>
-<h6 id="2-2-非线性数据"><a href="#2-2-非线性数据" class="headerlink" title="2.2.非线性数据"></a>2.2.非线性数据</h6><blockquote>
+<p><img src="https://d33wubrfki0l68.cloudfront.net/ddde7b980851a9c12b72cee173debe8794962820/54f9b/static/57fd2448dfb67cfff990f32191463e80/ae702/plot_hyperplanes_2.png" alt="support vector machines svm" /></p>
+<blockquote>
+<p>但是，能够划分的直线有无数条，那一条才是最好的呢？对于SVM来说，最好的划分直线就是让两边最近的点离直线的距离最近。如图所示</p>
+</blockquote>
+<p><img src="https://d33wubrfki0l68.cloudfront.net/b33ca241f49a2ffc8b57a62558efd876410a49ac/56c8c/static/7002b9ebbacb0e878edbf30e8ff5b01c/ae702/plot_hyperplanes_annotated.png" alt="support vector machines svm" /></p>
+<h6 id="2-2-非线性数据">2.2.非线性数据</h6>
+<blockquote>
 <p>对于线性数据来说，很容易就找到了最优分割线，但对于一些非线性数据来说，用线性分割线来分割就显得比较困难了。如下</p>
 </blockquote>
-<p><img src="https://d33wubrfki0l68.cloudfront.net/a80bfcd16e1c9e1235f6afb112afba3988e31bb4/7276f/static/2631f704a0b3f6e31246294578a7d777/95f64/plot_circle_01.png" alt="support vector machines svm"></p>
+<p><img src="https://d33wubrfki0l68.cloudfront.net/a80bfcd16e1c9e1235f6afb112afba3988e31bb4/7276f/static/2631f704a0b3f6e31246294578a7d777/95f64/plot_circle_01.png" alt="support vector machines svm" /></p>
 <blockquote>
-<p>在二位坐标$xy$上，想找到一条分割线来进行分割两个类别是非常困难的。所以我们增加一个坐标系$z$，我们令$z=x^2+y^2$，将原来二维的数据映射到三维空间上，如下图</p>
+<p>在二位坐标$xy$上，想找到一条分割线来进行分割两个类别是非常困难的。所以我们增加一个坐标系$z$，我们令$z=x<sup>2+y</sup>2$，将原来二维的数据映射到三维空间上，如下图</p>
 </blockquote>
-<p><img src="https://d33wubrfki0l68.cloudfront.net/1ecdc513142b40c1162efa613f6b4f8eb996cdbd/f9ac6/static/9f18ce83bab159464cc138a653e3fc63/dbc4f/plot_circle_02.png" alt="support vector machines svm"></p>
+<p><img src="https://d33wubrfki0l68.cloudfront.net/1ecdc513142b40c1162efa613f6b4f8eb996cdbd/f9ac6/static/9f18ce83bab159464cc138a653e3fc63/dbc4f/plot_circle_02.png" alt="support vector machines svm" /></p>
 <blockquote>
 <p>这样，我们就可以巧妙地用一个平面分割两个类别的数据。我们来看一下</p>
 </blockquote>
-<p><img src="https://monkeylearn.com/static/250face99659fab3c5402676fd8dd420/dbc4f/plot_circle_03.png" alt="support vector machines svm"></p>
+<p><img src="https://monkeylearn.com/static/250face99659fab3c5402676fd8dd420/dbc4f/plot_circle_03.png" alt="support vector machines svm" /></p>
 <blockquote>
 <p>将它重新映射回二位平面上</p>
 </blockquote>
-<p><img src="https://d33wubrfki0l68.cloudfront.net/6fc63b6e6ea9adc551d4245acfb6d1bc48d5ca69/2e42a/static/a4dc8a44f6a8adf55df920a602668a42/95f64/plot_circle_04.png" alt="support vector machines svm"></p>
+<p><img src="https://d33wubrfki0l68.cloudfront.net/6fc63b6e6ea9adc551d4245acfb6d1bc48d5ca69/2e42a/static/a4dc8a44f6a8adf55df920a602668a42/95f64/plot_circle_04.png" alt="support vector machines svm" /></p>
 <blockquote>
 <p>由此，我们就可以轻松地找到一个分割线来分割两个类别</p>
-<p>原来是在二维平面上找 <script type="math/tex">a · b = xa · xb  +  ya · yb +  (xa² + ya²) · (xb² + yb²)</script> 找<script type="math/tex">x</script>和<script type="math/tex">y</script>的最优解，转化成在三位空间中找 <script type="math/tex">a · b = xa · xb  +  ya · yb  +  za · zb</script> 找<script type="math/tex">x</script>和<script type="math/tex">y</script>的最优解</p>
+</blockquote>
+<blockquote>
+<p>原来是在二维平面上找 $$a · b = xa · xb  +  ya · yb +  (xa² + ya²) · (xb² + yb²)$$ 找$$x$$和$$y$$的最优解，转化成在三位空间中找 $$a · b = xa · xb  +  ya · yb  +  za · zb$$ 找$$x$$和$$y$$的最优解</p>
+</blockquote>
+<blockquote>
 <p>所以，对于一些非线性的数据来说，增加一个维度进行计算是SVM常用的方法</p>
 </blockquote>
-<h6 id="3-SVM的代码实现"><a href="#3-SVM的代码实现" class="headerlink" title="3.SVM的代码实现"></a>3.SVM的代码实现</h6><p>导入模块</p>
+<h6 id="3-SVM的代码实现">3.SVM的代码实现</h6>
+<p>导入模块</p>
 <pre><code>import numpy as np
 import joblib
 from sklearn import svm
 import matplotlib.pyplot as plt
-</code></pre><p>预定义要处理的点</p>
+</code></pre>
+<p>预定义要处理的点</p>
 <pre><code>x = [[20, 10], [4, 5], [18, 9], [10, 7], [9, 1], [13, 18]]
 x = np.array(x)
 y = [1, 1, 0, 0, 1, 0]
 y = np.array(y)
-</code></pre><p>训练模型</p>
-<pre><code>model = svm.SVC(C=10, kernel=&#39;linear&#39;)
+</code></pre>
+<p>训练模型</p>
+<pre><code>model = svm.SVC(C=10, kernel='linear')
 model.fit(x, y)
-</code></pre><p>预测点所处的类别</p>
+</code></pre>
+<p>预测点所处的类别</p>
 <pre><code>X=[[20, 10], [4, 5], [18, 9], [10, 7], [9, 1], [13, 18]]
 # predict
 a = [[100, 100]]
 for i in range(len(X)):
 a_pre = model.predict([X[i]])
 if a_pre[0]==0:
-    plt.scatter(np.array(X)[i:i+1,0],np.array(X)[i:i+1,1],s=40,c=&#39;b&#39;)
+    plt.scatter(np.array(X)[i:i+1,0],np.array(X)[i:i+1,1],s=40,c='b')
 else:
-    plt.scatter(np.array(X)[i:i+1,0],np.array(X)[i:i+1,1],s=40,c=&#39;r&#39;)
-</code></pre><p>对应的支持向量机</p>
+    plt.scatter(np.array(X)[i:i+1,0],np.array(X)[i:i+1,1],s=40,c='r')
+</code></pre>
+<p>对应的支持向量机</p>
 <pre><code>Support_vector = model.support_vectors_
 print(&quot;Support_vector:&quot;, Support_vector)
-</code></pre><p>对应参数</p>
+</code></pre>
+<p>对应参数</p>
 <pre><code>w = model.coef_
 print(&quot;w:&quot;, w)
 b = model.intercept_
 print(&quot;b:&quot;, b)
-</code></pre><p>画出结果图</p>
+</code></pre>
+<p>画出结果图</p>
 <pre><code>if w[0, 1] != 0:
     xx = np.arange(0, 20, 0.1)
     # optimal boundary
@@ -95,21 +113,7 @@ else:
     yy = np.arange(0, 10, 0.1)
     plt.scatter(xx, yy)
 plt.show()
-</code></pre>]]></content>
-  </entry>
-  <entry>
-    <title>Hello World</title>
-    <url>/2022/09/02/hello-world/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><span id="more"></span>
-<h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+</code></pre>
 ]]></content>
   </entry>
   <entry>
@@ -117,7 +121,6 @@ plt.show()
     <url>/2022/09/02/%E8%8B%B1%E8%AF%AD%E5%85%AD%E7%BA%A7%E9%99%8C%E7%94%9F%E8%AF%8D/</url>
     <content><![CDATA[<p>最近正在准备英语六级，遇到了一系列我平时不怎么遇到的陌生的单词，在这里进行归纳统计一下，以加深印象。</p>
 <span id="more"></span>
-<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -192,7 +195,7 @@ plt.show()
 </tr>
 <tr>
 <td>bait</td>
-<td>n.诱饵  vt.引诱</td>
+<td>n.诱饵  vt.引诱</td>
 </tr>
 <tr>
 <td>barracks</td>
@@ -212,15 +215,15 @@ plt.show()
 </tr>
 <tr>
 <td>buckle</td>
-<td>n.锁扣  vt.扣住</td>
+<td>n.锁扣  vt.扣住</td>
 </tr>
 <tr>
 <td>bust</td>
-<td>vt.打破  n.半身像，胸围</td>
+<td>vt.打破  n.半身像，胸围</td>
 </tr>
 <tr>
 <td>butcher</td>
-<td>n.屠夫  vt.屠杀</td>
+<td>n.屠夫  vt.屠杀</td>
 </tr>
 <tr>
 <td>bystander</td>
@@ -232,7 +235,7 @@ plt.show()
 </tr>
 <tr>
 <td>cardboard</td>
-<td>n.硬纸板  adj.虚假的</td>
+<td>n.硬纸板  adj.虚假的</td>
 </tr>
 <tr>
 <td>carton</td>
@@ -248,7 +251,7 @@ plt.show()
 </tr>
 <tr>
 <td>charter</td>
-<td>n.章程  vt.许可</td>
+<td>n.章程  vt.许可</td>
 </tr>
 <tr>
 <td>chore</td>
@@ -264,11 +267,11 @@ plt.show()
 </tr>
 <tr>
 <td>cling</td>
-<td>vt./vi.紧抱  vi.附着</td>
+<td>vt./vi.紧抱  vi.附着</td>
 </tr>
 <tr>
 <td>clog</td>
-<td>n.鞋  vt./vi.阻塞</td>
+<td>n.鞋  vt./vi.阻塞</td>
 </tr>
 <tr>
 <td>cockpit</td>
@@ -316,11 +319,11 @@ plt.show()
 </tr>
 <tr>
 <td>contend</td>
-<td>vt.声称，认为  vi.争夺</td>
+<td>vt.声称，认为  vi.争夺</td>
 </tr>
 <tr>
 <td>contract</td>
-<td>n.合同，协议  vi.收缩  vt.感染，与…签订合同</td>
+<td>n.合同，协议  vi.收缩  vt.感染，与…签订合同</td>
 </tr>
 <tr>
 <td>contrive</td>
@@ -376,11 +379,11 @@ plt.show()
 </tr>
 <tr>
 <td>damp</td>
-<td>adj.潮湿的  n.湿气  vt.弄湿</td>
+<td>adj.潮湿的  n.湿气  vt.弄湿</td>
 </tr>
 <tr>
 <td>decree</td>
-<td>n.法令  vt.裁定，颁布</td>
+<td>n.法令  vt.裁定，颁布</td>
 </tr>
 <tr>
 <td>delude</td>
@@ -400,7 +403,7 @@ plt.show()
 </tr>
 <tr>
 <td>depreciate</td>
-<td>vi.跌价  vt.折扣，贬低</td>
+<td>vi.跌价  vt.折扣，贬低</td>
 </tr>
 <tr>
 <td>deprive</td>
@@ -436,7 +439,7 @@ plt.show()
 </tr>
 <tr>
 <td>diminish</td>
-<td>vt./vi.减少  vt.贬低</td>
+<td>vt./vi.减少  vt.贬低</td>
 </tr>
 <tr>
 <td>discern</td>
@@ -464,7 +467,7 @@ plt.show()
 </tr>
 <tr>
 <td>dread</td>
-<td>n.恐惧  vt./vi.害怕</td>
+<td>n.恐惧  vt./vi.害怕</td>
 </tr>
 <tr>
 <td>dwarf</td>
@@ -480,7 +483,7 @@ plt.show()
 </tr>
 <tr>
 <td>embark</td>
-<td>vt.使上船，使从事于  vi.上船，从事</td>
+<td>vt.使上船，使从事于  vi.上船，从事</td>
 </tr>
 <tr>
 <td>emigrate</td>
@@ -520,11 +523,11 @@ plt.show()
 </tr>
 <tr>
 <td>flock</td>
-<td>n.群，一大群  vi.聚集</td>
+<td>n.群，一大群  vi.聚集</td>
 </tr>
 <tr>
 <td>foil</td>
-<td>n.箔  vt.挫折，制止</td>
+<td>n.箔  vt.挫折，制止</td>
 </tr>
 <tr>
 <td>forehead</td>
@@ -544,7 +547,7 @@ plt.show()
 </tr>
 <tr>
 <td>gleam</td>
-<td>n.微光  vi.闪烁</td>
+<td>n.微光  vi.闪烁</td>
 </tr>
 <tr>
 <td>handy</td>
@@ -560,7 +563,7 @@ plt.show()
 </tr>
 <tr>
 <td>herald</td>
-<td>n.预兆  vt.预示，宣布</td>
+<td>n.预兆  vt.预示，宣布</td>
 </tr>
 <tr>
 <td>humane</td>
@@ -636,11 +639,30 @@ plt.show()
 </tr>
 <tr>
 <td>lavish</td>
-<td>adj.大量的，大方的  vt.挥霍</td>
+<td>adj.大量的，大方的  vt.挥霍</td>
 </tr>
 </tbody>
 </table>
-</div>
+]]></content>
+  </entry>
+  <entry>
+    <title>Hello World</title>
+    <url>/2022/09/02/hello-world/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="Quick-Start">Quick Start</h2>
+<span id="more"></span>
+<h3 id="Create-a-new-post">Create a new post</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server">Run server</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files">Generate static files</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites">Deploy to remote sites</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
 ]]></content>
   </entry>
   <entry>
@@ -648,7 +670,6 @@ plt.show()
     <url>/2022/09/02/%E8%8B%B1%E8%AF%AD%E5%85%AD%E7%BA%A7%E9%99%8C%E7%94%9F%E8%AF%8D%EF%BC%88%E4%B8%8B%EF%BC%89/</url>
     <content><![CDATA[<p>这篇文章接着上一篇文章，继续总结一些英语六级中不常见过的单词。</p>
 <span id="more"></span>
-<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -671,7 +692,7 @@ plt.show()
 </tr>
 <tr>
 <td>loot</td>
-<td>n.战利品  vt./vi.打劫</td>
+<td>n.战利品  vt./vi.打劫</td>
 </tr>
 <tr>
 <td>mar</td>
@@ -755,7 +776,7 @@ plt.show()
 </tr>
 <tr>
 <td>overhaul</td>
-<td>vt.彻底检修  n.检修</td>
+<td>vt.彻底检修  n.检修</td>
 </tr>
 <tr>
 <td>partisan</td>
@@ -779,11 +800,11 @@ plt.show()
 </tr>
 <tr>
 <td>petition</td>
-<td>n.请愿书，申请书  vt./vi.恳请</td>
+<td>n.请愿书，申请书  vt./vi.恳请</td>
 </tr>
 <tr>
 <td>pierce</td>
-<td>vt.扎破  vt./vi.冲破</td>
+<td>vt.扎破  vt./vi.冲破</td>
 </tr>
 <tr>
 <td>pillar</td>
@@ -831,7 +852,7 @@ plt.show()
 </tr>
 <tr>
 <td>premium</td>
-<td>n.保险费，额外费用  adj.优质的</td>
+<td>n.保险费，额外费用  adj.优质的</td>
 </tr>
 <tr>
 <td>prestige</td>
@@ -839,11 +860,11 @@ plt.show()
 </tr>
 <tr>
 <td>profile</td>
-<td>n.轮廓，概述  vt.扼要介绍</td>
+<td>n.轮廓，概述  vt.扼要介绍</td>
 </tr>
 <tr>
 <td>prop</td>
-<td>n.道具支撑物  vt.支撑</td>
+<td>n.道具支撑物  vt.支撑</td>
 </tr>
 <tr>
 <td>proverb</td>
@@ -851,7 +872,7 @@ plt.show()
 </tr>
 <tr>
 <td>punch</td>
-<td>vt.拳打  vi.打孔</td>
+<td>vt.拳打  vi.打孔</td>
 </tr>
 <tr>
 <td>pyramid</td>
@@ -895,7 +916,7 @@ plt.show()
 </tr>
 <tr>
 <td>saddle</td>
-<td>n.马鞍  vt.给…装马鞍</td>
+<td>n.马鞍  vt.给…装马鞍</td>
 </tr>
 <tr>
 <td>sarcasm</td>
@@ -943,7 +964,7 @@ plt.show()
 </tr>
 <tr>
 <td>toil</td>
-<td>n.苦工  vi.辛勤耕种</td>
+<td>n.苦工  vi.辛勤耕种</td>
 </tr>
 <tr>
 <td>tract</td>
@@ -951,11 +972,11 @@ plt.show()
 </tr>
 <tr>
 <td>tread</td>
-<td>vt./vi.踩踏  n.步法</td>
+<td>vt./vi.踩踏  n.步法</td>
 </tr>
 <tr>
 <td>trim</td>
-<td>vt.修剪  n.镶边  adj.苗条的</td>
+<td>vt.修剪  n.镶边  adj.苗条的</td>
 </tr>
 <tr>
 <td>trolley</td>
@@ -979,7 +1000,6 @@ plt.show()
 </tr>
 </tbody>
 </table>
-</div>
 ]]></content>
   </entry>
 </search>

@@ -22,12 +22,12 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="SVM    支持向量机（SVM），是一个用于解决二分类问题的有监督机器学习模型。  1.SVM的两个优点 更高的速度  在有一定的样本数量支持下（成千上万张），具有比其他模型有更好的效果">
+  <meta name="description" content="SVM  支持向量机（SVM），是一个用于解决二分类问题的有监督机器学习模型。  1.SVM的两个优点   更高的速度   在有一定的样本数量支持下（成千上万张），具有比其他模型有更好的效果">
 <meta property="og:type" content="article">
 <meta property="og:title" content="SVM简介">
 <meta property="og:url" content="http://example.com/2022/09/02/SVM%E7%AE%80%E4%BB%8B/index.html">
 <meta property="og:site_name" content="jimore">
-<meta property="og:description" content="SVM    支持向量机（SVM），是一个用于解决二分类问题的有监督机器学习模型。  1.SVM的两个优点 更高的速度  在有一定的样本数量支持下（成千上万张），具有比其他模型有更好的效果">
+<meta property="og:description" content="SVM  支持向量机（SVM），是一个用于解决二分类问题的有监督机器学习模型。  1.SVM的两个优点   更高的速度   在有一定的样本数量支持下（成千上万张），具有比其他模型有更好的效果">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://d33wubrfki0l68.cloudfront.net/bb6acfd742447bab1e4c619cad0d9aec9e6d58bd/7381d/static/52081a1b625e8ba22c00210d547b4f1a/ae702/plot_original.png">
 <meta property="og:image" content="https://d33wubrfki0l68.cloudfront.net/ddde7b980851a9c12b72cee173debe8794962820/54f9b/static/57fd2448dfb67cfff990f32191463e80/ae702/plot_hyperplanes_2.png">
@@ -254,81 +254,99 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="SVM"><a href="#SVM" class="headerlink" title="SVM"></a>SVM</h1><blockquote>
-<p>   支持向量机（SVM），是一个用于解决<strong>二分类</strong>问题的有监督机器学习模型。</p>
+        <h1>SVM</h1>
+<blockquote>
+<p>支持向量机（SVM），是一个用于解决<strong>二分类</strong>问题的有监督机器学习模型。</p>
 </blockquote>
-<h4 id="1-SVM的两个优点"><a href="#1-SVM的两个优点" class="headerlink" title="1.SVM的两个优点"></a>1.SVM的两个优点</h4><ul>
-<li><p>更高的速度</p>
+<h4 id="1-SVM的两个优点">1.SVM的两个优点</h4>
+<ul>
+<li>
+<p>更高的速度</p>
 </li>
-<li><p>在有一定的样本数量支持下（成千上万张），<font color="red">具有</font>比其他模型有更好的效果</p>
+<li>
+<p>在有一定的样本数量支持下（成千上万张），<font color="red">具有</font>比其他模型有更好的效果</p>
 <span id="more"></span>
 </li>
 </ul>
-<h4 id="2-SVM的工作过程"><a href="#2-SVM的工作过程" class="headerlink" title="2.SVM的工作过程"></a>2.SVM的工作过程</h4><h6 id="2-1-线性数据"><a href="#2-1-线性数据" class="headerlink" title="2.1.线性数据"></a>2.1.线性数据</h6><blockquote>
-<p>   为了更好地理解SVM的工作流程，我们引入一个例子。假如在一个$xy$坐标系上有很多红色和蓝色的点，将这些点看作是我们要处理的两个(categories)类别<code>(red,blue)</code>，而我们的数据具有两个(features)特征$x$和$y$，我们想要找到一个(classifier)判别器，当我们给定一个坐标$(x,y)$，判别器会给出    该坐标所属的类别$red$或$blue$，具体描述如下图。</p>
-</blockquote>
-<p><img src="https://d33wubrfki0l68.cloudfront.net/bb6acfd742447bab1e4c619cad0d9aec9e6d58bd/7381d/static/52081a1b625e8ba22c00210d547b4f1a/ae702/plot_original.png" alt="support vector machines svm"></p>
+<h4 id="2-SVM的工作过程">2.SVM的工作过程</h4>
+<h6 id="2-1-线性数据">2.1.线性数据</h6>
 <blockquote>
-<p>   SVM对于以上给定的数据点，能够给出一条最好的划分两个样本的直线，使得直线的一边全部都是$red$，另一边全部都是$blue$。</p>
+<p>为了更好地理解SVM的工作流程，我们引入一个例子。假如在一个$xy$坐标系上有很多红色和蓝色的点，将这些点看作是我们要处理的两个(categories)类别<code>(red,blue)</code>，而我们的数据具有两个(features)特征$x$和$y$，我们想要找到一个(classifier)判别器，当我们给定一个坐标$(x,y)$，判别器会给出    该坐标所属的类别$red$或$blue$，具体描述如下图。</p>
 </blockquote>
-<p><img src="https://d33wubrfki0l68.cloudfront.net/ddde7b980851a9c12b72cee173debe8794962820/54f9b/static/57fd2448dfb67cfff990f32191463e80/ae702/plot_hyperplanes_2.png" alt="support vector machines svm"></p>
+<p><img src="https://d33wubrfki0l68.cloudfront.net/bb6acfd742447bab1e4c619cad0d9aec9e6d58bd/7381d/static/52081a1b625e8ba22c00210d547b4f1a/ae702/plot_original.png" alt="support vector machines svm" /></p>
 <blockquote>
-<p>   但是，能够划分的直线有无数条，那一条才是最好的呢？对于SVM来说，最好的划分直线就是让两边最近的点离直线的距离最近。如图所示</p>
+<p>SVM对于以上给定的数据点，能够给出一条最好的划分两个样本的直线，使得直线的一边全部都是$red$，另一边全部都是$blue$。</p>
 </blockquote>
-<p><img src="https://d33wubrfki0l68.cloudfront.net/b33ca241f49a2ffc8b57a62558efd876410a49ac/56c8c/static/7002b9ebbacb0e878edbf30e8ff5b01c/ae702/plot_hyperplanes_annotated.png" alt="support vector machines svm"></p>
-<h6 id="2-2-非线性数据"><a href="#2-2-非线性数据" class="headerlink" title="2.2.非线性数据"></a>2.2.非线性数据</h6><blockquote>
+<p><img src="https://d33wubrfki0l68.cloudfront.net/ddde7b980851a9c12b72cee173debe8794962820/54f9b/static/57fd2448dfb67cfff990f32191463e80/ae702/plot_hyperplanes_2.png" alt="support vector machines svm" /></p>
+<blockquote>
+<p>但是，能够划分的直线有无数条，那一条才是最好的呢？对于SVM来说，最好的划分直线就是让两边最近的点离直线的距离最近。如图所示</p>
+</blockquote>
+<p><img src="https://d33wubrfki0l68.cloudfront.net/b33ca241f49a2ffc8b57a62558efd876410a49ac/56c8c/static/7002b9ebbacb0e878edbf30e8ff5b01c/ae702/plot_hyperplanes_annotated.png" alt="support vector machines svm" /></p>
+<h6 id="2-2-非线性数据">2.2.非线性数据</h6>
+<blockquote>
 <p>对于线性数据来说，很容易就找到了最优分割线，但对于一些非线性数据来说，用线性分割线来分割就显得比较困难了。如下</p>
 </blockquote>
-<p><img src="https://d33wubrfki0l68.cloudfront.net/a80bfcd16e1c9e1235f6afb112afba3988e31bb4/7276f/static/2631f704a0b3f6e31246294578a7d777/95f64/plot_circle_01.png" alt="support vector machines svm"></p>
+<p><img src="https://d33wubrfki0l68.cloudfront.net/a80bfcd16e1c9e1235f6afb112afba3988e31bb4/7276f/static/2631f704a0b3f6e31246294578a7d777/95f64/plot_circle_01.png" alt="support vector machines svm" /></p>
 <blockquote>
-<p>在二位坐标$xy$上，想找到一条分割线来进行分割两个类别是非常困难的。所以我们增加一个坐标系$z$，我们令$z=x^2+y^2$，将原来二维的数据映射到三维空间上，如下图</p>
+<p>在二位坐标$xy$上，想找到一条分割线来进行分割两个类别是非常困难的。所以我们增加一个坐标系$z$，我们令$z=x<sup>2+y</sup>2$，将原来二维的数据映射到三维空间上，如下图</p>
 </blockquote>
-<p><img src="https://d33wubrfki0l68.cloudfront.net/1ecdc513142b40c1162efa613f6b4f8eb996cdbd/f9ac6/static/9f18ce83bab159464cc138a653e3fc63/dbc4f/plot_circle_02.png" alt="support vector machines svm"></p>
+<p><img src="https://d33wubrfki0l68.cloudfront.net/1ecdc513142b40c1162efa613f6b4f8eb996cdbd/f9ac6/static/9f18ce83bab159464cc138a653e3fc63/dbc4f/plot_circle_02.png" alt="support vector machines svm" /></p>
 <blockquote>
 <p>这样，我们就可以巧妙地用一个平面分割两个类别的数据。我们来看一下</p>
 </blockquote>
-<p><img src="https://monkeylearn.com/static/250face99659fab3c5402676fd8dd420/dbc4f/plot_circle_03.png" alt="support vector machines svm"></p>
+<p><img src="https://monkeylearn.com/static/250face99659fab3c5402676fd8dd420/dbc4f/plot_circle_03.png" alt="support vector machines svm" /></p>
 <blockquote>
 <p>将它重新映射回二位平面上</p>
 </blockquote>
-<p><img src="https://d33wubrfki0l68.cloudfront.net/6fc63b6e6ea9adc551d4245acfb6d1bc48d5ca69/2e42a/static/a4dc8a44f6a8adf55df920a602668a42/95f64/plot_circle_04.png" alt="support vector machines svm"></p>
+<p><img src="https://d33wubrfki0l68.cloudfront.net/6fc63b6e6ea9adc551d4245acfb6d1bc48d5ca69/2e42a/static/a4dc8a44f6a8adf55df920a602668a42/95f64/plot_circle_04.png" alt="support vector machines svm" /></p>
 <blockquote>
 <p>由此，我们就可以轻松地找到一个分割线来分割两个类别</p>
-<p>原来是在二维平面上找 <script type="math/tex">a · b = xa · xb  +  ya · yb +  (xa² + ya²) · (xb² + yb²)</script> 找<script type="math/tex">x</script>和<script type="math/tex">y</script>的最优解，转化成在三位空间中找 <script type="math/tex">a · b = xa · xb  +  ya · yb  +  za · zb</script> 找<script type="math/tex">x</script>和<script type="math/tex">y</script>的最优解</p>
+</blockquote>
+<blockquote>
+<p>原来是在二维平面上找 $$a · b = xa · xb  +  ya · yb +  (xa² + ya²) · (xb² + yb²)$$ 找$$x$$和$$y$$的最优解，转化成在三位空间中找 $$a · b = xa · xb  +  ya · yb  +  za · zb$$ 找$$x$$和$$y$$的最优解</p>
+</blockquote>
+<blockquote>
 <p>所以，对于一些非线性的数据来说，增加一个维度进行计算是SVM常用的方法</p>
 </blockquote>
-<h6 id="3-SVM的代码实现"><a href="#3-SVM的代码实现" class="headerlink" title="3.SVM的代码实现"></a>3.SVM的代码实现</h6><p>导入模块</p>
+<h6 id="3-SVM的代码实现">3.SVM的代码实现</h6>
+<p>导入模块</p>
 <pre><code>import numpy as np
 import joblib
 from sklearn import svm
 import matplotlib.pyplot as plt
-</code></pre><p>预定义要处理的点</p>
+</code></pre>
+<p>预定义要处理的点</p>
 <pre><code>x = [[20, 10], [4, 5], [18, 9], [10, 7], [9, 1], [13, 18]]
 x = np.array(x)
 y = [1, 1, 0, 0, 1, 0]
 y = np.array(y)
-</code></pre><p>训练模型</p>
-<pre><code>model = svm.SVC(C=10, kernel=&#39;linear&#39;)
+</code></pre>
+<p>训练模型</p>
+<pre><code>model = svm.SVC(C=10, kernel='linear')
 model.fit(x, y)
-</code></pre><p>预测点所处的类别</p>
+</code></pre>
+<p>预测点所处的类别</p>
 <pre><code>X=[[20, 10], [4, 5], [18, 9], [10, 7], [9, 1], [13, 18]]
 # predict
 a = [[100, 100]]
 for i in range(len(X)):
 a_pre = model.predict([X[i]])
 if a_pre[0]==0:
-    plt.scatter(np.array(X)[i:i+1,0],np.array(X)[i:i+1,1],s=40,c=&#39;b&#39;)
+    plt.scatter(np.array(X)[i:i+1,0],np.array(X)[i:i+1,1],s=40,c='b')
 else:
-    plt.scatter(np.array(X)[i:i+1,0],np.array(X)[i:i+1,1],s=40,c=&#39;r&#39;)
-</code></pre><p>对应的支持向量机</p>
+    plt.scatter(np.array(X)[i:i+1,0],np.array(X)[i:i+1,1],s=40,c='r')
+</code></pre>
+<p>对应的支持向量机</p>
 <pre><code>Support_vector = model.support_vectors_
 print(&quot;Support_vector:&quot;, Support_vector)
-</code></pre><p>对应参数</p>
+</code></pre>
+<p>对应参数</p>
 <pre><code>w = model.coef_
 print(&quot;w:&quot;, w)
 b = model.intercept_
 print(&quot;b:&quot;, b)
-</code></pre><p>画出结果图</p>
+</code></pre>
+<p>画出结果图</p>
 <pre><code>if w[0, 1] != 0:
     xx = np.arange(0, 20, 0.1)
     # optimal boundary
@@ -347,6 +365,7 @@ else:
     plt.scatter(xx, yy)
 plt.show()
 </code></pre>
+
     </div>
 
     
@@ -452,7 +471,7 @@ plt.show()
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#SVM"><span class="nav-number">1.</span> <span class="nav-text">SVM</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-SVM%E7%9A%84%E4%B8%A4%E4%B8%AA%E4%BC%98%E7%82%B9"><span class="nav-number">1.0.0.1.</span> <span class="nav-text">1.SVM的两个优点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-SVM%E7%9A%84%E5%B7%A5%E4%BD%9C%E8%BF%87%E7%A8%8B"><span class="nav-number">1.0.0.2.</span> <span class="nav-text">2.SVM的工作过程</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#2-1-%E7%BA%BF%E6%80%A7%E6%95%B0%E6%8D%AE"><span class="nav-number">1.0.0.2.0.1.</span> <span class="nav-text">2.1.线性数据</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#2-2-%E9%9D%9E%E7%BA%BF%E6%80%A7%E6%95%B0%E6%8D%AE"><span class="nav-number">1.0.0.2.0.2.</span> <span class="nav-text">2.2.非线性数据</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#3-SVM%E7%9A%84%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0"><span class="nav-number">1.0.0.2.0.3.</span> <span class="nav-text">3.SVM的代码实现</span></a></li></ol></li></ol></li></ol></li></ol></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">1.</span> <span class="nav-text">SVM</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-SVM%E7%9A%84%E4%B8%A4%E4%B8%AA%E4%BC%98%E7%82%B9"><span class="nav-number">1.0.0.1.</span> <span class="nav-text">1.SVM的两个优点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-SVM%E7%9A%84%E5%B7%A5%E4%BD%9C%E8%BF%87%E7%A8%8B"><span class="nav-number">1.0.0.2.</span> <span class="nav-text">2.SVM的工作过程</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#2-1-%E7%BA%BF%E6%80%A7%E6%95%B0%E6%8D%AE"><span class="nav-number">1.0.0.2.0.1.</span> <span class="nav-text">2.1.线性数据</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#2-2-%E9%9D%9E%E7%BA%BF%E6%80%A7%E6%95%B0%E6%8D%AE"><span class="nav-number">1.0.0.2.0.2.</span> <span class="nav-text">2.2.非线性数据</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#3-SVM%E7%9A%84%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0"><span class="nav-number">1.0.0.2.0.3.</span> <span class="nav-text">3.SVM的代码实现</span></a></li></ol></li></ol></li></ol></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
