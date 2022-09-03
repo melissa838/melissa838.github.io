@@ -95,6 +95,483 @@ plt.show()
       </tags>
   </entry>
   <entry>
+    <title>Hello World</title>
+    <url>/2022/09/02/hello-world/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="Quick-Start">Quick Start</h2>
+<span id="more"></span>
+<h3 id="Create-a-new-post">Create a new post</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server">Run server</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files">Generate static files</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites">Deploy to remote sites</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>You Only Look Once文章精读</title>
+    <url>/2022/09/03/You-Only-Look-Once%E6%96%87%E7%AB%A0%E7%B2%BE%E8%AF%BB/</url>
+    <content><![CDATA[<h1>You Only Look Once</h1>
+<h2 id="1-简介">1.简介</h2>
+<blockquote>
+<p>You Only Look Once（YOLO），是一种神经网络模型，能够对给定图片中的物体进行锚定和识别。</p>
+</blockquote>
+<span id="more"></span>
+<h2 id="2-工作原理">2.工作原理</h2>
+<img src="./images/1.jpg">
+<p>首先对输入的图片进行分割，分割成$S*S$个grid，对每个grid进行检测，检测物体在该grid的概率$Pr(Object)$，代表物体落在该grid的概率，物体的中心往往落在概率最大的grid，每个grid预测$B$个边框(bounding box)，每个边框对应一个$confidence$，其计算公式为：$confidence=Pr(Object)*IOU_{pred}<sup>{truth}$，$IOU_{pred}</sup>{truth}$表示predicted box和ground truth的重叠程度。</p>
+<p>每个bounding box由五个参数组成：$x,y,w,h,confidence$，$(x,y)$代表中心坐标，$w$和$h$代表宽度和高度</p>
+<p>每个grid包含$C$个概率$Pr(Class_i|Object)$，$1&lt;=i&lt;=C$，代表每个类落在该grid的概率。每个网格只需求一次概率即可，不需要对$B$个bounding box进行求概率。所以输出特征向量的维度为：$S<em>S</em>(B*5+C)$，所以每个bounding box对于每个类的$confidence$计算公式为：$Pr(Class_i|Object)*Pr(Object)*IOU_{pred}<sup>{truth}=Pr(Class_i)*IOU_{pred}</sup>{truth}$</p>
+<p>$1&lt;=i&lt;=C$，假如第$i$类物体的中心落在某一个grid中，则该grid的$Pr(Class_i)=1$，否则$=0$，假如$Pr(Class_i)=1$，那么第$i$类物体的识别工作就交给该grid来做。其他的grid都不进行第$i$类物体的识别。而识别的工作可以交给现代最好的$CNN$来做。</p>
+<p>而锚定物体的工作可以使用$Bounding\ Box\ Regression$来解决。利用这个方法可以用bounding box拟合ground truth。</p>
+<p>在YOLO v1中，参数一般这样取：</p>
+<img src="./images/2.jpg">
+<h2 id="3-YOLO-v1的网络结构">3.YOLO v1的网络结构</h2>
+<p>这是YOLO v1的网络结构：</p>
+<img src="./images/3.jpg">
+<h2 id="4-YOLO-v1的损失函数">4.YOLO v1的损失函数</h2>
+<p>这是YOLO v1的损失函数：</p>
+<img src="./images/4.jpg">
+<p>损失函数只针对于那些包含物体中心的grid来展开计算的。</p>
+<p>绿色方框中的公式为什么要使用根号？因为想该模型能在大物体处理的时候拥有更小的$deviation$。</p>
+<p>对于YOLO v1来说，$λ_{coord}$和$λ_{noobj}$的参数设置如下：</p>
+<img src="./images/5.jpg">
+<p>因为$oobj$(不包含物体中心的grid)占大多数，这样设计参数就是为了降低$noobj$对损失函数的影响。</p>
+<h2 id="5-模型比较">5.模型比较</h2>
+<p>YOLO v1和R-CNN的比较：</p>
+<img src="./images/6.jpg">
+]]></content>
+      <categories>
+        <category>深度学习</category>
+      </categories>
+      <tags>
+        <tag>深度学习</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>英语六级陌生词（下）</title>
+    <url>/2022/09/02/%E8%8B%B1%E8%AF%AD%E5%85%AD%E7%BA%A7%E9%99%8C%E7%94%9F%E8%AF%8D%EF%BC%88%E4%B8%8B%EF%BC%89/</url>
+    <content><![CDATA[<p>这篇文章接着上一篇文章，继续总结一些英语六级中不常见过的单词。</p>
+<span id="more"></span>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>likewise</td>
+<td>adv.同样地</td>
+</tr>
+<tr>
+<td>logistics</td>
+<td>n.物流</td>
+</tr>
+<tr>
+<td>loophole</td>
+<td>n.漏洞</td>
+</tr>
+<tr>
+<td>loot</td>
+<td>n.战利品  vt./vi.打劫</td>
+</tr>
+<tr>
+<td>mar</td>
+<td>vt.损毁</td>
+</tr>
+<tr>
+<td>marshal</td>
+<td>n.元帅</td>
+</tr>
+<tr>
+<td>metabolism</td>
+<td>n.新陈代谢</td>
+</tr>
+<tr>
+<td>metaphor</td>
+<td>n.暗喻</td>
+</tr>
+<tr>
+<td>meticulous</td>
+<td>adj.小心的</td>
+</tr>
+<tr>
+<td>midwife</td>
+<td>n.助产员</td>
+</tr>
+<tr>
+<td>mindset</td>
+<td>n.观念模式</td>
+</tr>
+<tr>
+<td>morale</td>
+<td>n.士气，斗志</td>
+</tr>
+<tr>
+<td>mow</td>
+<td>vt./vi.修剪</td>
+</tr>
+<tr>
+<td>mug</td>
+<td>n.马克杯</td>
+</tr>
+<tr>
+<td>mule</td>
+<td>n.骡子</td>
+</tr>
+<tr>
+<td>mutter</td>
+<td>n./vt./vi.嘀咕</td>
+</tr>
+<tr>
+<td>navy</td>
+<td>n.海军</td>
+</tr>
+<tr>
+<td>nitrogen</td>
+<td>n.氮气</td>
+</tr>
+<tr>
+<td>notwithstanding</td>
+<td>prep./adv.尽管</td>
+</tr>
+<tr>
+<td>obese</td>
+<td>adj.肥胖的</td>
+</tr>
+<tr>
+<td>onset</td>
+<td>n.开端</td>
+</tr>
+<tr>
+<td>oppress</td>
+<td>vt.压迫，压制</td>
+</tr>
+<tr>
+<td>optic</td>
+<td>adj.光学的</td>
+</tr>
+<tr>
+<td>outing</td>
+<td>n.远足</td>
+</tr>
+<tr>
+<td>overhaul</td>
+<td>vt.彻底检修  n.检修</td>
+</tr>
+<tr>
+<td>partisan</td>
+<td>n.坚定的支持者</td>
+</tr>
+<tr>
+<td>pat</td>
+<td>n./vt.轻拍</td>
+</tr>
+<tr>
+<td>peddle</td>
+<td>vt.销售，传播</td>
+</tr>
+<tr>
+<td>peep</td>
+<td>vi.窥视，偷看</td>
+</tr>
+<tr>
+<td>pesticide</td>
+<td>n.杀虫剂</td>
+</tr>
+<tr>
+<td>petition</td>
+<td>n.请愿书，申请书  vt./vi.恳请</td>
+</tr>
+<tr>
+<td>pierce</td>
+<td>vt.扎破  vt./vi.冲破</td>
+</tr>
+<tr>
+<td>pillar</td>
+<td>n.支柱，柱子</td>
+</tr>
+<tr>
+<td>pit</td>
+<td>n.深坑，矿井</td>
+</tr>
+<tr>
+<td>plaza</td>
+<td>n.广场，购物中心</td>
+</tr>
+<tr>
+<td>plough</td>
+<td>n./vt./vi.犁</td>
+</tr>
+<tr>
+<td>plumber</td>
+<td>n.水暖工</td>
+</tr>
+<tr>
+<td>plumbing</td>
+<td>n.管道系统</td>
+</tr>
+<tr>
+<td>podcast</td>
+<td>n.博客</td>
+</tr>
+<tr>
+<td>portfolio</td>
+<td>n.文件夹</td>
+</tr>
+<tr>
+<td>poster</td>
+<td>n.画报</td>
+</tr>
+<tr>
+<td>pot</td>
+<td>n.锅，壶</td>
+</tr>
+<tr>
+<td>pottery</td>
+<td>n.陶器</td>
+</tr>
+<tr>
+<td>premium</td>
+<td>n.保险费，额外费用  adj.优质的</td>
+</tr>
+<tr>
+<td>prestige</td>
+<td>n.声望</td>
+</tr>
+<tr>
+<td>profile</td>
+<td>n.轮廓，概述  vt.扼要介绍</td>
+</tr>
+<tr>
+<td>prop</td>
+<td>n.道具支撑物  vt.支撑</td>
+</tr>
+<tr>
+<td>proverb</td>
+<td>n.谚语</td>
+</tr>
+<tr>
+<td>punch</td>
+<td>vt.拳打  vi.打孔</td>
+</tr>
+<tr>
+<td>pyramid</td>
+<td>n.金字塔</td>
+</tr>
+<tr>
+<td>quota</td>
+<td>n.配额，定额</td>
+</tr>
+<tr>
+<td>rally</td>
+<td>n.公众集会</td>
+</tr>
+<tr>
+<td>recede</td>
+<td>vi.逐渐减弱</td>
+</tr>
+<tr>
+<td>rehabilitate</td>
+<td>vt.使康复</td>
+</tr>
+<tr>
+<td>relentless</td>
+<td>adj.不停的，严格的</td>
+</tr>
+<tr>
+<td>retreat</td>
+<td>vi./n.退却，撤退</td>
+</tr>
+<tr>
+<td>rib</td>
+<td>n.肋骨</td>
+</tr>
+<tr>
+<td>rip</td>
+<td>vt.撕破</td>
+</tr>
+<tr>
+<td>rod</td>
+<td>n.杆</td>
+</tr>
+<tr>
+<td>saddle</td>
+<td>n.马鞍  vt.给…装马鞍</td>
+</tr>
+<tr>
+<td>sarcasm</td>
+<td>n.讽刺</td>
+</tr>
+<tr>
+<td>segregate</td>
+<td>vt.分隔</td>
+</tr>
+<tr>
+<td>servant</td>
+<td>n.仆人</td>
+</tr>
+<tr>
+<td>shorthand</td>
+<td>n.速记</td>
+</tr>
+<tr>
+<td>shrimp</td>
+<td>n.虾</td>
+</tr>
+<tr>
+<td>sinister</td>
+<td>adj.邪恶的</td>
+</tr>
+<tr>
+<td>socket</td>
+<td>n.插座，插口</td>
+</tr>
+<tr>
+<td>sodium</td>
+<td>n.钠</td>
+</tr>
+<tr>
+<td>summit</td>
+<td>n.最高点，会议</td>
+</tr>
+<tr>
+<td>superficial</td>
+<td>adj.粗略的，表面的</td>
+</tr>
+<tr>
+<td>thrift</td>
+<td>n.节俭，节约</td>
+</tr>
+<tr>
+<td>toil</td>
+<td>n.苦工  vi.辛勤耕种</td>
+</tr>
+<tr>
+<td>tract</td>
+<td>n.传单，大片（土地，森林）</td>
+</tr>
+<tr>
+<td>tread</td>
+<td>vt./vi.踩踏  n.步法</td>
+</tr>
+<tr>
+<td>trim</td>
+<td>vt.修剪  n.镶边  adj.苗条的</td>
+</tr>
+<tr>
+<td>trolley</td>
+<td>n.小推车</td>
+</tr>
+<tr>
+<td>verge</td>
+<td>n.绿地</td>
+</tr>
+<tr>
+<td>vicinity</td>
+<td>n.邻近地区</td>
+</tr>
+<tr>
+<td>webcast</td>
+<td>n.网络直播</td>
+</tr>
+<tr>
+<td>wedge</td>
+<td>n.楔子</td>
+</tr>
+</tbody>
+</table>
+]]></content>
+      <tags>
+        <tag>英语</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>英语好句积累（1）</title>
+    <url>/2022/09/03/%E8%8B%B1%E8%AF%AD%E5%A5%BD%E5%8F%A5%E5%88%86%E6%9E%90/</url>
+    <content><![CDATA[<p>1.There’s no feeling more frustrating than having dirty hair, showering and emerging with your hair greasy after washing it.</p>
+<p>句式：<font color="red">there’s no + 名词 +more + 形容词 + than + A(名词).</font></p>
+<span id="more"></span>
+<p><font color="green">for example:</font></p>
+<ul>
+<li>
+<p>there’s no people more famous than him.</p>
+</li>
+<li>
+<p>there’s no zoo more interesting than it.</p>
+</li>
+</ul>
+<p>2.something is likely off.</p>
+<p>有些东西可能不对</p>
+<p>3.make sure your clean hair is actually clean.</p>
+<p><font color="red">句式：make sure + 句子 ，译为确保…</font></p>
+<p>4.I’m not in the mood.</p>
+<p>我没有心情</p>
+<p>5.what do you do for a living.</p>
+<p>你做什么工作来谋生</p>
+<p>6.help sb. out</p>
+<p>帮助某人走出困境</p>
+<p>7.But fewer can claim to be as stratified as Rome.</p>
+<p>但是很少可以和罗马一样层次分明</p>
+<p>8.Civilisations that have taken root here over millennia seem to justle for prominence at every turn.</p>
+<p>在这里扎根的千年文明似乎在每一个角落都在争夺着地位。</p>
+<p>句式：</p>
+<ul>
+<li>
+<p><font color="red">take root : 扎根，深入人心</font></p>
+<ul>
+<li>
+<p>Core socialist values should take root among the people.</p>
+</li>
+<li>
+<p>And those tales have taken root deep inside of me.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><font color="red">jostle for : 争夺，相当于compete for</font></p>
+<ul>
+<li>Ten candidates jostled to become leader of Britain’s Conservative Party, and thus the country’s next prime minister.</li>
+</ul>
+</li>
+<li>
+<p><font color="red">at every turn : 处处</font></p>
+</li>
+</ul>
+<p>9.But it is sometimes a disadvantage to be so guarded.</p>
+<p>但是有时候过于保守是一种缺点</p>
+<p>句式：</p>
+<ul>
+<li>
+<p><font color="red">it is + 形容词 + to do : 做某事（形容词）</font></p>
+<ul>
+<li>it is stuip to go to the hospital.</li>
+</ul>
+</li>
+<li>
+<p><font color="red">it is + a/an + 名词 +to do : 做某事是一个（名词）</font></p>
+<ul>
+<li>it is a stuip thing to go to the hospital.</li>
+</ul>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>英语</category>
+      </categories>
+      <tags>
+        <tag>英语</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>英语六级陌生词（上）</title>
     <url>/2022/09/02/%E8%8B%B1%E8%AF%AD%E5%85%AD%E7%BA%A7%E9%99%8C%E7%94%9F%E8%AF%8D/</url>
     <content><![CDATA[<p>最近正在准备英语六级，遇到了一系列我平时不怎么遇到的陌生的单词，在这里进行归纳统计一下，以加深印象。</p>
@@ -622,483 +1099,6 @@ plt.show()
 </tbody>
 </table>
 ]]></content>
-      <tags>
-        <tag>英语</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Hello World</title>
-    <url>/2022/09/02/hello-world/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start">Quick Start</h2>
-<span id="more"></span>
-<h3 id="Create-a-new-post">Create a new post</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server">Run server</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files">Generate static files</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites">Deploy to remote sites</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-]]></content>
-  </entry>
-  <entry>
-    <title>You Only Look Once文章精读</title>
-    <url>/2022/09/03/You-Only-Look-Once%E6%96%87%E7%AB%A0%E7%B2%BE%E8%AF%BB/</url>
-    <content><![CDATA[<h1>You Only Look Once</h1>
-<h2 id="1-简介">1.简介</h2>
-<blockquote>
-<p>You Only Look Once（YOLO），是一种神经网络模型，能够对给定图片中的物体进行锚定和识别。</p>
-</blockquote>
-<span id="more"></span>
-<h2 id="2-工作原理">2.工作原理</h2>
-<img src="./images/1.jpg">
-<p>首先对输入的图片进行分割，分割成$S*S$个grid，对每个grid进行检测，检测物体在该grid的概率$Pr(Object)$，代表物体落在该grid的概率，物体的中心往往落在概率最大的grid，每个grid预测$B$个边框(bounding box)，每个边框对应一个$confidence$，其计算公式为：$confidence=Pr(Object)*IOU_{pred}<sup>{truth}$，$IOU_{pred}</sup>{truth}$表示predicted box和ground truth的重叠程度。</p>
-<p>每个bounding box由五个参数组成：$x,y,w,h,confidence$，$(x,y)$代表中心坐标，$w$和$h$代表宽度和高度</p>
-<p>每个grid包含$C$个概率$Pr(Class_i|Object)$，$1&lt;=i&lt;=C$，代表每个类落在该grid的概率。每个网格只需求一次概率即可，不需要对$B$个bounding box进行求概率。所以输出特征向量的维度为：$S<em>S</em>(B*5+C)$，所以每个bounding box对于每个类的$confidence$计算公式为：$Pr(Class_i|Object)*Pr(Object)*IOU_{pred}<sup>{truth}=Pr(Class_i)*IOU_{pred}</sup>{truth}$</p>
-<p>$1&lt;=i&lt;=C$，假如第$i$类物体的中心落在某一个grid中，则该grid的$Pr(Class_i)=1$，否则$=0$，假如$Pr(Class_i)=1$，那么第$i$类物体的识别工作就交给该grid来做。其他的grid都不进行第$i$类物体的识别。而识别的工作可以交给现代最好的$CNN$来做。</p>
-<p>而锚定物体的工作可以使用$Bounding\ Box\ Regression$来解决。利用这个方法可以用bounding box拟合ground truth。</p>
-<p>在YOLO v1中，参数一般这样取：</p>
-<img src="./images/2.jpg">
-<h2 id="3-YOLO-v1的网络结构">3.YOLO v1的网络结构</h2>
-<p>这是YOLO v1的网络结构：</p>
-<img src="./images/3.jpg">
-<h2 id="4-YOLO-v1的损失函数">4.YOLO v1的损失函数</h2>
-<p>这是YOLO v1的损失函数：</p>
-<img src="./images/4.jpg">
-<p>损失函数只针对于那些包含物体中心的grid来展开计算的。</p>
-<p>绿色方框中的公式为什么要使用根号？因为想该模型能在大物体处理的时候拥有更小的$deviation$。</p>
-<p>对于YOLO v1来说，$λ_{coord}$和$λ_{noobj}$的参数设置如下：</p>
-<img src="./images/5.jpg">
-<p>因为$oobj$(不包含物体中心的grid)占大多数，这样设计参数就是为了降低$noobj$对损失函数的影响。</p>
-<h2 id="5-模型比较">5.模型比较</h2>
-<p>YOLO v1和R-CNN的比较：</p>
-<img src="./images/6.jpg">
-]]></content>
-      <categories>
-        <category>深度学习</category>
-      </categories>
-      <tags>
-        <tag>深度学习</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>英语六级陌生词（下）</title>
-    <url>/2022/09/02/%E8%8B%B1%E8%AF%AD%E5%85%AD%E7%BA%A7%E9%99%8C%E7%94%9F%E8%AF%8D%EF%BC%88%E4%B8%8B%EF%BC%89/</url>
-    <content><![CDATA[<p>这篇文章接着上一篇文章，继续总结一些英语六级中不常见过的单词。</p>
-<span id="more"></span>
-<table>
-<thead>
-<tr>
-<th></th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>likewise</td>
-<td>adv.同样地</td>
-</tr>
-<tr>
-<td>logistics</td>
-<td>n.物流</td>
-</tr>
-<tr>
-<td>loophole</td>
-<td>n.漏洞</td>
-</tr>
-<tr>
-<td>loot</td>
-<td>n.战利品  vt./vi.打劫</td>
-</tr>
-<tr>
-<td>mar</td>
-<td>vt.损毁</td>
-</tr>
-<tr>
-<td>marshal</td>
-<td>n.元帅</td>
-</tr>
-<tr>
-<td>metabolism</td>
-<td>n.新陈代谢</td>
-</tr>
-<tr>
-<td>metaphor</td>
-<td>n.暗喻</td>
-</tr>
-<tr>
-<td>meticulous</td>
-<td>adj.小心的</td>
-</tr>
-<tr>
-<td>midwife</td>
-<td>n.助产员</td>
-</tr>
-<tr>
-<td>mindset</td>
-<td>n.观念模式</td>
-</tr>
-<tr>
-<td>morale</td>
-<td>n.士气，斗志</td>
-</tr>
-<tr>
-<td>mow</td>
-<td>vt./vi.修剪</td>
-</tr>
-<tr>
-<td>mug</td>
-<td>n.马克杯</td>
-</tr>
-<tr>
-<td>mule</td>
-<td>n.骡子</td>
-</tr>
-<tr>
-<td>mutter</td>
-<td>n./vt./vi.嘀咕</td>
-</tr>
-<tr>
-<td>navy</td>
-<td>n.海军</td>
-</tr>
-<tr>
-<td>nitrogen</td>
-<td>n.氮气</td>
-</tr>
-<tr>
-<td>notwithstanding</td>
-<td>prep./adv.尽管</td>
-</tr>
-<tr>
-<td>obese</td>
-<td>adj.肥胖的</td>
-</tr>
-<tr>
-<td>onset</td>
-<td>n.开端</td>
-</tr>
-<tr>
-<td>oppress</td>
-<td>vt.压迫，压制</td>
-</tr>
-<tr>
-<td>optic</td>
-<td>adj.光学的</td>
-</tr>
-<tr>
-<td>outing</td>
-<td>n.远足</td>
-</tr>
-<tr>
-<td>overhaul</td>
-<td>vt.彻底检修  n.检修</td>
-</tr>
-<tr>
-<td>partisan</td>
-<td>n.坚定的支持者</td>
-</tr>
-<tr>
-<td>pat</td>
-<td>n./vt.轻拍</td>
-</tr>
-<tr>
-<td>peddle</td>
-<td>vt.销售，传播</td>
-</tr>
-<tr>
-<td>peep</td>
-<td>vi.窥视，偷看</td>
-</tr>
-<tr>
-<td>pesticide</td>
-<td>n.杀虫剂</td>
-</tr>
-<tr>
-<td>petition</td>
-<td>n.请愿书，申请书  vt./vi.恳请</td>
-</tr>
-<tr>
-<td>pierce</td>
-<td>vt.扎破  vt./vi.冲破</td>
-</tr>
-<tr>
-<td>pillar</td>
-<td>n.支柱，柱子</td>
-</tr>
-<tr>
-<td>pit</td>
-<td>n.深坑，矿井</td>
-</tr>
-<tr>
-<td>plaza</td>
-<td>n.广场，购物中心</td>
-</tr>
-<tr>
-<td>plough</td>
-<td>n./vt./vi.犁</td>
-</tr>
-<tr>
-<td>plumber</td>
-<td>n.水暖工</td>
-</tr>
-<tr>
-<td>plumbing</td>
-<td>n.管道系统</td>
-</tr>
-<tr>
-<td>podcast</td>
-<td>n.博客</td>
-</tr>
-<tr>
-<td>portfolio</td>
-<td>n.文件夹</td>
-</tr>
-<tr>
-<td>poster</td>
-<td>n.画报</td>
-</tr>
-<tr>
-<td>pot</td>
-<td>n.锅，壶</td>
-</tr>
-<tr>
-<td>pottery</td>
-<td>n.陶器</td>
-</tr>
-<tr>
-<td>premium</td>
-<td>n.保险费，额外费用  adj.优质的</td>
-</tr>
-<tr>
-<td>prestige</td>
-<td>n.声望</td>
-</tr>
-<tr>
-<td>profile</td>
-<td>n.轮廓，概述  vt.扼要介绍</td>
-</tr>
-<tr>
-<td>prop</td>
-<td>n.道具支撑物  vt.支撑</td>
-</tr>
-<tr>
-<td>proverb</td>
-<td>n.谚语</td>
-</tr>
-<tr>
-<td>punch</td>
-<td>vt.拳打  vi.打孔</td>
-</tr>
-<tr>
-<td>pyramid</td>
-<td>n.金字塔</td>
-</tr>
-<tr>
-<td>quota</td>
-<td>n.配额，定额</td>
-</tr>
-<tr>
-<td>rally</td>
-<td>n.公众集会</td>
-</tr>
-<tr>
-<td>recede</td>
-<td>vi.逐渐减弱</td>
-</tr>
-<tr>
-<td>rehabilitate</td>
-<td>vt.使康复</td>
-</tr>
-<tr>
-<td>relentless</td>
-<td>adj.不停的，严格的</td>
-</tr>
-<tr>
-<td>retreat</td>
-<td>vi./n.退却，撤退</td>
-</tr>
-<tr>
-<td>rib</td>
-<td>n.肋骨</td>
-</tr>
-<tr>
-<td>rip</td>
-<td>vt.撕破</td>
-</tr>
-<tr>
-<td>rod</td>
-<td>n.杆</td>
-</tr>
-<tr>
-<td>saddle</td>
-<td>n.马鞍  vt.给…装马鞍</td>
-</tr>
-<tr>
-<td>sarcasm</td>
-<td>n.讽刺</td>
-</tr>
-<tr>
-<td>segregate</td>
-<td>vt.分隔</td>
-</tr>
-<tr>
-<td>servant</td>
-<td>n.仆人</td>
-</tr>
-<tr>
-<td>shorthand</td>
-<td>n.速记</td>
-</tr>
-<tr>
-<td>shrimp</td>
-<td>n.虾</td>
-</tr>
-<tr>
-<td>sinister</td>
-<td>adj.邪恶的</td>
-</tr>
-<tr>
-<td>socket</td>
-<td>n.插座，插口</td>
-</tr>
-<tr>
-<td>sodium</td>
-<td>n.钠</td>
-</tr>
-<tr>
-<td>summit</td>
-<td>n.最高点，会议</td>
-</tr>
-<tr>
-<td>superficial</td>
-<td>adj.粗略的，表面的</td>
-</tr>
-<tr>
-<td>thrift</td>
-<td>n.节俭，节约</td>
-</tr>
-<tr>
-<td>toil</td>
-<td>n.苦工  vi.辛勤耕种</td>
-</tr>
-<tr>
-<td>tract</td>
-<td>n.传单，大片（土地，森林）</td>
-</tr>
-<tr>
-<td>tread</td>
-<td>vt./vi.踩踏  n.步法</td>
-</tr>
-<tr>
-<td>trim</td>
-<td>vt.修剪  n.镶边  adj.苗条的</td>
-</tr>
-<tr>
-<td>trolley</td>
-<td>n.小推车</td>
-</tr>
-<tr>
-<td>verge</td>
-<td>n.绿地</td>
-</tr>
-<tr>
-<td>vicinity</td>
-<td>n.邻近地区</td>
-</tr>
-<tr>
-<td>webcast</td>
-<td>n.网络直播</td>
-</tr>
-<tr>
-<td>wedge</td>
-<td>n.楔子</td>
-</tr>
-</tbody>
-</table>
-]]></content>
-      <tags>
-        <tag>英语</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>英语好句积累（1）</title>
-    <url>/2022/09/03/%E8%8B%B1%E8%AF%AD%E5%A5%BD%E5%8F%A5%E5%88%86%E6%9E%90/</url>
-    <content><![CDATA[<p>1.There’s no feeling more frustrating than having dirty hair, showering and emerging with your hair greasy after washing it.</p>
-<p>句式：<font color="red">there’s no + 名词 +more + 形容词 + than + A(名词).</font></p>
-<span id="more"></span>
-<p><font color="green">for example:</font></p>
-<ul>
-<li>
-<p>there’s no people more famous than him.</p>
-</li>
-<li>
-<p>there’s no zoo more interesting than it.</p>
-</li>
-</ul>
-<p>2.something is likely off.</p>
-<p>有些东西可能不对</p>
-<p>3.make sure your clean hair is actually clean.</p>
-<p><font color="red">句式：make sure + 句子 ，译为确保…</font></p>
-<p>4.I’m not in the mood.</p>
-<p>我没有心情</p>
-<p>5.what do you do for a living.</p>
-<p>你做什么工作来谋生</p>
-<p>6.help sb. out</p>
-<p>帮助某人走出困境</p>
-<p>7.But fewer can claim to be as stratified as Rome.</p>
-<p>但是很少可以和罗马一样层次分明</p>
-<p>8.Civilisations that have taken root here over millennia seem to justle for prominence at every turn.</p>
-<p>在这里扎根的千年文明似乎在每一个角落都在争夺着地位。</p>
-<p>句式：</p>
-<ul>
-<li>
-<p><font color="red">take root : 扎根，深入人心</font></p>
-<ul>
-<li>
-<p>Core socialist values should take root among the people.</p>
-</li>
-<li>
-<p>And those tales have taken root deep inside of me.</p>
-</li>
-</ul>
-</li>
-<li>
-<p><font color="red">jostle for : 争夺，相当于compete for</font></p>
-<ul>
-<li>Ten candidates jostled to become leader of Britain’s Conservative Party, and thus the country’s next prime minister.</li>
-</ul>
-</li>
-<li>
-<p><font color="red">at every turn : 处处</font></p>
-</li>
-</ul>
-<p>9.But it is sometimes a disadvantage to be so guarded.</p>
-<p>但是有时候过于保守是一种缺点</p>
-<p>句式：</p>
-<ul>
-<li>
-<p><font color="red">it is + 形容词 + to do : 做某事（形容词）</font></p>
-<ul>
-<li>it is stuip to go to the hospital.</li>
-</ul>
-</li>
-<li>
-<p><font color="red">it is + a/an + 名词 +to do : 做某事是一个（名词）</font></p>
-<ul>
-<li>it is a stuip thing to go to the hospital.</li>
-</ul>
-</li>
-</ul>
-]]></content>
-      <categories>
-        <category>英语</category>
-      </categories>
       <tags>
         <tag>英语</tag>
       </tags>
