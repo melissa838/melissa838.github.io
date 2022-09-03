@@ -1,65 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Hello World</title>
-    <url>/2022/09/02/hello-world/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start">Quick Start</h2>
-<span id="more"></span>
-<h3 id="Create-a-new-post">Create a new post</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server">Run server</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files">Generate static files</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites">Deploy to remote sites</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-]]></content>
-  </entry>
-  <entry>
-    <title>You Only Look Once文章精读</title>
-    <url>/2022/09/03/You-Only-Look-Once%E6%96%87%E7%AB%A0%E7%B2%BE%E8%AF%BB/</url>
-    <content><![CDATA[<h1>You Only Look Once</h1>
-<h2 id="1-简介">1.简介</h2>
-<blockquote>
-<p>You Only Look Once（YOLO），是一种神经网络模型，能够对给定图片中的物体进行锚定和识别。</p>
-</blockquote>
-<h2 id="2-工作原理">2.工作原理</h2>
-<img title="null" src="file:///C:/Users/jimore/Downloads/1.jpg" alt="null">
-<p>首先对输入的图片进行分割，分割成$S*S$个grid，对每个grid进行检测，检测物体在该grid的概率$Pr(Object)$，代表物体落在该grid的概率，物体的中心往往落在概率最大的grid，每个grid预测$B$个边框(bounding box)，每个边框对应一个$confidence$，其计算公式为：$confidence=Pr(Object)*IOU_{pred}<sup>{truth}$，$IOU_{pred}</sup>{truth}$表示predicted box和ground truth的重叠程度。</p>
-<p>每个bounding box由五个参数组成：$x,y,w,h,confidence$，$(x,y)$代表中心坐标，$w$和$h$代表宽度和高度</p>
-<p>每个grid包含$C$个概率$Pr(Class_i|Object)$，$1&lt;=i&lt;=C$，代表每个类落在该grid的概率。每个网格只需求一次概率即可，不需要对$B$个bounding box进行求概率。所以输出特征向量的维度为：$S<em>S</em>(B*5+C)$，所以每个bounding box对于每个类的$confidence$计算公式为：$Pr(Class_i|Object)*Pr(Object)*IOU_{pred}<sup>{truth}=Pr(Class_i)*IOU_{pred}</sup>{truth}$</p>
-<p>$1&lt;=i&lt;=C$，假如第$i$类物体的中心落在某一个grid中，则该grid的$Pr(Class_i)=1$，否则$=0$，假如$Pr(Class_i)=1$，那么第$i$类物体的识别工作就交给该grid来做。其他的grid都不进行第$i$类物体的识别。而识别的工作可以交给现代最好的$CNN$来做。</p>
-<p>而锚定物体的工作可以使用$Bounding\ Box\ Regression$来解决。利用这个方法可以用bounding box拟合ground truth。</p>
-<p>在YOLO v1中，参数一般这样取：</p>
-<img title="null" src="file:///C:/Users/jimore/Downloads/2.jpg" alt="null">
-<h2 id="3-YOLO-v1的网络结构">3.YOLO v1的网络结构</h2>
-<p>这是YOLO v1的网络结构：</p>
-<img title="null" src="file:///C:/Users/jimore/Downloads/3.jpg" alt="null">
-<h2 id="4-YOLO-v1的损失函数">4.YOLO v1的损失函数</h2>
-<p>这是YOLO v1的损失函数：</p>
-<img title="null" src="file:///C:/Users/jimore/Downloads/4.jpg" alt="null">
-<p>损失函数只针对于那些包含物体中心的grid来展开计算的。</p>
-<p>绿色方框中的公式为什么要使用根号？因为想该模型能在大物体处理的时候拥有更小的$deviation$。</p>
-<p>对于YOLO v1来说，$λ_{coord}$和$λ_{noobj}$的参数设置如下：</p>
-<img title="null" src="file:///C:/Users/jimore/Downloads/5.jpg" alt="null">
-<p>因为$oobj$(不包含物体中心的grid)占大多数，这样设计参数就是为了降低$noobj$对损失函数的影响。</p>
-<h2 id="5-模型比较">5.模型比较</h2>
-<p>YOLO v1和R-CNN的比较：</p>
-<img title="null" src="file:///C:/Users/jimore/Downloads/6.jpg" alt="null">
-]]></content>
-      <categories>
-        <category>深度学习</category>
-      </categories>
-      <tags>
-        <tag>深度学习</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>SVM简介</title>
     <url>/2022/09/02/SVM%E7%AE%80%E4%BB%8B/</url>
     <content><![CDATA[<h1>SVM</h1>
@@ -152,6 +93,65 @@ plt.show()
       <tags>
         <tag>深度学习</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>You Only Look Once文章精读</title>
+    <url>/2022/09/03/You-Only-Look-Once%E6%96%87%E7%AB%A0%E7%B2%BE%E8%AF%BB/</url>
+    <content><![CDATA[<h1>You Only Look Once</h1>
+<h2 id="1-简介">1.简介</h2>
+<blockquote>
+<p>You Only Look Once（YOLO），是一种神经网络模型，能够对给定图片中的物体进行锚定和识别。</p>
+</blockquote>
+<h2 id="2-工作原理">2.工作原理</h2>
+<img src="./images/1.jpg">
+<p>首先对输入的图片进行分割，分割成$S*S$个grid，对每个grid进行检测，检测物体在该grid的概率$Pr(Object)$，代表物体落在该grid的概率，物体的中心往往落在概率最大的grid，每个grid预测$B$个边框(bounding box)，每个边框对应一个$confidence$，其计算公式为：$confidence=Pr(Object)*IOU_{pred}<sup>{truth}$，$IOU_{pred}</sup>{truth}$表示predicted box和ground truth的重叠程度。</p>
+<p>每个bounding box由五个参数组成：$x,y,w,h,confidence$，$(x,y)$代表中心坐标，$w$和$h$代表宽度和高度</p>
+<p>每个grid包含$C$个概率$Pr(Class_i|Object)$，$1&lt;=i&lt;=C$，代表每个类落在该grid的概率。每个网格只需求一次概率即可，不需要对$B$个bounding box进行求概率。所以输出特征向量的维度为：$S<em>S</em>(B*5+C)$，所以每个bounding box对于每个类的$confidence$计算公式为：$Pr(Class_i|Object)*Pr(Object)*IOU_{pred}<sup>{truth}=Pr(Class_i)*IOU_{pred}</sup>{truth}$</p>
+<p>$1&lt;=i&lt;=C$，假如第$i$类物体的中心落在某一个grid中，则该grid的$Pr(Class_i)=1$，否则$=0$，假如$Pr(Class_i)=1$，那么第$i$类物体的识别工作就交给该grid来做。其他的grid都不进行第$i$类物体的识别。而识别的工作可以交给现代最好的$CNN$来做。</p>
+<p>而锚定物体的工作可以使用$Bounding\ Box\ Regression$来解决。利用这个方法可以用bounding box拟合ground truth。</p>
+<p>在YOLO v1中，参数一般这样取：</p>
+<img src="./images/2.jpg">
+<h2 id="3-YOLO-v1的网络结构">3.YOLO v1的网络结构</h2>
+<p>这是YOLO v1的网络结构：</p>
+<img src="./images/3.jpg">
+<h2 id="4-YOLO-v1的损失函数">4.YOLO v1的损失函数</h2>
+<p>这是YOLO v1的损失函数：</p>
+<img src="./images/4.jpg">
+<p>损失函数只针对于那些包含物体中心的grid来展开计算的。</p>
+<p>绿色方框中的公式为什么要使用根号？因为想该模型能在大物体处理的时候拥有更小的$deviation$。</p>
+<p>对于YOLO v1来说，$λ_{coord}$和$λ_{noobj}$的参数设置如下：</p>
+<img src="./images/5.jpg">
+<p>因为$oobj$(不包含物体中心的grid)占大多数，这样设计参数就是为了降低$noobj$对损失函数的影响。</p>
+<h2 id="5-模型比较">5.模型比较</h2>
+<p>YOLO v1和R-CNN的比较：</p>
+<img src="./images/6.jpg">
+]]></content>
+      <categories>
+        <category>深度学习</category>
+      </categories>
+      <tags>
+        <tag>深度学习</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hello World</title>
+    <url>/2022/09/02/hello-world/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="Quick-Start">Quick Start</h2>
+<span id="more"></span>
+<h3 id="Create-a-new-post">Create a new post</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server">Run server</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files">Generate static files</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites">Deploy to remote sites</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+]]></content>
   </entry>
   <entry>
     <title>英语六级陌生词（上）</title>
