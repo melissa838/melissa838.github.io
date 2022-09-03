@@ -242,12 +242,12 @@ mjx-container[display="true"] + br {
   </li>
         <li class="menu-item menu-item-categories">
 
-    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">1</span></a>
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">2</span></a>
 
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">6</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">7</span></a>
 
   </li>
         <li class="menu-item menu-item-resources">
@@ -305,6 +305,103 @@ mjx-container[display="true"] + br {
 
           <div class="content index posts-expand">
             
+      
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/09/03/You-Only-Look-Once%E6%96%87%E7%AB%A0%E7%B2%BE%E8%AF%BB/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/hh.jpg">
+      <meta itemprop="name" content="jimore">
+      <meta itemprop="description" content="Don't let the dream just be the dream">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="jimore">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/09/03/You-Only-Look-Once%E6%96%87%E7%AB%A0%E7%B2%BE%E8%AF%BB/" class="post-title-link" itemprop="url">You Only Look Once文章精读</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2022-09-03 15:37:29 / 修改时间：17:23:04" itemprop="dateCreated datePublished" datetime="2022-09-03T15:37:29+08:00">2022-09-03</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">深度学习</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1>You Only Look Once</h1>
+<h2 id="1-简介">1.简介</h2>
+<blockquote>
+<p>You Only Look Once（YOLO），是一种神经网络模型，能够对给定图片中的物体进行锚定和识别。</p>
+</blockquote>
+<h2 id="2-工作原理">2.工作原理</h2>
+<img title="null" src="file:///C:/Users/jimore/Downloads/1.jpg" alt="null">
+<p>首先对输入的图片进行分割，分割成$S*S$个grid，对每个grid进行检测，检测物体在该grid的概率$Pr(Object)$，代表物体落在该grid的概率，物体的中心往往落在概率最大的grid，每个grid预测$B$个边框(bounding box)，每个边框对应一个$confidence$，其计算公式为：$confidence=Pr(Object)*IOU_{pred}<sup>{truth}$，$IOU_{pred}</sup>{truth}$表示predicted box和ground truth的重叠程度。</p>
+<p>每个bounding box由五个参数组成：$x,y,w,h,confidence$，$(x,y)$代表中心坐标，$w$和$h$代表宽度和高度</p>
+<p>每个grid包含$C$个概率$Pr(Class_i|Object)$，$1&lt;=i&lt;=C$，代表每个类落在该grid的概率。每个网格只需求一次概率即可，不需要对$B$个bounding box进行求概率。所以输出特征向量的维度为：$S<em>S</em>(B*5+C)$，所以每个bounding box对于每个类的$confidence$计算公式为：$Pr(Class_i|Object)*Pr(Object)*IOU_{pred}<sup>{truth}=Pr(Class_i)*IOU_{pred}</sup>{truth}$</p>
+<p>$1&lt;=i&lt;=C$，假如第$i$类物体的中心落在某一个grid中，则该grid的$Pr(Class_i)=1$，否则$=0$，假如$Pr(Class_i)=1$，那么第$i$类物体的识别工作就交给该grid来做。其他的grid都不进行第$i$类物体的识别。而识别的工作可以交给现代最好的$CNN$来做。</p>
+<p>而锚定物体的工作可以使用$Bounding\ Box\ Regression$来解决。利用这个方法可以用bounding box拟合ground truth。</p>
+<p>在YOLO v1中，参数一般这样取：</p>
+<img title="null" src="file:///C:/Users/jimore/Downloads/2.jpg" alt="null">
+<h2 id="3-YOLO-v1的网络结构">3.YOLO v1的网络结构</h2>
+<p>这是YOLO v1的网络结构：</p>
+<img title="null" src="file:///C:/Users/jimore/Downloads/3.jpg" alt="null">
+<h2 id="4-YOLO-v1的损失函数">4.YOLO v1的损失函数</h2>
+<p>这是YOLO v1的损失函数：</p>
+<img title="null" src="file:///C:/Users/jimore/Downloads/4.jpg" alt="null">
+<p>损失函数只针对于那些包含物体中心的grid来展开计算的。</p>
+<p>绿色方框中的公式为什么要使用根号？因为想该模型能在大物体处理的时候拥有更小的$deviation$。</p>
+<p>对于YOLO v1来说，$λ_{coord}$和$λ_{noobj}$的参数设置如下：</p>
+<img title="null" src="file:///C:/Users/jimore/Downloads/5.jpg" alt="null">
+<p>因为$oobj$(不包含物体中心的grid)占大多数，这样设计参数就是为了降低$noobj$对损失函数的影响。</p>
+<h2 id="5-模型比较">5.模型比较</h2>
+<p>YOLO v1和R-CNN的比较：</p>
+<img title="null" src="file:///C:/Users/jimore/Downloads/6.jpg" alt="null">
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+ 
+
       
   
   
@@ -832,12 +929,12 @@ mjx-container[display="true"] + br {
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">6</span>
+          <span class="site-state-item-count">7</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
-        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-count">2</span>
         <span class="site-state-item-name">分类</span>
       </div>
       <div class="site-state-item site-state-tags">
@@ -879,7 +976,7 @@ mjx-container[display="true"] + br {
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共11.3k字</span>
+  <span class="post-count">博客全站共11.9k字</span>
 </div>
 
 
@@ -914,7 +1011,7 @@ $(document).ready(function() {
 <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共11.3k字</span>
+  <span class="post-count">博客全站共11.9k字</span>
   <span class="post-meta-divider">|</span>
   本站总访问量<span id="busuanzi_value_site_pv"></span>次
   <span class="post-meta-divider">|</span>
