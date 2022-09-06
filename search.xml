@@ -32,26 +32,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Relu简介</title>
-    <url>/2022/09/04/Relu%E7%AE%80%E4%BB%8B/</url>
-    <content><![CDATA[<h1>Relu</h1>
-<p><strong>Relu(Linear rectification function)是深度学习中的一种激活函数</strong></p>
-<p>其函数表达式为：f(x)=max(0,x)</p>
-<span id="more"></span>
-<p>其函数图像为：</p>
-<p><img src="https://blog.dotcpp.com/ueditor/php/upload/image/20220728/1658974312835260.jpg" alt="2269307-20220216160502738-1292151540.jpg" title="1658974312835260.jpg"></p>
-<p>该函数主要用于cnn卷积神经网络的卷积(Convolution)和池化(MaxPooling)中，因为经过卷积运算和池化运算后的图像矩阵的值有正有负，这难免造成了数据规模变得很大，那么经过Relu函数之后的图像矩阵中的值只留下正数的值。</p>
-<p><img src="https://blog.dotcpp.com/ueditor/php/upload/image/20220728/1658974326713798.gif" alt="2269307-20220216161412033-1012866655.gif" title="1658974326713798.gif"></p>
-<p><strong>优点：</strong></p>
-<p>1.极大地减少了数据量</p>
-<p>2.在一定程度上减少了运算量</p>
-<p>3.避免层数增加。</p>
-]]></content>
-      <tags>
-        <tag>深度学习</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>SVM简介</title>
     <url>/2022/09/02/SVM%E7%AE%80%E4%BB%8B/</url>
     <content><![CDATA[<h1>SVM</h1>
@@ -122,7 +102,28 @@
 <p>对应参数</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">w = model.coef_</span><br><span class="line"><span class="built_in">print</span>(<span class="string">"w:"</span>, w)</span><br><span class="line">b = model.intercept_</span><br><span class="line"><span class="built_in">print</span>(<span class="string">"b:"</span>, b)</span><br></pre></td></tr></table></figure>
 <p>画出结果图</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span> w[<span class="number">0</span>, <span class="number">1</span>] != <span class="number">0</span>:</span><br><span class="line">    xx = np.arange(<span class="number">0</span>, <span class="number">20</span>, <span class="number">0.1</span>)</span><br><span class="line">    <span class="comment"># optimal boundary</span></span><br><span class="line">    yy = -w[<span class="number">0</span>, <span class="number">0</span>]/w[<span class="number">0</span>, <span class="number">1</span>] * xx - b/w[<span class="number">0</span>, <span class="number">1</span>]</span><br><span class="line">    plt.scatter(xx, yy, s=<span class="number">4</span>)</span><br><span class="line">    <span class="comment"># support vector</span></span><br><span class="line">    <span class="comment"># b1 = Support_vector[0, 1] + w[0, 0]/w[0, 1] * Support_vector[0, 0]</span></span><br><span class="line">    <span class="comment"># b2 = Support_vector[1, 1] + w[0, 0]/w[0, 1] * Support_vector[1, 0]</span></span><br><span class="line">    <span class="comment"># yy1 = -w[0, 0] / w[0, 1] * xx + b1</span></span><br><span class="line">    <span class="comment"># plt.scatter(xx, yy1, s=4)</span></span><br><span class="line">    <span class="comment"># yy2 = -w[0, 0] / w[0, 1] * xx + b2</span></span><br><span class="line">    <span class="comment"># plt.scatter(xx, yy2, s=4)</span></span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    xx = np.ones(<span class="number">100</span>) * (-b) / w[<span class="number">0</span>, <span class="number">0</span>]</span><br><span class="line">    yy = np.arange(<span class="number">0</span>, <span class="number">10</span>, <span class="number">0.1</span>)</span><br><span class="line">    plt.scatter(xx, yy)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
 <pre><code class="language-python"></code></pre>
+]]></content>
+      <tags>
+        <tag>深度学习</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Relu简介</title>
+    <url>/2022/09/04/Relu%E7%AE%80%E4%BB%8B/</url>
+    <content><![CDATA[<h1>Relu</h1>
+<p><strong>Relu(Linear rectification function)是深度学习中的一种激活函数</strong></p>
+<p>其函数表达式为：f(x)=max(0,x)</p>
+<span id="more"></span>
+<p>其函数图像为：</p>
+<p><img src="https://blog.dotcpp.com/ueditor/php/upload/image/20220728/1658974312835260.jpg" alt="2269307-20220216160502738-1292151540.jpg" title="1658974312835260.jpg"></p>
+<p>该函数主要用于cnn卷积神经网络的卷积(Convolution)和池化(MaxPooling)中，因为经过卷积运算和池化运算后的图像矩阵的值有正有负，这难免造成了数据规模变得很大，那么经过Relu函数之后的图像矩阵中的值只留下正数的值。</p>
+<p><img src="https://blog.dotcpp.com/ueditor/php/upload/image/20220728/1658974326713798.gif" alt="2269307-20220216161412033-1012866655.gif" title="1658974326713798.gif"></p>
+<p><strong>优点：</strong></p>
+<p>1.极大地减少了数据量</p>
+<p>2.在一定程度上减少了运算量</p>
+<p>3.避免层数增加。</p>
 ]]></content>
       <tags>
         <tag>深度学习</tag>
@@ -1551,36 +1552,6 @@
       </tags>
   </entry>
   <entry>
-    <title>计算机组成原理知识点</title>
-    <url>/2022/09/06/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E7%9F%A5%E8%AF%86%E7%82%B9/</url>
-    <content><![CDATA[<h2 id="1-计算机发展历程及基本组成">1.计算机发展历程及基本组成</h2>
-<ul>
-<li>
-<p>第一台计算机：ENIAC</p>
-</li>
-<li>
-<p>"PDP-8"首次采用总线结构</p>
-</li>
-</ul>
-<span id="more"></span>
-<p><strong>冯·诺伊曼结构计算机的特点：</strong></p>
-<img src="https://melissa838.github.io/images/21.jpg">
-<p>[以运算器为核心]</p>
-<p><strong>现代计算机的特点：</strong></p>
-<p><img src="https://melissa838.github.io/images/22.jpg" alt=""></p>
-<p><img src="https://melissa838.github.io/images/23.jpg" alt=""></p>
-<p>[以存储器为核心]</p>
-<h2 id="2-指令的执行过程">2.指令的执行过程</h2>
-<p><img src="https://melissa838.github.io/images/24.jpg" alt=""></p>
-<img src="https://melissa838.github.io/images/27.jpg">
-<p>上述过程帮助理解：</p>
-<p><img src="https://melissa838.github.io/images/25.jpg" alt=""></p>
-<h2 id="3-系统的硬件组成">3.系统的硬件组成</h2>
-<p><img src="https://melissa838.github.io/images/26.jpg" alt=""></p>
-<p>主要由3部分组成：<font color="red">CPU</font>，<font color="red">存储器</font>，<font color="red">I/O设备</font></p>
-]]></content>
-  </entry>
-  <entry>
     <title>英语近似词助记</title>
     <url>/2022/09/05/%E8%8B%B1%E8%AF%AD%E8%BF%91%E4%BC%BC%E8%AF%8D%E5%8A%A9%E8%AE%B0/</url>
     <content><![CDATA[<p>I bought a <font color="blue">bouquet(花束)</font> to the splendid <font color="blue">banquet(盛宴)</font>.</p>
@@ -1612,6 +1583,36 @@
       <tags>
         <tag>英语</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>计算机组成原理知识点</title>
+    <url>/2022/09/06/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E7%9F%A5%E8%AF%86%E7%82%B9/</url>
+    <content><![CDATA[<h2 id="1-计算机发展历程及基本组成">1.计算机发展历程及基本组成</h2>
+<ul>
+<li>
+<p>第一台计算机：ENIAC</p>
+</li>
+<li>
+<p>"PDP-8"首次采用总线结构</p>
+</li>
+</ul>
+<span id="more"></span>
+<p><strong>冯·诺伊曼结构计算机的特点：</strong></p>
+<img src="https://melissa838.github.io/images/21.jpg">
+<p>[以运算器为核心]</p>
+<p><strong>现代计算机的特点：</strong></p>
+<p><img src="https://melissa838.github.io/images/22.jpg" alt=""></p>
+<p><img src="https://melissa838.github.io/images/23.jpg" alt=""></p>
+<p>[以存储器为核心]</p>
+<h2 id="2-指令的执行过程">2.指令的执行过程</h2>
+<p><img src="https://melissa838.github.io/images/24.jpg" alt=""></p>
+<img src="https://melissa838.github.io/images/27.jpg">
+<p>上述过程帮助理解：</p>
+<p><img src="https://melissa838.github.io/images/25.jpg" alt=""></p>
+<h2 id="3-系统的硬件组成">3.系统的硬件组成</h2>
+<p><img src="https://melissa838.github.io/images/26.jpg" alt=""></p>
+<p>主要由3部分组成：<font color="red">CPU</font>，<font color="red">存储器</font>，<font color="red">I/O设备</font></p>
+]]></content>
   </entry>
   <entry>
     <title>英语语法大全总结</title>
