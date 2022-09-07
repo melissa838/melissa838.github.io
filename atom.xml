@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2022-09-07T08:30:01.118Z</updated>
+  <updated>2022-09-07T08:50:31.082Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -21,18 +21,13 @@
     <link href="http://example.com/2022/09/07/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%8E%9F%E7%90%86/"/>
     <id>http://example.com/2022/09/07/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%8E%9F%E7%90%86/</id>
     <published>2022-09-07T08:24:30.000Z</published>
-    <updated>2022-09-07T08:30:01.118Z</updated>
+    <updated>2022-09-07T08:50:31.082Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="1-信息的概念">1.信息的概念</h2><p>信息是现实世界中各种事物的存在方式，运动形态以及它们之间的相互联系等要素在人脑中的反映，通过人脑的抽象后形成的概念。</p><h2 id="2-数据的概念">2.数据的概念</h2><p>数据是描述客观事物的可存储并具有明确意义的符号序列。</p><h2 id="3-数据与信息之间的关系">3.数据与信息之间的关系</h2><ul><li><p>数据是信息的载体</p></li><li><p>信息是数据的内涵</p></li></ul>]]></content>
+    <content type="html"><![CDATA[<h2 id="1-信息的概念">1.信息的概念</h2><p>信息是现实世界中各种事物的存在方式，运动形态以及它们之间的相互联系等要素在人脑中的反映，通过人脑的抽象后形成的概念。</p><span id="more"></span><h2 id="2-数据的概念">2.数据的概念</h2><p>数据是描述客观事物的可存储并具有明确意义的符号序列。</p><h2 id="3-数据与信息之间的关系">3.数据与信息之间的关系</h2><ul><li><p>数据是信息的载体</p></li><li><p>信息是数据的内涵</p></li></ul>]]></content>
     
     
-      
-      
     <summary type="html">&lt;h2 id=&quot;1-信息的概念&quot;&gt;1.信息的概念&lt;/h2&gt;
-&lt;p&gt;信息是现实世界中各种事物的存在方式，运动形态以及它们之间的相互联系等要素在人脑中的反映，通过人脑的抽象后形成的概念。&lt;/p&gt;
-&lt;h2 id=&quot;2-数据的概念&quot;&gt;2.数据的概念&lt;/h2&gt;
-&lt;p&gt;数据是描述客观事物的可</summary>
-      
+&lt;p&gt;信息是现实世界中各种事物的存在方式，运动形态以及它们之间的相互联系等要素在人脑中的反映，通过人脑的抽象后形成的概念。&lt;/p&gt;</summary>
     
     
     
