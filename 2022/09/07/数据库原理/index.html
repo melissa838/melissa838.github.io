@@ -22,18 +22,23 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="1.信息的概念 信息是现实世界中各种事物的存在方式，运动形态以及它们之间的相互联系等要素在人脑中的反映，通过人脑的抽象后形成的概念。">
+  <meta name="description" content="1.数据库系统概述 1.1.数据库的基本概念 1.1.1.信息 信息是现实世界中各种事物的存在方式，运动形态以及它们之间的相互联系等要素在人脑中的反映，通过人脑的抽象后形成的概念。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="数据库原理知识点">
 <meta property="og:url" content="http://example.com/2022/09/07/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%8E%9F%E7%90%86/index.html">
 <meta property="og:site_name" content="jimore">
-<meta property="og:description" content="1.信息的概念 信息是现实世界中各种事物的存在方式，运动形态以及它们之间的相互联系等要素在人脑中的反映，通过人脑的抽象后形成的概念。">
+<meta property="og:description" content="1.数据库系统概述 1.1.数据库的基本概念 1.1.1.信息 信息是现实世界中各种事物的存在方式，运动形态以及它们之间的相互联系等要素在人脑中的反映，通过人脑的抽象后形成的概念。">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://melissa838.github.io/images/71.jpg">
+<meta property="og:image" content="https://melissa838.github.io/images/72.jpg">
+<meta property="og:image" content="https://melissa838.github.io/images/73.jpg">
+<meta property="og:image" content="https://melissa838.github.io/images/74.jpg">
 <meta property="article:published_time" content="2022-09-07T08:24:30.000Z">
-<meta property="article:modified_time" content="2022-09-07T08:50:31.082Z">
+<meta property="article:modified_time" content="2022-09-08T09:41:28.209Z">
 <meta property="article:author" content="jimore">
 <meta property="article:tag" content="学习">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://melissa838.github.io/images/71.jpg">
 
 <link rel="canonical" href="http://example.com/2022/09/07/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%8E%9F%E7%90%86/">
 
@@ -332,10 +337,16 @@ mjx-container[display="true"] + br {
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2022-09-07 16:24:30 / 修改时间：16:50:31" itemprop="dateCreated datePublished" datetime="2022-09-07T16:24:30+08:00">2022-09-07</time>
+              <time title="创建时间：2022-09-07 16:24:30" itemprop="dateCreated datePublished" datetime="2022-09-07T16:24:30+08:00">2022-09-07</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-09-08 17:41:28" itemprop="dateModified" datetime="2022-09-08T17:41:28+08:00">2022-09-08</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -364,12 +375,14 @@ mjx-container[display="true"] + br {
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="1-信息的概念">1.信息的概念</h2>
+        <h1>1.数据库系统概述</h1>
+<h2 id="1-1-数据库的基本概念">1.1.数据库的基本概念</h2>
+<h3 id="1-1-1-信息">1.1.1.信息</h3>
 <p>信息是现实世界中各种事物的存在方式，运动形态以及它们之间的相互联系等要素在人脑中的反映，通过人脑的抽象后形成的概念。</p>
 <span id="more"></span>
-<h2 id="2-数据的概念">2.数据的概念</h2>
+<h3 id="1-1-2-数据的概念">1.1.2.数据的概念</h3>
 <p>数据是描述客观事物的可存储并具有明确意义的符号序列。</p>
-<h2 id="3-数据与信息之间的关系">3.数据与信息之间的关系</h2>
+<p><strong>数据与信息之间的关系</strong></p>
 <ul>
 <li>
 <p>数据是信息的载体</p>
@@ -378,6 +391,53 @@ mjx-container[display="true"] + br {
 <p>信息是数据的内涵</p>
 </li>
 </ul>
+<h3 id="1-1-3-数据库-DataBase-DB">1.1.3.数据库(DataBase, DB)</h3>
+<p>存储在计算机内部的、 有组织的、 可共享的、 相互关联的大量数据集合</p>
+<h3 id="1-1-4-数据库管理系统-DataBase-Management-System-DBMS">1.1.4. 数据库管理系统(DataBase Management System, DBMS)</h3>
+<p>位于用户与操作系统之间的, 对数据进行管理的软件。</p>
+<h3 id="1-1-5-数据库系统管理员-DataBase-Administator-DBA">1.1.5.数据库系统管理员(DataBase Administator, DBA)</h3>
+<p>数据库系统(DataBase System, DBS)</p>
+<h2 id="1-2-数据库技术的产生和发展">1.2.数据库技术的产生和发展</h2>
+<h3 id="1-2-1-人工管理阶段">1.2.1.人工管理阶段</h3>
+<p>数据和程序是一个整体</p>
+<img src="https://melissa838.github.io/images/71.jpg">
+<h3 id="1-2-2-文件管理阶段">1.2.2.文件管理阶段</h3>
+<p>数据和程序物理分离，数据有多种结构，一种数据只能被对应的程序访问</p>
+<img src="https://melissa838.github.io/images/72.jpg">
+<h3 id="1-2-3-数据库系统阶段">1.2.3.数据库系统阶段</h3>
+<p>数据的整体结构化，数据只有一种结构，能被所有程序访问</p>
+<img src="https://melissa838.github.io/images/73.jpg">
+<h2 id="1-3-数据库系统体系结构">1.3.数据库系统体系结构</h2>
+<p><strong>数据库系统的基本组成</strong></p>
+<p>DB: 数据库, 数据的汇集, 数据以一定组织形式存于存储介质(磁盘)上。<br>
+DBMS: 数据库管理系统, 负责管理数据库的专用软件。<br>
+DBA: 数据库管理员, 主要负责数据库的规划、 建立、 维护等工作。</p>
+<p>应用系统: 以数据库为基础的各种应用程序。<br>
+用户: 通过系统的用户接口使用数据库。</p>
+<h3 id="1-3-1-数据库-DB">1.3.1.数据库 DB</h3>
+<p>数据库是依照特定数据模型组织起来并存放在存储介质中的数据集合。</p>
+<h3 id="1-3-2-数据库管理系统-DBMS">1.3.2.数据库管理系统 DBMS</h3>
+<p>DBMS 是一个通用的平台软件, 位于数据库和用户之间, 对数据库进行管理的系统软件。</p>
+<p><strong>功能</strong></p>
+<p>(1) 数据库定义。<br>
+(2) 数据存取。<br>
+(3) 数据库运行管理。</p>
+<p>(4) 数据的组织、 存储和管理。<br>
+(5) 数据库建立与维护。<br>
+(6) 通信与其他功能。</p>
+<h3 id="1-3-3-数据库管理员-DBA">1.3.3.数据库管理员 DBA</h3>
+<h3 id="1-3-4-数据库使用者-user">1.3.4.数据库使用者 user</h3>
+<h2 id="1-4-数据模型">1.4.数据模型</h2>
+<h3 id="1-4-1-数据模型的分类">1.4.1.数据模型的分类</h3>
+<p>（1）概念数据模型(Conceptual Data Model)</p>
+<p>（2）逻辑数据模型(Logical Data Model)</p>
+<p>（3）物理数据模型(Physical Data Model)</p>
+<p><strong>数据库设计步骤</strong></p>
+<img src="https://melissa838.github.io/images/74.jpg">
+<h3 id="1-4-2-数据模型的要素">1.4.2.数据模型的要素</h3>
+<p>•数据结构: 数据静态特征。<br>
+•数据操作: 数据动态特征。<br>
+•完整性约束: 数据必须具备的条件。</p>
 
     </div>
 
@@ -487,7 +547,7 @@ mjx-container[display="true"] + br {
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E4%BF%A1%E6%81%AF%E7%9A%84%E6%A6%82%E5%BF%B5"><span class="nav-number">1.</span> <span class="nav-text">1.信息的概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E6%95%B0%E6%8D%AE%E7%9A%84%E6%A6%82%E5%BF%B5"><span class="nav-number">2.</span> <span class="nav-text">2.数据的概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-%E6%95%B0%E6%8D%AE%E4%B8%8E%E4%BF%A1%E6%81%AF%E4%B9%8B%E9%97%B4%E7%9A%84%E5%85%B3%E7%B3%BB"><span class="nav-number">3.</span> <span class="nav-text">3.数据与信息之间的关系</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">1.</span> <span class="nav-text">1.数据库系统概述</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-1-%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5"><span class="nav-number">1.1.</span> <span class="nav-text">1.1.数据库的基本概念</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-1-%E4%BF%A1%E6%81%AF"><span class="nav-number">1.1.1.</span> <span class="nav-text">1.1.1.信息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-2-%E6%95%B0%E6%8D%AE%E7%9A%84%E6%A6%82%E5%BF%B5"><span class="nav-number">1.1.2.</span> <span class="nav-text">1.1.2.数据的概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-3-%E6%95%B0%E6%8D%AE%E5%BA%93-DataBase-DB"><span class="nav-number">1.1.3.</span> <span class="nav-text">1.1.3.数据库(DataBase, DB)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-4-%E6%95%B0%E6%8D%AE%E5%BA%93%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F-DataBase-Management-System-DBMS"><span class="nav-number">1.1.4.</span> <span class="nav-text">1.1.4. 数据库管理系统(DataBase Management System, DBMS)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-5-%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E7%AE%A1%E7%90%86%E5%91%98-DataBase-Administator-DBA"><span class="nav-number">1.1.5.</span> <span class="nav-text">1.1.5.数据库系统管理员(DataBase Administator, DBA)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-2-%E6%95%B0%E6%8D%AE%E5%BA%93%E6%8A%80%E6%9C%AF%E7%9A%84%E4%BA%A7%E7%94%9F%E5%92%8C%E5%8F%91%E5%B1%95"><span class="nav-number">1.2.</span> <span class="nav-text">1.2.数据库技术的产生和发展</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-1-%E4%BA%BA%E5%B7%A5%E7%AE%A1%E7%90%86%E9%98%B6%E6%AE%B5"><span class="nav-number">1.2.1.</span> <span class="nav-text">1.2.1.人工管理阶段</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-2-%E6%96%87%E4%BB%B6%E7%AE%A1%E7%90%86%E9%98%B6%E6%AE%B5"><span class="nav-number">1.2.2.</span> <span class="nav-text">1.2.2.文件管理阶段</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-3-%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E9%98%B6%E6%AE%B5"><span class="nav-number">1.2.3.</span> <span class="nav-text">1.2.3.数据库系统阶段</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-3-%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84"><span class="nav-number">1.3.</span> <span class="nav-text">1.3.数据库系统体系结构</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3-1-%E6%95%B0%E6%8D%AE%E5%BA%93-DB"><span class="nav-number">1.3.1.</span> <span class="nav-text">1.3.1.数据库 DB</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3-2-%E6%95%B0%E6%8D%AE%E5%BA%93%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F-DBMS"><span class="nav-number">1.3.2.</span> <span class="nav-text">1.3.2.数据库管理系统 DBMS</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3-3-%E6%95%B0%E6%8D%AE%E5%BA%93%E7%AE%A1%E7%90%86%E5%91%98-DBA"><span class="nav-number">1.3.3.</span> <span class="nav-text">1.3.3.数据库管理员 DBA</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3-4-%E6%95%B0%E6%8D%AE%E5%BA%93%E4%BD%BF%E7%94%A8%E8%80%85-user"><span class="nav-number">1.3.4.</span> <span class="nav-text">1.3.4.数据库使用者 user</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-4-%E6%95%B0%E6%8D%AE%E6%A8%A1%E5%9E%8B"><span class="nav-number">1.4.</span> <span class="nav-text">1.4.数据模型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-4-1-%E6%95%B0%E6%8D%AE%E6%A8%A1%E5%9E%8B%E7%9A%84%E5%88%86%E7%B1%BB"><span class="nav-number">1.4.1.</span> <span class="nav-text">1.4.1.数据模型的分类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-4-2-%E6%95%B0%E6%8D%AE%E6%A8%A1%E5%9E%8B%E7%9A%84%E8%A6%81%E7%B4%A0"><span class="nav-number">1.4.2.</span> <span class="nav-text">1.4.2.数据模型的要素</span></a></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -550,7 +610,7 @@ mjx-container[display="true"] + br {
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共18k字</span>
+  <span class="post-count">博客全站共18.5k字</span>
 </div>
 
 
@@ -585,7 +645,7 @@ $(document).ready(function() {
 <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共18k字</span>
+  <span class="post-count">博客全站共18.5k字</span>
   <span class="post-meta-divider">|</span>
   本站总访问量<span id="busuanzi_value_site_pv"></span>次
   <span class="post-meta-divider">|</span>

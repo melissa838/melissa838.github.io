@@ -186,6 +186,26 @@
       </tags>
   </entry>
   <entry>
+    <title>Hello World</title>
+    <url>/2022/09/02/hello-world/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="Quick-Start">Quick Start</h2>
+<span id="more"></span>
+<h3 id="Create-a-new-post">Create a new post</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server">Run server</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files">Generate static files</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites">Deploy to remote sites</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+]]></content>
+  </entry>
+  <entry>
     <title>Siamese Network with Triplet Loss</title>
     <url>/2022/09/07/Siamese-Network-with-Triplet-Loss/</url>
     <content><![CDATA[<h1>Siamese Network with Triplet Loss</h1>
@@ -219,37 +239,6 @@
       </categories>
       <tags>
         <tag>深度学习</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Hello World</title>
-    <url>/2022/09/02/hello-world/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start">Quick Start</h2>
-<span id="more"></span>
-<h3 id="Create-a-new-post">Create a new post</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server">Run server</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files">Generate static files</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites">Deploy to remote sites</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-]]></content>
-  </entry>
-  <entry>
-    <title>python制作英文单词朗读器</title>
-    <url>/2022/09/07/python%E5%88%B6%E4%BD%9C%E8%8B%B1%E6%96%87%E5%8D%95%E8%AF%8D%E6%9C%97%E8%AF%BB%E5%99%A8/</url>
-    <content><![CDATA[<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> win32com.client <span class="keyword">as</span> win</span><br><span class="line">speak = win.Dispatch(<span class="string">"SAPI.SpVoice"</span>)</span><br><span class="line">speak.Speak(<span class="string">"adjective"</span>)</span><br><span class="line">url=<span class="string">"C:\\Users\\jimore\\Desktop\\英语学习资料\\单词\\听力陌生词.txt"</span></span><br></pre></td></tr></table></figure>
-<span id="more"></span>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">f=<span class="built_in">open</span>(url)</span><br><span class="line">line = f.readline().strip() <span class="comment">#读取第一行</span></span><br><span class="line">txt=[]</span><br><span class="line">txt.append(line)</span><br><span class="line"><span class="keyword">while</span> line:  <span class="comment"># 直到读取完文件</span></span><br><span class="line">   line = f.readline().strip()  <span class="comment"># 读取一行文件，包括换行符</span></span><br><span class="line">   txt.append(line)</span><br><span class="line">f.close()  <span class="comment"># 关闭文件</span></span><br><span class="line"><span class="built_in">print</span>(txt)</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> txt:</span><br><span class="line">    speak.Speak(i)</span><br><span class="line">    <span class="built_in">print</span>(i)</span><br><span class="line"> </span><br></pre></td></tr></table></figure>
-]]></content>
-      <tags>
-        <tag>python</tag>
       </tags>
   </entry>
   <entry>
@@ -290,14 +279,27 @@
       </tags>
   </entry>
   <entry>
+    <title>python制作英文单词朗读器</title>
+    <url>/2022/09/07/python%E5%88%B6%E4%BD%9C%E8%8B%B1%E6%96%87%E5%8D%95%E8%AF%8D%E6%9C%97%E8%AF%BB%E5%99%A8/</url>
+    <content><![CDATA[<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> win32com.client <span class="keyword">as</span> win</span><br><span class="line">speak = win.Dispatch(<span class="string">"SAPI.SpVoice"</span>)</span><br><span class="line">speak.Speak(<span class="string">"adjective"</span>)</span><br><span class="line">url=<span class="string">"C:\\Users\\jimore\\Desktop\\英语学习资料\\单词\\听力陌生词.txt"</span></span><br></pre></td></tr></table></figure>
+<span id="more"></span>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">f=<span class="built_in">open</span>(url)</span><br><span class="line">line = f.readline().strip() <span class="comment">#读取第一行</span></span><br><span class="line">txt=[]</span><br><span class="line">txt.append(line)</span><br><span class="line"><span class="keyword">while</span> line:  <span class="comment"># 直到读取完文件</span></span><br><span class="line">   line = f.readline().strip()  <span class="comment"># 读取一行文件，包括换行符</span></span><br><span class="line">   txt.append(line)</span><br><span class="line">f.close()  <span class="comment"># 关闭文件</span></span><br><span class="line"><span class="built_in">print</span>(txt)</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> txt:</span><br><span class="line">    speak.Speak(i)</span><br><span class="line">    <span class="built_in">print</span>(i)</span><br><span class="line"> </span><br></pre></td></tr></table></figure>
+]]></content>
+      <tags>
+        <tag>python</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>数据库原理知识点</title>
     <url>/2022/09/07/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%8E%9F%E7%90%86/</url>
-    <content><![CDATA[<h2 id="1-信息的概念">1.信息的概念</h2>
+    <content><![CDATA[<h1>1.数据库系统概述</h1>
+<h2 id="1-1-数据库的基本概念">1.1.数据库的基本概念</h2>
+<h3 id="1-1-1-信息">1.1.1.信息</h3>
 <p>信息是现实世界中各种事物的存在方式，运动形态以及它们之间的相互联系等要素在人脑中的反映，通过人脑的抽象后形成的概念。</p>
 <span id="more"></span>
-<h2 id="2-数据的概念">2.数据的概念</h2>
+<h3 id="1-1-2-数据的概念">1.1.2.数据的概念</h3>
 <p>数据是描述客观事物的可存储并具有明确意义的符号序列。</p>
-<h2 id="3-数据与信息之间的关系">3.数据与信息之间的关系</h2>
+<p><strong>数据与信息之间的关系</strong></p>
 <ul>
 <li>
 <p>数据是信息的载体</p>
@@ -306,6 +308,53 @@
 <p>信息是数据的内涵</p>
 </li>
 </ul>
+<h3 id="1-1-3-数据库-DataBase-DB">1.1.3.数据库(DataBase, DB)</h3>
+<p>存储在计算机内部的、 有组织的、 可共享的、 相互关联的大量数据集合</p>
+<h3 id="1-1-4-数据库管理系统-DataBase-Management-System-DBMS">1.1.4. 数据库管理系统(DataBase Management System, DBMS)</h3>
+<p>位于用户与操作系统之间的, 对数据进行管理的软件。</p>
+<h3 id="1-1-5-数据库系统管理员-DataBase-Administator-DBA">1.1.5.数据库系统管理员(DataBase Administator, DBA)</h3>
+<p>数据库系统(DataBase System, DBS)</p>
+<h2 id="1-2-数据库技术的产生和发展">1.2.数据库技术的产生和发展</h2>
+<h3 id="1-2-1-人工管理阶段">1.2.1.人工管理阶段</h3>
+<p>数据和程序是一个整体</p>
+<img src="https://melissa838.github.io/images/71.jpg">
+<h3 id="1-2-2-文件管理阶段">1.2.2.文件管理阶段</h3>
+<p>数据和程序物理分离，数据有多种结构，一种数据只能被对应的程序访问</p>
+<img src="https://melissa838.github.io/images/72.jpg">
+<h3 id="1-2-3-数据库系统阶段">1.2.3.数据库系统阶段</h3>
+<p>数据的整体结构化，数据只有一种结构，能被所有程序访问</p>
+<img src="https://melissa838.github.io/images/73.jpg">
+<h2 id="1-3-数据库系统体系结构">1.3.数据库系统体系结构</h2>
+<p><strong>数据库系统的基本组成</strong></p>
+<p>DB: 数据库, 数据的汇集, 数据以一定组织形式存于存储介质(磁盘)上。<br>
+DBMS: 数据库管理系统, 负责管理数据库的专用软件。<br>
+DBA: 数据库管理员, 主要负责数据库的规划、 建立、 维护等工作。</p>
+<p>应用系统: 以数据库为基础的各种应用程序。<br>
+用户: 通过系统的用户接口使用数据库。</p>
+<h3 id="1-3-1-数据库-DB">1.3.1.数据库 DB</h3>
+<p>数据库是依照特定数据模型组织起来并存放在存储介质中的数据集合。</p>
+<h3 id="1-3-2-数据库管理系统-DBMS">1.3.2.数据库管理系统 DBMS</h3>
+<p>DBMS 是一个通用的平台软件, 位于数据库和用户之间, 对数据库进行管理的系统软件。</p>
+<p><strong>功能</strong></p>
+<p>(1) 数据库定义。<br>
+(2) 数据存取。<br>
+(3) 数据库运行管理。</p>
+<p>(4) 数据的组织、 存储和管理。<br>
+(5) 数据库建立与维护。<br>
+(6) 通信与其他功能。</p>
+<h3 id="1-3-3-数据库管理员-DBA">1.3.3.数据库管理员 DBA</h3>
+<h3 id="1-3-4-数据库使用者-user">1.3.4.数据库使用者 user</h3>
+<h2 id="1-4-数据模型">1.4.数据模型</h2>
+<h3 id="1-4-1-数据模型的分类">1.4.1.数据模型的分类</h3>
+<p>（1）概念数据模型(Conceptual Data Model)</p>
+<p>（2）逻辑数据模型(Logical Data Model)</p>
+<p>（3）物理数据模型(Physical Data Model)</p>
+<p><strong>数据库设计步骤</strong></p>
+<img src="https://melissa838.github.io/images/74.jpg">
+<h3 id="1-4-2-数据模型的要素">1.4.2.数据模型的要素</h3>
+<p>•数据结构: 数据静态特征。<br>
+•数据操作: 数据动态特征。<br>
+•完整性约束: 数据必须具备的条件。</p>
 ]]></content>
       <categories>
         <category>学习</category>
@@ -1222,6 +1271,38 @@
       </tags>
   </entry>
   <entry>
+    <title>英语短语助记</title>
+    <url>/2022/09/06/%E8%8B%B1%E8%AF%AD%E7%9F%AD%E8%AF%AD%E5%8A%A9%E8%AE%B0/</url>
+    <content><![CDATA[<p><font color="red">With the help of</font> my professor, I finally get the chance to enter the University of Cambridge.</p>
+<p>My agency <font color="green">is so strict with</font> me.</p>
+<span id="more"></span>
+<p>I <font color="orange">am strict in</font> my daily trifle.</p>
+<p>Digital technologies are ubiquitous <font color="darkgree">at present</font>.</p>
+<p>I can tell you just <font color="blue">for the present</font>.</p>
+<p>My skin was burnt <font color="gold">in the sun/sunshine</font>.</p>
+<p>There are so many sluty lesbians <font color="brown">in the sun</font>.</p>
+<p>I won’t hurt you <font color="purple">at least</font>.</p>
+<p>Honestly, I have not even <font color="red">in the least pound</font>.</p>
+<p>I can find you <font color="green">by name</font>.</p>
+<p>I attend a gigantic rally as an attorney <font color="orange">on the air</font>.</p>
+<p>So many viruses float <font color="darkgree">in the air</font> during the episode of the epidemic.</p>
+<p>My business has not been <font color="blue">in the way</font> of my passion for basketball.</p>
+<p>It is really good news <font color="gold">in a way</font>.</p>
+<p>My employer allows I can <font color="brown">get my way to</font> do what I want to do.</p>
+<p>I wouldn’t <font color="purple">give way to</font> the torture.</p>
+<p>I am <font color="red">on my way</font> to see my friend.</p>
+<p><font color="green">Come this way</font>, that road has been sealed by the cops.</p>
+<p>I am always <font color="orange">at the back</font> of your perspective.</p>
+<p><font color="darkgree">In the course</font> of the 21st, the pace of technology innovation speeds up.</p>
+]]></content>
+      <categories>
+        <category>英语</category>
+      </categories>
+      <tags>
+        <tag>英语</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>英语好句积累（1）</title>
     <url>/2022/09/03/%E8%8B%B1%E8%AF%AD%E5%A5%BD%E5%8F%A5%E5%88%86%E6%9E%90/</url>
     <content><![CDATA[<p>1.There’s no feeling more frustrating than having dirty hair, showering and emerging with your hair greasy after washing it.</p>
@@ -1296,38 +1377,6 @@
 <ul>
 <li><font color="red">there’s been no shortage of warnings about XXX : 从不缺少对XXX的警告</font></li>
 </ul>
-]]></content>
-      <categories>
-        <category>英语</category>
-      </categories>
-      <tags>
-        <tag>英语</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>英语短语助记</title>
-    <url>/2022/09/06/%E8%8B%B1%E8%AF%AD%E7%9F%AD%E8%AF%AD%E5%8A%A9%E8%AE%B0/</url>
-    <content><![CDATA[<p><font color="red">With the help of</font> my professor, I finally get the chance to enter the University of Cambridge.</p>
-<p>My agency <font color="green">is so strict with</font> me.</p>
-<span id="more"></span>
-<p>I <font color="orange">am strict in</font> my daily trifle.</p>
-<p>Digital technologies are ubiquitous <font color="darkgree">at present</font>.</p>
-<p>I can tell you just <font color="blue">for the present</font>.</p>
-<p>My skin was burnt <font color="gold">in the sun/sunshine</font>.</p>
-<p>There are so many sluty lesbians <font color="brown">in the sun</font>.</p>
-<p>I won’t hurt you <font color="purple">at least</font>.</p>
-<p>Honestly, I have not even <font color="red">in the least pound</font>.</p>
-<p>I can find you <font color="green">by name</font>.</p>
-<p>I attend a gigantic rally as an attorney <font color="orange">on the air</font>.</p>
-<p>So many viruses float <font color="darkgree">in the air</font> during the episode of the epidemic.</p>
-<p>My business has not been <font color="blue">in the way</font> of my passion for basketball.</p>
-<p>It is really good news <font color="gold">in a way</font>.</p>
-<p>My employer allows I can <font color="brown">get my way to</font> do what I want to do.</p>
-<p>I wouldn’t <font color="purple">give way to</font> the torture.</p>
-<p>I am <font color="red">on my way</font> to see my friend.</p>
-<p><font color="green">Come this way</font>, that road has been sealed by the cops.</p>
-<p>I am always <font color="orange">at the back</font> of your perspective.</p>
-<p><font color="darkgree">In the course</font> of the 21st, the pace of technology innovation speeds up.</p>
 ]]></content>
       <categories>
         <category>英语</category>
@@ -1655,6 +1704,61 @@
       <tags>
         <tag>英语</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>计算机操作系统知识点</title>
+    <url>/2022/09/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/</url>
+    <content><![CDATA[<h2 id="1-操作系统的定义">1.操作系统的定义</h2>
+<h3 id="1-1-资源管理角度">1.1.资源管理角度</h3>
+<span id="more"></span>
+<img src="https://melissa838.github.io/images/31.jpg">
+<h3 id="1-2-人机交互角度">1.2.人机交互角度</h3>
+<img src="https://melissa838.github.io/images/32.jpg">
+<h3 id="1-3-比较全面的定义">1.3.比较全面的定义</h3>
+<p><font color="red">（常考简答题）</font></p>
+<img src="https://melissa838.github.io/images/33.jpg">
+<h2 id="2-操作系统的目标">2.操作系统的目标</h2>
+<p>1.方便性</p>
+<p>2.有效性</p>
+<p>3.可扩展性</p>
+<p>4.开放性</p>
+<h2 id="3-操作系统的功能">3.操作系统的功能</h2>
+<h4 id="3-1存储器的功能">3.1存储器的功能</h4>
+<p>=内存的功能</p>
+<p>内存：存放正在运行的指令和数据</p>
+<p>CPU可以直接访问内存</p>
+<img src="https://melissa838.github.io/images/34.jpg">
+]]></content>
+  </entry>
+  <entry>
+    <title>计算机组成原理知识点</title>
+    <url>/2022/09/06/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E7%9F%A5%E8%AF%86%E7%82%B9/</url>
+    <content><![CDATA[<h2 id="1-计算机发展历程及基本组成">1.计算机发展历程及基本组成</h2>
+<ul>
+<li>
+<p>第一台计算机：ENIAC</p>
+</li>
+<li>
+<p>"PDP-8"首次采用总线结构</p>
+</li>
+</ul>
+<span id="more"></span>
+<p><strong>冯·诺伊曼结构计算机的特点：</strong></p>
+<img src="https://melissa838.github.io/images/21.jpg">
+<p>[以运算器为核心]</p>
+<p><strong>现代计算机的特点：</strong></p>
+<p><img src="https://melissa838.github.io/images/22.jpg" alt=""></p>
+<p><img src="https://melissa838.github.io/images/23.jpg" alt=""></p>
+<p>[以存储器为核心]</p>
+<h2 id="2-指令的执行过程">2.指令的执行过程</h2>
+<p><img src="https://melissa838.github.io/images/24.jpg" alt=""></p>
+<img src="https://melissa838.github.io/images/27.jpg">
+<p>上述过程帮助理解：</p>
+<p><img src="https://melissa838.github.io/images/25.jpg" alt=""></p>
+<h2 id="3-系统的硬件组成">3.系统的硬件组成</h2>
+<p><img src="https://melissa838.github.io/images/26.jpg" alt=""></p>
+<p>主要由3部分组成：<font color="red">CPU</font>，<font color="red">存储器</font>，<font color="red">I/O设备</font></p>
+]]></content>
   </entry>
   <entry>
     <title>英语语法大全总结</title>
@@ -2090,60 +2194,5 @@
       <tags>
         <tag>英语</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>计算机操作系统知识点</title>
-    <url>/2022/09/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/</url>
-    <content><![CDATA[<h2 id="1-操作系统的定义">1.操作系统的定义</h2>
-<h3 id="1-1-资源管理角度">1.1.资源管理角度</h3>
-<span id="more"></span>
-<img src="https://melissa838.github.io/images/31.jpg">
-<h3 id="1-2-人机交互角度">1.2.人机交互角度</h3>
-<img src="https://melissa838.github.io/images/32.jpg">
-<h3 id="1-3-比较全面的定义">1.3.比较全面的定义</h3>
-<p><font color="red">（常考简答题）</font></p>
-<img src="https://melissa838.github.io/images/33.jpg">
-<h2 id="2-操作系统的目标">2.操作系统的目标</h2>
-<p>1.方便性</p>
-<p>2.有效性</p>
-<p>3.可扩展性</p>
-<p>4.开放性</p>
-<h2 id="3-操作系统的功能">3.操作系统的功能</h2>
-<h4 id="3-1存储器的功能">3.1存储器的功能</h4>
-<p>=内存的功能</p>
-<p>内存：存放正在运行的指令和数据</p>
-<p>CPU可以直接访问内存</p>
-<img src="https://melissa838.github.io/images/34.jpg">
-]]></content>
-  </entry>
-  <entry>
-    <title>计算机组成原理知识点</title>
-    <url>/2022/09/06/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E7%9F%A5%E8%AF%86%E7%82%B9/</url>
-    <content><![CDATA[<h2 id="1-计算机发展历程及基本组成">1.计算机发展历程及基本组成</h2>
-<ul>
-<li>
-<p>第一台计算机：ENIAC</p>
-</li>
-<li>
-<p>"PDP-8"首次采用总线结构</p>
-</li>
-</ul>
-<span id="more"></span>
-<p><strong>冯·诺伊曼结构计算机的特点：</strong></p>
-<img src="https://melissa838.github.io/images/21.jpg">
-<p>[以运算器为核心]</p>
-<p><strong>现代计算机的特点：</strong></p>
-<p><img src="https://melissa838.github.io/images/22.jpg" alt=""></p>
-<p><img src="https://melissa838.github.io/images/23.jpg" alt=""></p>
-<p>[以存储器为核心]</p>
-<h2 id="2-指令的执行过程">2.指令的执行过程</h2>
-<p><img src="https://melissa838.github.io/images/24.jpg" alt=""></p>
-<img src="https://melissa838.github.io/images/27.jpg">
-<p>上述过程帮助理解：</p>
-<p><img src="https://melissa838.github.io/images/25.jpg" alt=""></p>
-<h2 id="3-系统的硬件组成">3.系统的硬件组成</h2>
-<p><img src="https://melissa838.github.io/images/26.jpg" alt=""></p>
-<p>主要由3部分组成：<font color="red">CPU</font>，<font color="red">存储器</font>，<font color="red">I/O设备</font></p>
-]]></content>
   </entry>
 </search>
