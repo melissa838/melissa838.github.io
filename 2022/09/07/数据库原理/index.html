@@ -34,8 +34,9 @@
 <meta property="og:image" content="https://melissa838.github.io/images/73.jpg">
 <meta property="og:image" content="https://melissa838.github.io/images/74.jpg">
 <meta property="og:image" content="https://melissa838.github.io/images/21.png">
+<meta property="og:image" content="https://melissa838.github.io/images/131.jpg">
 <meta property="article:published_time" content="2022-09-07T08:24:30.000Z">
-<meta property="article:modified_time" content="2022-09-15T03:09:07.372Z">
+<meta property="article:modified_time" content="2022-09-15T07:50:25.484Z">
 <meta property="article:author" content="jimore">
 <meta property="article:tag" content="学习">
 <meta name="twitter:card" content="summary">
@@ -85,6 +86,7 @@
   </style>
 </noscript>
 
+<link rel="alternate" href="/atom.xml" title="jimore" type="application/atom+xml">
 <style>mjx-container[jax="SVG"] {
   direction: ltr;
 }
@@ -197,8 +199,7 @@ mjx-container[display="true"] {
 mjx-container[display="true"] + br {
   display: none;
 }
-</style><link rel="alternate" href="/atom.xml" title="jimore" type="application/atom+xml">
-</head>
+</style></head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
   <div class="container use-motion">
@@ -346,7 +347,7 @@ mjx-container[display="true"] + br {
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-09-15 11:09:07" itemprop="dateModified" datetime="2022-09-15T11:09:07+08:00">2022-09-15</time>
+                <time title="修改时间：2022-09-15 15:50:25" itemprop="dateModified" datetime="2022-09-15T15:50:25+08:00">2022-09-15</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -447,10 +448,28 @@ DBA: 数据库管理员, 主要负责数据库的规划、 建立、 维护等�
 <p>（2）外模式</p>
 <p>（3）内模式</p>
 <h3 id="1-5-2-二级映像">1.5.2.二级映像</h3>
+<p><strong><font color="red">作用：保证了数据的逻辑独立性和物理独立性</font></strong></p>
 <p>（1）模式/内模式映像</p>
 <p>​		通过映象功能保证数据存储结构的变化不影响数据的全局逻辑结构的改变, 从而不必修改应用程序, 即确保了数据的物理独立性。</p>
 <p>（2）外模式/内模式映像</p>
 <p>​		这一映象功能保证了数据的局部逻辑结构不变, 由于应用程序是依据数据的局部逻辑结构编写的, 所以应用程序不必须修改, 从而保证了数据与程序间的逻辑独立性。</p>
+<h1>2.E-R模型</h1>
+<h2 id="2-1-各种名词的概念">2.1.各种名词的概念</h2>
+<ul>
+<li>实体（Entity）：客观存在的可以区别的事物。</li>
+<li>实体集（Entity Set）：具有相同属性的实体集合</li>
+<li>属性（Attribute）：实体所具有的特性</li>
+<li>码（Key）：可以唯一标识实体的属性或属性组合。如姓名</li>
+<li>联系（Relationship）：实体之间的各种关系
+<ul>
+<li>一对一联系</li>
+<li>一对多联系</li>
+<li>多对对联系</li>
+</ul>
+</li>
+</ul>
+<h2 id="2-2-E-R图的绘制">2.2.E-R图的绘制</h2>
+<img src="https://melissa838.github.io/images/131.jpg">
 
     </div>
 
@@ -560,7 +579,7 @@ DBA: 数据库管理员, 主要负责数据库的规划、 建立、 维护等�
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">1.</span> <span class="nav-text">1.数据库系统概述</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-1-%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5"><span class="nav-number">1.1.</span> <span class="nav-text">1.1.数据库的基本概念</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-1-%E4%BF%A1%E6%81%AF"><span class="nav-number">1.1.1.</span> <span class="nav-text">1.1.1.信息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-2-%E6%95%B0%E6%8D%AE%E7%9A%84%E6%A6%82%E5%BF%B5"><span class="nav-number">1.1.2.</span> <span class="nav-text">1.1.2.数据的概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-3-%E6%95%B0%E6%8D%AE%E5%BA%93-DataBase-DB"><span class="nav-number">1.1.3.</span> <span class="nav-text">1.1.3.数据库(DataBase, DB)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-4-%E6%95%B0%E6%8D%AE%E5%BA%93%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F-DataBase-Management-System-DBMS"><span class="nav-number">1.1.4.</span> <span class="nav-text">1.1.4. 数据库管理系统(DataBase Management System, DBMS)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-5-%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E7%AE%A1%E7%90%86%E5%91%98-DataBase-Administator-DBA"><span class="nav-number">1.1.5.</span> <span class="nav-text">1.1.5.数据库系统管理员(DataBase Administator, DBA)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-2-%E6%95%B0%E6%8D%AE%E5%BA%93%E6%8A%80%E6%9C%AF%E7%9A%84%E4%BA%A7%E7%94%9F%E5%92%8C%E5%8F%91%E5%B1%95"><span class="nav-number">1.2.</span> <span class="nav-text">1.2.数据库技术的产生和发展</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-1-%E4%BA%BA%E5%B7%A5%E7%AE%A1%E7%90%86%E9%98%B6%E6%AE%B5"><span class="nav-number">1.2.1.</span> <span class="nav-text">1.2.1.人工管理阶段</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-2-%E6%96%87%E4%BB%B6%E7%AE%A1%E7%90%86%E9%98%B6%E6%AE%B5"><span class="nav-number">1.2.2.</span> <span class="nav-text">1.2.2.文件管理阶段</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-3-%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E9%98%B6%E6%AE%B5"><span class="nav-number">1.2.3.</span> <span class="nav-text">1.2.3.数据库系统阶段</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-3-%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84"><span class="nav-number">1.3.</span> <span class="nav-text">1.3.数据库系统体系结构</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3-1-%E6%95%B0%E6%8D%AE%E5%BA%93-DB"><span class="nav-number">1.3.1.</span> <span class="nav-text">1.3.1.数据库 DB</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3-2-%E6%95%B0%E6%8D%AE%E5%BA%93%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F-DBMS"><span class="nav-number">1.3.2.</span> <span class="nav-text">1.3.2.数据库管理系统 DBMS</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3-3-%E6%95%B0%E6%8D%AE%E5%BA%93%E7%AE%A1%E7%90%86%E5%91%98-DBA"><span class="nav-number">1.3.3.</span> <span class="nav-text">1.3.3.数据库管理员 DBA</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3-4-%E6%95%B0%E6%8D%AE%E5%BA%93%E4%BD%BF%E7%94%A8%E8%80%85-user"><span class="nav-number">1.3.4.</span> <span class="nav-text">1.3.4.数据库使用者 user</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-4-%E6%95%B0%E6%8D%AE%E6%A8%A1%E5%9E%8B"><span class="nav-number">1.4.</span> <span class="nav-text">1.4.数据模型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-4-1-%E6%95%B0%E6%8D%AE%E6%A8%A1%E5%9E%8B%E7%9A%84%E5%88%86%E7%B1%BB"><span class="nav-number">1.4.1.</span> <span class="nav-text">1.4.1.数据模型的分类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-4-2-%E6%95%B0%E6%8D%AE%E6%A8%A1%E5%9E%8B%E7%9A%84%E8%A6%81%E7%B4%A0"><span class="nav-number">1.4.2.</span> <span class="nav-text">1.4.2.数据模型的要素</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-5-%E6%95%B0%E6%8D%AE%E6%A8%A1%E5%BC%8F"><span class="nav-number">1.5.</span> <span class="nav-text">1.5.数据模式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-5-1-%E4%B8%89%E7%BA%A7%E6%A8%A1%E5%BC%8F"><span class="nav-number">1.5.1.</span> <span class="nav-text">1.5.1.三级模式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-5-2-%E4%BA%8C%E7%BA%A7%E6%98%A0%E5%83%8F"><span class="nav-number">1.5.2.</span> <span class="nav-text">1.5.2.二级映像</span></a></li></ol></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">1.</span> <span class="nav-text">1.数据库系统概述</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-1-%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5"><span class="nav-number">1.1.</span> <span class="nav-text">1.1.数据库的基本概念</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-1-%E4%BF%A1%E6%81%AF"><span class="nav-number">1.1.1.</span> <span class="nav-text">1.1.1.信息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-2-%E6%95%B0%E6%8D%AE%E7%9A%84%E6%A6%82%E5%BF%B5"><span class="nav-number">1.1.2.</span> <span class="nav-text">1.1.2.数据的概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-3-%E6%95%B0%E6%8D%AE%E5%BA%93-DataBase-DB"><span class="nav-number">1.1.3.</span> <span class="nav-text">1.1.3.数据库(DataBase, DB)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-4-%E6%95%B0%E6%8D%AE%E5%BA%93%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F-DataBase-Management-System-DBMS"><span class="nav-number">1.1.4.</span> <span class="nav-text">1.1.4. 数据库管理系统(DataBase Management System, DBMS)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-5-%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E7%AE%A1%E7%90%86%E5%91%98-DataBase-Administator-DBA"><span class="nav-number">1.1.5.</span> <span class="nav-text">1.1.5.数据库系统管理员(DataBase Administator, DBA)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-2-%E6%95%B0%E6%8D%AE%E5%BA%93%E6%8A%80%E6%9C%AF%E7%9A%84%E4%BA%A7%E7%94%9F%E5%92%8C%E5%8F%91%E5%B1%95"><span class="nav-number">1.2.</span> <span class="nav-text">1.2.数据库技术的产生和发展</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-1-%E4%BA%BA%E5%B7%A5%E7%AE%A1%E7%90%86%E9%98%B6%E6%AE%B5"><span class="nav-number">1.2.1.</span> <span class="nav-text">1.2.1.人工管理阶段</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-2-%E6%96%87%E4%BB%B6%E7%AE%A1%E7%90%86%E9%98%B6%E6%AE%B5"><span class="nav-number">1.2.2.</span> <span class="nav-text">1.2.2.文件管理阶段</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-3-%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E9%98%B6%E6%AE%B5"><span class="nav-number">1.2.3.</span> <span class="nav-text">1.2.3.数据库系统阶段</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-3-%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84"><span class="nav-number">1.3.</span> <span class="nav-text">1.3.数据库系统体系结构</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3-1-%E6%95%B0%E6%8D%AE%E5%BA%93-DB"><span class="nav-number">1.3.1.</span> <span class="nav-text">1.3.1.数据库 DB</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3-2-%E6%95%B0%E6%8D%AE%E5%BA%93%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F-DBMS"><span class="nav-number">1.3.2.</span> <span class="nav-text">1.3.2.数据库管理系统 DBMS</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3-3-%E6%95%B0%E6%8D%AE%E5%BA%93%E7%AE%A1%E7%90%86%E5%91%98-DBA"><span class="nav-number">1.3.3.</span> <span class="nav-text">1.3.3.数据库管理员 DBA</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3-4-%E6%95%B0%E6%8D%AE%E5%BA%93%E4%BD%BF%E7%94%A8%E8%80%85-user"><span class="nav-number">1.3.4.</span> <span class="nav-text">1.3.4.数据库使用者 user</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-4-%E6%95%B0%E6%8D%AE%E6%A8%A1%E5%9E%8B"><span class="nav-number">1.4.</span> <span class="nav-text">1.4.数据模型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-4-1-%E6%95%B0%E6%8D%AE%E6%A8%A1%E5%9E%8B%E7%9A%84%E5%88%86%E7%B1%BB"><span class="nav-number">1.4.1.</span> <span class="nav-text">1.4.1.数据模型的分类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-4-2-%E6%95%B0%E6%8D%AE%E6%A8%A1%E5%9E%8B%E7%9A%84%E8%A6%81%E7%B4%A0"><span class="nav-number">1.4.2.</span> <span class="nav-text">1.4.2.数据模型的要素</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-5-%E6%95%B0%E6%8D%AE%E6%A8%A1%E5%BC%8F"><span class="nav-number">1.5.</span> <span class="nav-text">1.5.数据模式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-5-1-%E4%B8%89%E7%BA%A7%E6%A8%A1%E5%BC%8F"><span class="nav-number">1.5.1.</span> <span class="nav-text">1.5.1.三级模式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-5-2-%E4%BA%8C%E7%BA%A7%E6%98%A0%E5%83%8F"><span class="nav-number">1.5.2.</span> <span class="nav-text">1.5.2.二级映像</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">2.</span> <span class="nav-text">2.E-R模型</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-1-%E5%90%84%E7%A7%8D%E5%90%8D%E8%AF%8D%E7%9A%84%E6%A6%82%E5%BF%B5"><span class="nav-number">2.1.</span> <span class="nav-text">2.1.各种名词的概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-2-E-R%E5%9B%BE%E7%9A%84%E7%BB%98%E5%88%B6"><span class="nav-number">2.2.</span> <span class="nav-text">2.2.E-R图的绘制</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -623,7 +642,7 @@ DBA: 数据库管理员, 主要负责数据库的规划、 建立、 维护等�
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共21.8k字</span>
+  <span class="post-count">博客全站共21.9k字</span>
 </div>
 
 
@@ -658,7 +677,7 @@ $(document).ready(function() {
 <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共21.8k字</span>
+  <span class="post-count">博客全站共21.9k字</span>
   <span class="post-meta-divider">|</span>
   本站总访问量<span id="busuanzi_value_site_pv"></span>次
   <span class="post-meta-divider">|</span>
