@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2022-09-15T05:59:24.971Z</updated>
+  <updated>2022-09-15T12:20:53.705Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -17,22 +17,41 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>计算机操作系统课后习题</title>
+    <link href="http://example.com/2022/09/15/%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E8%AF%BE%E5%90%8E%E4%B9%A0%E9%A2%98/"/>
+    <id>http://example.com/2022/09/15/%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E8%AF%BE%E5%90%8E%E4%B9%A0%E9%A2%98/</id>
+    <published>2022-09-15T12:19:41.000Z</published>
+    <updated>2022-09-15T12:20:53.705Z</updated>
+    
+    <content type="html"><![CDATA[<h1>计算机操作系统课后习题</h1><h2 id="第一章">第一章</h2><p>1.试从交互性，及时性以及可靠性方面将分时系统与实时系统进行比较。</p><p>答：</p><p>（1）交互性：分时有较强的交互作用，实时相对要差很多，提供的交互命令叫简单，也不存在分时的资源共享。</p><span id="more"></span><p>（2）及时性：实时对时间要求严格，具有很强的及时性，分时的及时性较差。</p><p>（3）可靠性：实时要求的可靠性更高。分时的可靠性较差。</p><ol start="2"><li>OS有哪几大特性？ 其最基本的特征是什么？</li></ol><p>（1）并发</p><p>（2）共享</p><p>（3）虚拟</p><p>（4）异步</p><p>最基本：并发，共享</p><ol start="3"><li>操作系统的主要功能</li></ol><p>（1）处理机管理功能</p><ul><li>进程控制</li><li>进程同步</li><li>进程通信</li><li>调度</li></ul><p>（2）存储器管理功能</p><ul><li>内存分配</li><li>内存保护</li><li>地址映射</li><li>内存扩充</li></ul><p>（3）设备管理功能</p><ul><li>缓冲管理</li><li>设备分配</li><li>设备处理</li></ul><p>（4）文件管理功能</p><ul><li>文件存储空间的管理</li><li>目录管理</li><li>文件的读写管理和保护</li></ul><p>（5）作为与用户之间的接口</p><ul><li>用户接口<ul><li>联机用户接口</li><li>脱机用户接口</li><li>图形用户接口</li></ul></li><li>程序接口</li></ul><p>4.什么是微内核OS？</p><p>答：拥有足够小的内核，基于客户/服务器模式，应用“机制与策略分离”原理，采用面向对象技术的操作系统。</p>]]></content>
+    
+    
+    <summary type="html">&lt;h1&gt;计算机操作系统课后习题&lt;/h1&gt;
+&lt;h2 id=&quot;第一章&quot;&gt;第一章&lt;/h2&gt;
+&lt;p&gt;1.试从交互性，及时性以及可靠性方面将分时系统与实时系统进行比较。&lt;/p&gt;
+&lt;p&gt;答：&lt;/p&gt;
+&lt;p&gt;（1）交互性：分时有较强的交互作用，实时相对要差很多，提供的交互命令叫简单，也不存在分时的资源共享。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="学习" scheme="http://example.com/categories/%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+    <category term="学习" scheme="http://example.com/tags/%E5%AD%A6%E4%B9%A0/"/>
+    
+  </entry>
+  
+  <entry>
     <title>数据库原理课后习题</title>
     <link href="http://example.com/2022/09/15/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%8E%9F%E7%90%86%E8%AF%BE%E5%90%8E%E4%B9%A0%E9%A2%98/"/>
     <id>http://example.com/2022/09/15/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%8E%9F%E7%90%86%E8%AF%BE%E5%90%8E%E4%B9%A0%E9%A2%98/</id>
     <published>2022-09-15T05:56:34.000Z</published>
-    <updated>2022-09-15T05:59:24.971Z</updated>
+    <updated>2022-09-15T12:21:16.133Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="第一章">第一章</h2><img src="https://melissa838.github.io/images/22.png"><img src="https://melissa838.github.io/images/23.png"><img src="https://melissa838.github.io/images/24.png">]]></content>
+    <content type="html"><![CDATA[<h2 id="第一章">第一章</h2><span id="more"></span><img src="https://melissa838.github.io/images/22.png"><img src="https://melissa838.github.io/images/23.png"><img src="https://melissa838.github.io/images/24.png">]]></content>
     
     
-      
-      
-    <summary type="html">&lt;h2 id=&quot;第一章&quot;&gt;第一章&lt;/h2&gt;
-&lt;img src=&quot;https://melissa838.github.io/images/22.png&quot;&gt;
-&lt;img src=&quot;https://melissa838.github.io/images/23.png&quot;&gt;
-&lt;img src</summary>
-      
+    <summary type="html">&lt;h2 id=&quot;第一章&quot;&gt;第一章&lt;/h2&gt;</summary>
     
     
     
@@ -443,25 +462,6 @@
     
     
     <category term="英语" scheme="http://example.com/categories/%E8%8B%B1%E8%AF%AD/"/>
-    
-    
-    <category term="英语" scheme="http://example.com/tags/%E8%8B%B1%E8%AF%AD/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>英语六级陌生词（下）</title>
-    <link href="http://example.com/2022/09/02/%E8%8B%B1%E8%AF%AD%E5%85%AD%E7%BA%A7%E9%99%8C%E7%94%9F%E8%AF%8D%EF%BC%88%E4%B8%8B%EF%BC%89/"/>
-    <id>http://example.com/2022/09/02/%E8%8B%B1%E8%AF%AD%E5%85%AD%E7%BA%A7%E9%99%8C%E7%94%9F%E8%AF%8D%EF%BC%88%E4%B8%8B%EF%BC%89/</id>
-    <published>2022-09-02T08:56:07.000Z</published>
-    <updated>2022-09-03T01:00:13.750Z</updated>
-    
-    <content type="html"><![CDATA[<p>这篇文章接着上一篇文章，继续总结一些英语六级中不常见过的单词。</p><span id="more"></span><table><thead><tr><th></th><th></th></tr></thead><tbody><tr><td>likewise</td><td>adv.同样地</td></tr><tr><td>logistics</td><td>n.物流</td></tr><tr><td>loophole</td><td>n.漏洞</td></tr><tr><td>loot</td><td>n.战利品  vt./vi.打劫</td></tr><tr><td>mar</td><td>vt.损毁</td></tr><tr><td>marshal</td><td>n.元帅</td></tr><tr><td>metabolism</td><td>n.新陈代谢</td></tr><tr><td>metaphor</td><td>n.暗喻</td></tr><tr><td>meticulous</td><td>adj.小心的</td></tr><tr><td>midwife</td><td>n.助产员</td></tr><tr><td>mindset</td><td>n.观念模式</td></tr><tr><td>morale</td><td>n.士气，斗志</td></tr><tr><td>mow</td><td>vt./vi.修剪</td></tr><tr><td>mug</td><td>n.马克杯</td></tr><tr><td>mule</td><td>n.骡子</td></tr><tr><td>mutter</td><td>n./vt./vi.嘀咕</td></tr><tr><td>navy</td><td>n.海军</td></tr><tr><td>nitrogen</td><td>n.氮气</td></tr><tr><td>notwithstanding</td><td>prep./adv.尽管</td></tr><tr><td>obese</td><td>adj.肥胖的</td></tr><tr><td>onset</td><td>n.开端</td></tr><tr><td>oppress</td><td>vt.压迫，压制</td></tr><tr><td>optic</td><td>adj.光学的</td></tr><tr><td>outing</td><td>n.远足</td></tr><tr><td>overhaul</td><td>vt.彻底检修  n.检修</td></tr><tr><td>partisan</td><td>n.坚定的支持者</td></tr><tr><td>pat</td><td>n./vt.轻拍</td></tr><tr><td>peddle</td><td>vt.销售，传播</td></tr><tr><td>peep</td><td>vi.窥视，偷看</td></tr><tr><td>pesticide</td><td>n.杀虫剂</td></tr><tr><td>petition</td><td>n.请愿书，申请书  vt./vi.恳请</td></tr><tr><td>pierce</td><td>vt.扎破  vt./vi.冲破</td></tr><tr><td>pillar</td><td>n.支柱，柱子</td></tr><tr><td>pit</td><td>n.深坑，矿井</td></tr><tr><td>plaza</td><td>n.广场，购物中心</td></tr><tr><td>plough</td><td>n./vt./vi.犁</td></tr><tr><td>plumber</td><td>n.水暖工</td></tr><tr><td>plumbing</td><td>n.管道系统</td></tr><tr><td>podcast</td><td>n.博客</td></tr><tr><td>portfolio</td><td>n.文件夹</td></tr><tr><td>poster</td><td>n.画报</td></tr><tr><td>pot</td><td>n.锅，壶</td></tr><tr><td>pottery</td><td>n.陶器</td></tr><tr><td>premium</td><td>n.保险费，额外费用  adj.优质的</td></tr><tr><td>prestige</td><td>n.声望</td></tr><tr><td>profile</td><td>n.轮廓，概述  vt.扼要介绍</td></tr><tr><td>prop</td><td>n.道具支撑物  vt.支撑</td></tr><tr><td>proverb</td><td>n.谚语</td></tr><tr><td>punch</td><td>vt.拳打  vi.打孔</td></tr><tr><td>pyramid</td><td>n.金字塔</td></tr><tr><td>quota</td><td>n.配额，定额</td></tr><tr><td>rally</td><td>n.公众集会</td></tr><tr><td>recede</td><td>vi.逐渐减弱</td></tr><tr><td>rehabilitate</td><td>vt.使康复</td></tr><tr><td>relentless</td><td>adj.不停的，严格的</td></tr><tr><td>retreat</td><td>vi./n.退却，撤退</td></tr><tr><td>rib</td><td>n.肋骨</td></tr><tr><td>rip</td><td>vt.撕破</td></tr><tr><td>rod</td><td>n.杆</td></tr><tr><td>saddle</td><td>n.马鞍  vt.给…装马鞍</td></tr><tr><td>sarcasm</td><td>n.讽刺</td></tr><tr><td>segregate</td><td>vt.分隔</td></tr><tr><td>servant</td><td>n.仆人</td></tr><tr><td>shorthand</td><td>n.速记</td></tr><tr><td>shrimp</td><td>n.虾</td></tr><tr><td>sinister</td><td>adj.邪恶的</td></tr><tr><td>socket</td><td>n.插座，插口</td></tr><tr><td>sodium</td><td>n.钠</td></tr><tr><td>summit</td><td>n.最高点，会议</td></tr><tr><td>superficial</td><td>adj.粗略的，表面的</td></tr><tr><td>thrift</td><td>n.节俭，节约</td></tr><tr><td>toil</td><td>n.苦工  vi.辛勤耕种</td></tr><tr><td>tract</td><td>n.传单，大片（土地，森林）</td></tr><tr><td>tread</td><td>vt./vi.踩踏  n.步法</td></tr><tr><td>trim</td><td>vt.修剪  n.镶边  adj.苗条的</td></tr><tr><td>trolley</td><td>n.小推车</td></tr><tr><td>verge</td><td>n.绿地</td></tr><tr><td>vicinity</td><td>n.邻近地区</td></tr><tr><td>webcast</td><td>n.网络直播</td></tr><tr><td>wedge</td><td>n.楔子</td></tr></tbody></table>]]></content>
-    
-    
-    <summary type="html">&lt;p&gt;这篇文章接着上一篇文章，继续总结一些英语六级中不常见过的单词。&lt;/p&gt;</summary>
-    
-    
     
     
     <category term="英语" scheme="http://example.com/tags/%E8%8B%B1%E8%AF%AD/"/>
