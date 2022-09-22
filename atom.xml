@@ -65,9 +65,9 @@
     <link href="http://example.com/2022/09/15/%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E8%AF%BE%E5%90%8E%E4%B9%A0%E9%A2%98/"/>
     <id>http://example.com/2022/09/15/%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E8%AF%BE%E5%90%8E%E4%B9%A0%E9%A2%98/</id>
     <published>2022-09-15T12:19:41.000Z</published>
-    <updated>2022-09-15T12:20:53.705Z</updated>
+    <updated>2022-09-20T14:55:58.989Z</updated>
     
-    <content type="html"><![CDATA[<h1>计算机操作系统课后习题</h1><h2 id="第一章">第一章</h2><p>1.试从交互性，及时性以及可靠性方面将分时系统与实时系统进行比较。</p><p>答：</p><p>（1）交互性：分时有较强的交互作用，实时相对要差很多，提供的交互命令叫简单，也不存在分时的资源共享。</p><span id="more"></span><p>（2）及时性：实时对时间要求严格，具有很强的及时性，分时的及时性较差。</p><p>（3）可靠性：实时要求的可靠性更高。分时的可靠性较差。</p><ol start="2"><li>OS有哪几大特性？ 其最基本的特征是什么？</li></ol><p>（1）并发</p><p>（2）共享</p><p>（3）虚拟</p><p>（4）异步</p><p>最基本：并发，共享</p><ol start="3"><li>操作系统的主要功能</li></ol><p>（1）处理机管理功能</p><ul><li>进程控制</li><li>进程同步</li><li>进程通信</li><li>调度</li></ul><p>（2）存储器管理功能</p><ul><li>内存分配</li><li>内存保护</li><li>地址映射</li><li>内存扩充</li></ul><p>（3）设备管理功能</p><ul><li>缓冲管理</li><li>设备分配</li><li>设备处理</li></ul><p>（4）文件管理功能</p><ul><li>文件存储空间的管理</li><li>目录管理</li><li>文件的读写管理和保护</li></ul><p>（5）作为与用户之间的接口</p><ul><li>用户接口<ul><li>联机用户接口</li><li>脱机用户接口</li><li>图形用户接口</li></ul></li><li>程序接口</li></ul><p>4.什么是微内核OS？</p><p>答：拥有足够小的内核，基于客户/服务器模式，应用“机制与策略分离”原理，采用面向对象技术的操作系统。</p>]]></content>
+    <content type="html"><![CDATA[<h1>计算机操作系统课后习题</h1><h2 id="第一章">第一章</h2><p>1.试从交互性，及时性以及可靠性方面将分时系统与实时系统进行比较。</p><p>答：</p><p>（1）交互性：分时有较强的交互作用，实时相对要差很多，提供的交互命令叫简单，也不存在分时的资源共享。</p><span id="more"></span><p>（2）及时性：实时对时间要求严格，具有很强的及时性，分时的及时性较差。</p><p>（3）可靠性：实时要求的可靠性更高。分时的可靠性较差。</p><ol start="2"><li>OS有哪几大特性？ 其最基本的特征是什么？</li></ol><p>（1）并发</p><p>（2）共享</p><p>（3）虚拟</p><p>（4）异步</p><p>最基本：并发，共享</p><ol start="3"><li>操作系统的主要功能</li></ol><p>（1）处理机管理功能</p><ul><li>进程控制</li><li>进程同步</li><li>进程通信</li><li>调度</li></ul><p>（2）存储器管理功能</p><ul><li>内存分配</li><li>内存保护</li><li>地址映射</li><li>内存扩充</li></ul><p>（3）设备管理功能</p><ul><li>缓冲管理</li><li>设备分配</li><li>设备处理</li></ul><p>（4）文件管理功能</p><ul><li>文件存储空间的管理</li><li>目录管理</li><li>文件的读写管理和保护</li></ul><p>（5）作为与用户之间的接口</p><ul><li>用户接口<ul><li>联机用户接口</li><li>脱机用户接口</li><li>图形用户接口</li></ul></li><li>程序接口<ul><li>判别和解释用户输入的操作命令，并将相应的命令转化为对应命令的处理程序</li><li>接受从操作系统传来的信息，通过屏幕提示等方式传回给用户</li></ul></li></ul><p>4.什么是微内核OS？</p><p>答：拥有足够小的内核，基于客户/服务器模式，应用“机制与策略分离”原理，采用面向对象技术的操作系统。</p>]]></content>
     
     
     <summary type="html">&lt;h1&gt;计算机操作系统课后习题&lt;/h1&gt;
@@ -90,9 +90,9 @@
     <link href="http://example.com/2022/09/15/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%8E%9F%E7%90%86%E8%AF%BE%E5%90%8E%E4%B9%A0%E9%A2%98/"/>
     <id>http://example.com/2022/09/15/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%8E%9F%E7%90%86%E8%AF%BE%E5%90%8E%E4%B9%A0%E9%A2%98/</id>
     <published>2022-09-15T05:56:34.000Z</published>
-    <updated>2022-09-15T12:21:16.133Z</updated>
+    <updated>2022-09-22T08:33:41.937Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="第一章">第一章</h2><span id="more"></span><img src="https://melissa838.github.io/images/22.png"><img src="https://melissa838.github.io/images/23.png"><img src="https://melissa838.github.io/images/24.png">]]></content>
+    <content type="html"><![CDATA[<h2 id="第一章">第一章</h2><span id="more"></span><img src="https://melissa838.github.io/images/22.png"><img src="https://melissa838.github.io/images/23.png"><img src="https://melissa838.github.io/images/24.png"><h2 id="第三章">第三章</h2><img src="https://melissa838.github.io/images/156.jpg"><img src="https://melissa838.github.io/images/157.jpg"><img src="https://melissa838.github.io/images/158.jpg">]]></content>
     
     
     <summary type="html">&lt;h2 id=&quot;第一章&quot;&gt;第一章&lt;/h2&gt;</summary>
