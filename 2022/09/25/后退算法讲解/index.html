@@ -22,20 +22,23 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="There’s no feeling more frustrating than having dirty hair, showering and emerging with your hair greasy after washing it.  句式：there’s no + 名词 +more + 形容词 + than + A(名词).">
+  <meta name="description" content="后退算法讲解 CSMA&#x2F;CD算法主要的实现算法为后退算法。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="英语好句积累（1）">
-<meta property="og:url" content="http://example.com/2022/09/03/%E8%8B%B1%E8%AF%AD%E5%A5%BD%E5%8F%A5%E5%88%86%E6%9E%90/index.html">
+<meta property="og:title" content="后退算法讲解">
+<meta property="og:url" content="http://example.com/2022/09/25/%E5%90%8E%E9%80%80%E7%AE%97%E6%B3%95%E8%AE%B2%E8%A7%A3/index.html">
 <meta property="og:site_name" content="jimore">
-<meta property="og:description" content="There’s no feeling more frustrating than having dirty hair, showering and emerging with your hair greasy after washing it.  句式：there’s no + 名词 +more + 形容词 + than + A(名词).">
+<meta property="og:description" content="后退算法讲解 CSMA&#x2F;CD算法主要的实现算法为后退算法。">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2022-09-03T01:23:10.000Z">
-<meta property="article:modified_time" content="2022-09-16T05:40:21.347Z">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20201130165851608.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80Mzc1MTI4NQ==,size_16,color_FFFFFF,t_70#pic_center">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20201130165906498.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80Mzc1MTI4NQ==,size_16,color_FFFFFF,t_70#pic_center">
+<meta property="article:published_time" content="2022-09-25T14:55:35.000Z">
+<meta property="article:modified_time" content="2022-09-25T15:32:16.411Z">
 <meta property="article:author" content="jimore">
-<meta property="article:tag" content="英语">
+<meta property="article:tag" content="学习">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://img-blog.csdnimg.cn/20201130165851608.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80Mzc1MTI4NQ==,size_16,color_FFFFFF,t_70#pic_center">
 
-<link rel="canonical" href="http://example.com/2022/09/03/%E8%8B%B1%E8%AF%AD%E5%A5%BD%E5%8F%A5%E5%88%86%E6%9E%90/">
+<link rel="canonical" href="http://example.com/2022/09/25/%E5%90%8E%E9%80%80%E7%AE%97%E6%B3%95%E8%AE%B2%E8%A7%A3/">
 
 
 <script id="page-configurations">
@@ -48,7 +51,7 @@
   };
 </script>
 
-  <title>英语好句积累（1） | jimore</title>
+  <title>后退算法讲解 | jimore</title>
   
 
 
@@ -80,7 +83,119 @@
 </noscript>
 
 <link rel="alternate" href="/atom.xml" title="jimore" type="application/atom+xml">
-</head>
+<style>mjx-container[jax="SVG"] {
+  direction: ltr;
+}
+
+mjx-container[jax="SVG"] > svg {
+  overflow: visible;
+}
+
+mjx-container[jax="SVG"][display="true"] {
+  display: block;
+  text-align: center;
+  margin: 1em 0;
+}
+
+mjx-container[jax="SVG"][justify="left"] {
+  text-align: left;
+}
+
+mjx-container[jax="SVG"][justify="right"] {
+  text-align: right;
+}
+
+g[data-mml-node="merror"] > g {
+  fill: red;
+  stroke: red;
+}
+
+g[data-mml-node="merror"] > rect[data-background] {
+  fill: yellow;
+  stroke: none;
+}
+
+g[data-mml-node="mtable"] > line[data-line] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > rect[data-frame] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > .mjx-dashed {
+  stroke-dasharray: 140;
+}
+
+g[data-mml-node="mtable"] > .mjx-dotted {
+  stroke-linecap: round;
+  stroke-dasharray: 0,140;
+}
+
+g[data-mml-node="mtable"] > svg {
+  overflow: visible;
+}
+
+[jax="SVG"] mjx-tool {
+  display: inline-block;
+  position: relative;
+  width: 0;
+  height: 0;
+}
+
+[jax="SVG"] mjx-tool > mjx-tip {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+mjx-tool > mjx-tip {
+  display: inline-block;
+  padding: .2em;
+  border: 1px solid #888;
+  font-size: 70%;
+  background-color: #F8F8F8;
+  color: black;
+  box-shadow: 2px 2px 5px #AAAAAA;
+}
+
+g[data-mml-node="maction"][data-toggle] {
+  cursor: pointer;
+}
+
+mjx-status {
+  display: block;
+  position: fixed;
+  left: 1em;
+  bottom: 1em;
+  min-width: 25%;
+  padding: .2em .4em;
+  border: 1px solid #888;
+  font-size: 90%;
+  background-color: #F8F8F8;
+  color: black;
+}
+
+foreignObject[data-mjx-xml] {
+  font-family: initial;
+  line-height: normal;
+  overflow: visible;
+}
+
+.MathJax path {
+  stroke-width: 3;
+}
+
+mjx-container[display="true"] {
+  overflow: auto hidden;
+}
+
+mjx-container[display="true"] + br {
+  display: none;
+}
+</style></head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
   <div class="container use-motion">
@@ -198,7 +313,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/09/03/%E8%8B%B1%E8%AF%AD%E5%A5%BD%E5%8F%A5%E5%88%86%E6%9E%90/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/09/25/%E5%90%8E%E9%80%80%E7%AE%97%E6%B3%95%E8%AE%B2%E8%A7%A3/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/hh.jpg">
@@ -211,7 +326,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          英语好句积累（1）
+          后退算法讲解
         </h1>
 
         <div class="post-meta">
@@ -220,23 +335,17 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
+              
 
-              <time title="创建时间：2022-09-03 09:23:10" itemprop="dateCreated datePublished" datetime="2022-09-03T09:23:10+08:00">2022-09-03</time>
+              <time title="创建时间：2022-09-25 22:55:35 / 修改时间：23:32:16" itemprop="dateCreated datePublished" datetime="2022-09-25T22:55:35+08:00">2022-09-25</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-09-16 13:40:21" itemprop="dateModified" datetime="2022-09-16T13:40:21+08:00">2022-09-16</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E8%8B%B1%E8%AF%AD/" itemprop="url" rel="index"><span itemprop="name">英语</span></a>
+                  <a href="/categories/%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">学习</span></a>
                 </span>
             </span>
 
@@ -258,106 +367,14 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <ol>
-<li>There’s no feeling more frustrating than having dirty hair, showering and emerging with your hair greasy after washing it.</li>
-</ol>
-<p>句式：<font color="red">there’s no + 名词 +more + 形容词 + than + A(名词). </font></p>
+        <h1>后退算法讲解</h1>
+<p>CSMA/CD算法主要的实现算法为后退算法。</p>
 <span id="more"></span>
-<p><font color="green">for example:</font></p>
-<ul>
-<li>
-<p>there’s no people more famous than him.</p>
-</li>
-<li>
-<p>there’s no zoo more interesting than it.</p>
-</li>
-</ul>
-<ol start="2">
-<li>something is likely off.</li>
-</ol>
-<p>有些东西可能不对</p>
-<ol start="3">
-<li>make sure your clean hair is actually clean.</li>
-</ol>
-<p><font color="red">句式：make sure + 句子 ，译为确保. . . </font></p>
-<ol start="4">
-<li>I’m not in the mood.</li>
-</ol>
-<p>我没有心情</p>
-<ol start="5">
-<li>what do you do for a living.</li>
-</ol>
-<p>你做什么工作来谋生</p>
-<ol start="6">
-<li>help sb.  out</li>
-</ol>
-<p>帮助某人走出困境</p>
-<ol start="7">
-<li>But fewer can claim to be as stratified as Rome.</li>
-</ol>
-<p>但是很少可以和罗马一样层次分明</p>
-<ol start="8">
-<li>Civilisations that have taken root here over millennia seem to justle for prominence at every turn.</li>
-</ol>
-<p>在这里扎根的千年文明似乎在每一个角落都在争夺着地位。</p>
-<p>句式：</p>
-<ul>
-<li>
-<p><font color="red">take root : 扎根，深入人心</font></p>
-<ul>
-<li>
-<p>Core socialist values should take root among the people.</p>
-</li>
-<li>
-<p>And those tales have taken root deep inside of me.</p>
-</li>
-</ul>
-</li>
-<li>
-<p><font color="red">jostle for : 争夺，相当于compete for</font></p>
-<ul>
-<li>Ten candidates jostled to become leader of Britain’s Conservative Party, and thus the country’s next prime minister.</li>
-</ul>
-</li>
-<li>
-<p><font color="red">at every turn : 处处</font></p>
-</li>
-</ul>
-<ol start="9">
-<li>But it is sometimes a disadvantage to be so guarded.</li>
-</ol>
-<p>但是有时候过于保守是一种缺点</p>
-<p>句式：</p>
-<ul>
-<li>
-<p><font color="red">it is + 形容词 + to do : 做某事（形容词）</font></p>
-<ul>
-<li>it is stuip to go to the hospital.</li>
-</ul>
-</li>
-<li>
-<p><font color="red">it is + a/an + 名词 +to do : 做某事是一个（名词）</font></p>
-<ul>
-<li>it is a stuip thing to go to the hospital.</li>
-</ul>
-</li>
-</ul>
-<ol start="10">
-<li>There’s been no shortage of warnings about the career dangers of posting racy content on sites like Facebook and Twitter.</li>
-</ol>
-<p>从不缺少对于在Facebook或者Twitter发布种族的帖子会对求职产生不利影响的警告。</p>
-<p>句式：</p>
-<ul>
-<li><font color="red">there’s been no shortage of warnings about XXX : 从不缺少对XXX的警告</font></li>
-</ul>
-<ol start="11">
-<li>A marine biologist dives to where blue gives way to black.</li>
-</ol>
-<p>一名海洋生物学家潜入蓝色被黑色取代的地方。</p>
-<p>句式：</p>
-<ul>
-<li><font color="red">A gives way to B：A被B取代</font></li>
-</ul>
+<p>后退算法冲突处理过程，当产生数据冲突时候两个发送端或多个发送端记录冲突次数，如果第一次冲突则K=1,两个终端随机在(0-2的k次方-1)范围内选择一个数乘以时间t作为下次发送数据时间如果再产生冲突则k=k+1，终端继续在(0-2的k次方-1)范围内选择一个数乘以时间t作为下次发送数据时间，直到发送成功。如果K=16还未发送成功则停止传输。</p>
+<img src="https://img-blog.csdnimg.cn/20201130165851608.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80Mzc1MTI4NQ==,size_16,color_FFFFFF,t_70#pic_center">
+<img src="https://img-blog.csdnimg.cn/20201130165906498.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80Mzc1MTI4NQ==,size_16,color_FFFFFF,t_70#pic_center">
+<p>算法实现：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> random</span><br><span class="line">EXPIRE=<span class="number">1e9</span> <span class="comment"># 设置一个终止值</span></span><br><span class="line">t=<span class="number">1</span> <span class="comment"># 设置协议规定时间</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 初始化端口的延时</span></span><br><span class="line">delay={<span class="number">0</span>:<span class="number">0</span>}</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>,<span class="number">16</span>):</span><br><span class="line">    delay[i]=random.randint(<span class="number">0</span>,<span class="number">15</span>)</span><br><span class="line">delay_time={}</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">16</span>):</span><br><span class="line">    delay_time[i]=<span class="number">0</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 后退算法</span></span><br><span class="line"><span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">    <span class="keyword">if</span> <span class="built_in">len</span>(<span class="built_in">set</span>([i <span class="keyword">for</span> i <span class="keyword">in</span> delay.values() <span class="keyword">if</span> i != EXPIRE])) == <span class="built_in">len</span>([i <span class="keyword">for</span> i <span class="keyword">in</span> delay.values() <span class="keyword">if</span> i != EXPIRE]):</span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">16</span>):</span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">16</span>):</span><br><span class="line">            <span class="comment"># 查询当前是否有延时冲突的端口</span></span><br><span class="line">            <span class="keyword">if</span> i!=j:</span><br><span class="line">                <span class="keyword">if</span> delay[i]==delay[j]:</span><br><span class="line">                    <span class="comment"># 步骤1</span></span><br><span class="line">                    k=<span class="built_in">min</span>(delay_time[i],<span class="number">10</span>)</span><br><span class="line">                    <span class="comment"># 步骤4</span></span><br><span class="line">                    <span class="keyword">if</span> k&gt;<span class="number">16</span>:</span><br><span class="line">                        delay[i]=EXPIRE</span><br><span class="line">                    <span class="comment"># 步骤2</span></span><br><span class="line">                    r=random.randint(<span class="number">0</span>,<span class="number">2</span>**k-<span class="number">1</span>)</span><br><span class="line">                    <span class="comment"># 步骤3</span></span><br><span class="line">                    delay[i]=r*t</span><br><span class="line"></span><br><span class="line">                    delay_time[i]+=<span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 结果</span></span><br><span class="line"><span class="built_in">print</span>(delay)</span><br><span class="line">x=<span class="built_in">list</span>(<span class="built_in">range</span>(<span class="number">16</span>))</span><br><span class="line">x.sort(key=<span class="keyword">lambda</span> x:delay[x])</span><br><span class="line"><span class="built_in">print</span>(<span class="string">"输出16个端口的传输顺序："</span>,x)</span><br></pre></td></tr></table></figure>
 
     </div>
 
@@ -373,7 +390,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="http://example.com/2022/09/03/%E8%8B%B1%E8%AF%AD%E5%A5%BD%E5%8F%A5%E5%88%86%E6%9E%90/" title="英语好句积累（1）">http://example.com/2022/09/03/英语好句分析/</a>
+    <a href="http://example.com/2022/09/25/%E5%90%8E%E9%80%80%E7%AE%97%E6%B3%95%E8%AE%B2%E8%A7%A3/" title="后退算法讲解">http://example.com/2022/09/25/后退算法讲解/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
@@ -384,7 +401,7 @@
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/%E8%8B%B1%E8%AF%AD/" rel="tag"><i class="fa fa-tag"></i></a>
+              <a href="/tags/%E5%AD%A6%E4%B9%A0/" rel="tag"><i class="fa fa-tag"></i></a>
           </div>
 
         
@@ -393,13 +410,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2022/09/02/%E8%8B%B1%E8%AF%AD%E5%85%AD%E7%BA%A7%E9%99%8C%E7%94%9F%E8%AF%8D%EF%BC%88%E4%B8%8B%EF%BC%89/" rel="prev" title="英语六级陌生词（下）">
-      <i class="fa fa-chevron-left"></i> 英语六级陌生词（下）
+    <a href="/2022/09/25/pytorch%E5%8F%AF%E8%A7%86%E5%8C%96/" rel="prev" title="pytorch可视化">
+      <i class="fa fa-chevron-left"></i> pytorch可视化
     </a></div>
-      <div class="post-nav-item">
-    <a href="/2022/09/03/%E8%8B%B1%E8%AF%AD%E8%AF%AD%E6%B3%95%E5%A4%A7%E5%85%A8%E6%80%BB%E7%BB%93/" rel="next" title="英语语法大全总结">
-      英语语法大全总结 <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -467,6 +481,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">1.</span> <span class="nav-text">后退算法讲解</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -712,6 +727,61 @@ window.addEventListener('pjax:success', () => {
   
 
   
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+          load: ['[tex]/mhchem'],
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+          packages: {'[+]': ['mhchem']},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
 
   
 
