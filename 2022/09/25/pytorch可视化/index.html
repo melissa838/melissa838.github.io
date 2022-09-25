@@ -22,31 +22,22 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="1.操作系统的定义 1.1.资源管理角度">
+  <meta name="description" content="pytorch可视化 1.对于一个已经建立好的网络来说，加上以下代码便可以将自己的网络进行可视化。 下图以resnet18为例">
 <meta property="og:type" content="article">
-<meta property="og:title" content="计算机操作系统知识点">
-<meta property="og:url" content="http://example.com/2022/09/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/index.html">
+<meta property="og:title" content="pytorch可视化">
+<meta property="og:url" content="http://example.com/2022/09/25/pytorch%E5%8F%AF%E8%A7%86%E5%8C%96/index.html">
 <meta property="og:site_name" content="jimore">
-<meta property="og:description" content="1.操作系统的定义 1.1.资源管理角度">
+<meta property="og:description" content="pytorch可视化 1.对于一个已经建立好的网络来说，加上以下代码便可以将自己的网络进行可视化。 下图以resnet18为例">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://melissa838.github.io/images/31.jpg">
-<meta property="og:image" content="https://melissa838.github.io/images/32.jpg">
-<meta property="og:image" content="https://melissa838.github.io/images/33.jpg">
-<meta property="og:image" content="https://melissa838.github.io/images/34.jpg">
-<meta property="og:image" content="https://melissa838.github.io/images/105.jpg">
-<meta property="og:image" content="https://melissa838.github.io/images/102.jpg">
-<meta property="og:image" content="https://melissa838.github.io/images/103.jpg">
-<meta property="og:image" content="https://melissa838.github.io/images/107.jpg">
-<meta property="og:image" content="https://melissa838.github.io/images/104.jpg">
-<meta property="og:image" content="https://melissa838.github.io/images/106.jpg">
-<meta property="og:image" content="https://melissa838.github.io/images/101.jpg">
-<meta property="article:published_time" content="2022-09-07T02:59:00.000Z">
-<meta property="article:modified_time" content="2022-09-11T06:22:19.334Z">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20210714203012157.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1dlbnl1YW5ibw==,size_16,color_FFFFFF,t_70">
+<meta property="article:published_time" content="2022-09-25T08:14:06.000Z">
+<meta property="article:modified_time" content="2022-09-25T08:21:52.872Z">
 <meta property="article:author" content="jimore">
+<meta property="article:tag" content="深度学习">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://melissa838.github.io/images/31.jpg">
+<meta name="twitter:image" content="https://img-blog.csdnimg.cn/20210714203012157.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1dlbnl1YW5ibw==,size_16,color_FFFFFF,t_70">
 
-<link rel="canonical" href="http://example.com/2022/09/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">
+<link rel="canonical" href="http://example.com/2022/09/25/pytorch%E5%8F%AF%E8%A7%86%E5%8C%96/">
 
 
 <script id="page-configurations">
@@ -59,7 +50,7 @@
   };
 </script>
 
-  <title>计算机操作系统知识点 | jimore</title>
+  <title>pytorch可视化 | jimore</title>
   
 
 
@@ -321,7 +312,7 @@ mjx-container[display="true"] + br {
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/09/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/09/25/pytorch%E5%8F%AF%E8%A7%86%E5%8C%96/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/hh.jpg">
@@ -334,7 +325,7 @@ mjx-container[display="true"] + br {
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          计算机操作系统知识点
+          pytorch可视化
         </h1>
 
         <div class="post-meta">
@@ -343,16 +334,19 @@ mjx-container[display="true"] + br {
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
+              
 
-              <time title="创建时间：2022-09-07 10:59:00" itemprop="dateCreated datePublished" datetime="2022-09-07T10:59:00+08:00">2022-09-07</time>
+              <time title="创建时间：2022-09-25 16:14:06 / 修改时间：16:21:52" itemprop="dateCreated datePublished" datetime="2022-09-25T16:14:06+08:00">2022-09-25</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-09-11 14:22:19" itemprop="dateModified" datetime="2022-09-11T14:22:19+08:00">2022-09-11</time>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
               </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">深度学习</span></a>
+                </span>
+            </span>
 
           
             <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
@@ -372,73 +366,13 @@ mjx-container[display="true"] + br {
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="1-操作系统的定义">1.操作系统的定义</h2>
-<h3 id="1-1-资源管理角度">1.1.资源管理角度</h3>
+        <h1>pytorch可视化</h1>
+<p>1.对于一个已经建立好的网络来说，加上以下代码便可以将自己的网络进行可视化。</p>
+<p>下图以resnet18为例</p>
 <span id="more"></span>
-<img src="https://melissa838.github.io/images/31.jpg">
-<h3 id="1-2-人机交互角度">1.2.人机交互角度</h3>
-<img src="https://melissa838.github.io/images/32.jpg">
-<h3 id="1-3-比较全面的定义">1.3.比较全面的定义</h3>
-<p><font color="red">（常考简答题）</font></p>
-<img src="https://melissa838.github.io/images/33.jpg">
-<h2 id="2-操作系统的目标">2.操作系统的目标</h2>
-<p>1.方便性</p>
-<p>2.有效性</p>
-<p>3.可扩展性</p>
-<p>4.开放性</p>
-<h2 id="3-操作系统的功能">3.操作系统的功能</h2>
-<h3 id="3-1存储器的功能">3.1存储器的功能</h3>
-<p>=内存的功能</p>
-<p>内存：存放正在运行的指令和数据</p>
-<p>CPU可以直接访问内存</p>
-<img src="https://melissa838.github.io/images/34.jpg">
-<h3 id="3-2处理机管理功能">3.2处理机管理功能</h3>
-<p>。。。</p>
-<h3 id="3-3设备管理功能">3.3设备管理功能</h3>
-<img src="https://melissa838.github.io/images/105.jpg">
-<h3 id="3-4文件管理功能">3.4文件管理功能</h3>
-<img src="https://melissa838.github.io/images/102.jpg">
-<h3 id="3-5接口">3.5接口</h3>
-<p>（1）程序接口</p>
-<p>（2）用户接口</p>
-<p>自行总结</p>
-<h2 id="4-操作系统的发展">4.操作系统的发展</h2>
-<p><strong><font color="red">批处理系统</font>是形成后来操作系统的雏形</strong></p>
-<p><strong><font color="red">多道</font>和<font color="red">分时</font>的出现标志着较为完善的操作系统形成</strong></p>
-<h2 id="5-操作系统的分类">5.操作系统的分类</h2>
-<p><strong><font color="red">批处理，分时，实时</font>是三种基本操作系统</strong></p>
-<h3 id="5-1多道批处理操作系统">5.1多道批处理操作系统</h3>
-<p>特性：</p>
-<p>（1）多道</p>
-<p>（2）成批</p>
-<p>缺点：</p>
-<p>（1）没有交互能力</p>
-<p>（2）用户可能等待很长时间才能运行</p>
-<h3 id="5-2分时操作系统">5.2分时操作系统</h3>
-<p><font color="red"><strong>UNIX是一个多用户交互型操作系统</strong></font></p>
-<p>特性：</p>
-<img src="https://melissa838.github.io/images/103.jpg">
-<p><font color="brown">其中，最主要的特性是：交互性</font></p>
-<h3 id="5-3实时操作系统">5.3实时操作系统</h3>
-<p>特性：</p>
-<p>（1）及时性</p>
-<p>（2）可靠性</p>
-<p><strong>分类</strong></p>
-<img src="https://melissa838.github.io/images/107.jpg">
-<img src="https://melissa838.github.io/images/104.jpg">
-<img src="https://melissa838.github.io/images/106.jpg">
-<h3 id="font-color-red-实时操作系统和分时操作系统的比较-font"><font color="red">实时操作系统和分时操作系统的比较</font></h3>
-<img src="https://melissa838.github.io/images/101.jpg">
-<h3 id="5-4个人计算机操作系统">5.4个人计算机操作系统</h3>
-<h3 id="5-5网络操作系统">5.5网络操作系统</h3>
-<p><font color="red">[选择题]</font> 下面哪一个操作系统不是网络操作系统？（选Dos）</p>
-<h3 id="5-6分布式操作系统">5.6分布式操作系统</h3>
-<p>特性：</p>
-<p>（1）分布式处理</p>
-<p>（2）并行性</p>
-<p>（3）透明性</p>
-<p>（4）共享性</p>
-<p>（5）健壮性</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 针对有网络模型，但还没有训练保存 .pth 文件的情况</span></span><br><span class="line"><span class="keyword">import</span> netron</span><br><span class="line"><span class="keyword">import</span> torch.onnx</span><br><span class="line"><span class="keyword">from</span> torch.autograd <span class="keyword">import</span> Variable</span><br><span class="line"><span class="keyword">from</span> torchvision.models <span class="keyword">import</span> resnet18  <span class="comment"># 以 resnet18 为例</span></span><br><span class="line"></span><br><span class="line">myNet = resnet18()  <span class="comment"># 实例化 自己定义的网络</span></span><br><span class="line">x = torch.randn(<span class="number">1</span>, <span class="number">1</span>, <span class="number">100</span>, <span class="number">100</span>)  <span class="comment"># 随机生成一个输入</span></span><br><span class="line">modelData = <span class="string">"./demo2.pth"</span>  <span class="comment"># 定义模型数据保存的路径</span></span><br><span class="line"><span class="comment"># modelData = "./demo.onnx"  # 有人说应该是 onnx 文件，但我尝试 pth 是可以的 </span></span><br><span class="line">torch.onnx.export(myNet, x, modelData)  <span class="comment"># 将 pytorch 模型以 onnx 格式导出并保存</span></span><br><span class="line">netron.start(modelData)  <span class="comment"># 输出网络结构</span></span><br></pre></td></tr></table></figure>
+<p>效果图：</p>
+<img src="https://img-blog.csdnimg.cn/20210714203012157.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1dlbnl1YW5ibw==,size_16,color_FFFFFF,t_70">
 
     </div>
 
@@ -454,7 +388,7 @@ mjx-container[display="true"] + br {
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="http://example.com/2022/09/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" title="计算机操作系统知识点">http://example.com/2022/09/07/计算机操作系统/</a>
+    <a href="http://example.com/2022/09/25/pytorch%E5%8F%AF%E8%A7%86%E5%8C%96/" title="pytorch可视化">http://example.com/2022/09/25/pytorch可视化/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
@@ -464,6 +398,9 @@ mjx-container[display="true"] + br {
 
 
       <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" rel="tag"><i class="fa fa-tag"></i></a>
+          </div>
 
         
 
@@ -471,13 +408,10 @@ mjx-container[display="true"] + br {
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2022/09/06/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E7%9F%A5%E8%AF%86%E7%82%B9/" rel="prev" title="计算机组成原理知识点">
-      <i class="fa fa-chevron-left"></i> 计算机组成原理知识点
+    <a href="/2022/09/24/vi%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4/" rel="prev" title="vi常用指令">
+      <i class="fa fa-chevron-left"></i> vi常用指令
     </a></div>
-      <div class="post-nav-item">
-    <a href="/2022/09/07/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%8E%9F%E7%90%86/" rel="next" title="数据库原理知识点">
-      数据库原理知识点 <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -545,7 +479,7 @@ mjx-container[display="true"] + br {
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%9A%84%E5%AE%9A%E4%B9%89"><span class="nav-number">1.</span> <span class="nav-text">1.操作系统的定义</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-%E8%B5%84%E6%BA%90%E7%AE%A1%E7%90%86%E8%A7%92%E5%BA%A6"><span class="nav-number">1.1.</span> <span class="nav-text">1.1.资源管理角度</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-%E4%BA%BA%E6%9C%BA%E4%BA%A4%E4%BA%92%E8%A7%92%E5%BA%A6"><span class="nav-number">1.2.</span> <span class="nav-text">1.2.人机交互角度</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3-%E6%AF%94%E8%BE%83%E5%85%A8%E9%9D%A2%E7%9A%84%E5%AE%9A%E4%B9%89"><span class="nav-number">1.3.</span> <span class="nav-text">1.3.比较全面的定义</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%9A%84%E7%9B%AE%E6%A0%87"><span class="nav-number">2.</span> <span class="nav-text">2.操作系统的目标</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%9A%84%E5%8A%9F%E8%83%BD"><span class="nav-number">3.</span> <span class="nav-text">3.操作系统的功能</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1%E5%AD%98%E5%82%A8%E5%99%A8%E7%9A%84%E5%8A%9F%E8%83%BD"><span class="nav-number">3.1.</span> <span class="nav-text">3.1存储器的功能</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2%E5%A4%84%E7%90%86%E6%9C%BA%E7%AE%A1%E7%90%86%E5%8A%9F%E8%83%BD"><span class="nav-number">3.2.</span> <span class="nav-text">3.2处理机管理功能</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-3%E8%AE%BE%E5%A4%87%E7%AE%A1%E7%90%86%E5%8A%9F%E8%83%BD"><span class="nav-number">3.3.</span> <span class="nav-text">3.3设备管理功能</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-4%E6%96%87%E4%BB%B6%E7%AE%A1%E7%90%86%E5%8A%9F%E8%83%BD"><span class="nav-number">3.4.</span> <span class="nav-text">3.4文件管理功能</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-5%E6%8E%A5%E5%8F%A3"><span class="nav-number">3.5.</span> <span class="nav-text">3.5接口</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%9A%84%E5%8F%91%E5%B1%95"><span class="nav-number">4.</span> <span class="nav-text">4.操作系统的发展</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%9A%84%E5%88%86%E7%B1%BB"><span class="nav-number">5.</span> <span class="nav-text">5.操作系统的分类</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#5-1%E5%A4%9A%E9%81%93%E6%89%B9%E5%A4%84%E7%90%86%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F"><span class="nav-number">5.1.</span> <span class="nav-text">5.1多道批处理操作系统</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-2%E5%88%86%E6%97%B6%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F"><span class="nav-number">5.2.</span> <span class="nav-text">5.2分时操作系统</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-3%E5%AE%9E%E6%97%B6%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F"><span class="nav-number">5.3.</span> <span class="nav-text">5.3实时操作系统</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#font-color-red-%E5%AE%9E%E6%97%B6%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%92%8C%E5%88%86%E6%97%B6%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%9A%84%E6%AF%94%E8%BE%83-font"><span class="nav-number">5.4.</span> <span class="nav-text">实时操作系统和分时操作系统的比较</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-4%E4%B8%AA%E4%BA%BA%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F"><span class="nav-number">5.5.</span> <span class="nav-text">5.4个人计算机操作系统</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-5%E7%BD%91%E7%BB%9C%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F"><span class="nav-number">5.6.</span> <span class="nav-text">5.5网络操作系统</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-6%E5%88%86%E5%B8%83%E5%BC%8F%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F"><span class="nav-number">5.7.</span> <span class="nav-text">5.6分布式操作系统</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">1.</span> <span class="nav-text">pytorch可视化</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
