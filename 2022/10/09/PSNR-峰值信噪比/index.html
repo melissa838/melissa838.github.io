@@ -22,22 +22,23 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="pytorch可视化 1.对于一个已经建立好的网络来说，加上以下代码便可以将自己的网络进行可视化。 下图以resnet18为例">
+  <meta name="description" content="PSNR-峰值信噪比 1.introduction of  PSNR">
 <meta property="og:type" content="article">
-<meta property="og:title" content="pytorch可视化">
-<meta property="og:url" content="http://example.com/2022/09/25/pytorch%E5%8F%AF%E8%A7%86%E5%8C%96/index.html">
+<meta property="og:title" content="PSNR-峰值信噪比">
+<meta property="og:url" content="http://example.com/2022/10/09/PSNR-%E5%B3%B0%E5%80%BC%E4%BF%A1%E5%99%AA%E6%AF%94/index.html">
 <meta property="og:site_name" content="jimore">
-<meta property="og:description" content="pytorch可视化 1.对于一个已经建立好的网络来说，加上以下代码便可以将自己的网络进行可视化。 下图以resnet18为例">
+<meta property="og:description" content="PSNR-峰值信噪比 1.introduction of  PSNR">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20210714203012157.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1dlbnl1YW5ibw==,size_16,color_FFFFFF,t_70">
-<meta property="article:published_time" content="2022-09-25T08:14:06.000Z">
-<meta property="article:modified_time" content="2022-09-25T08:21:52.872Z">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20181128163302721.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20181128163533114.png">
+<meta property="article:published_time" content="2022-10-09T15:25:40.000Z">
+<meta property="article:modified_time" content="2022-10-09T15:37:11.377Z">
 <meta property="article:author" content="jimore">
 <meta property="article:tag" content="深度学习">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://img-blog.csdnimg.cn/20210714203012157.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1dlbnl1YW5ibw==,size_16,color_FFFFFF,t_70">
+<meta name="twitter:image" content="https://img-blog.csdnimg.cn/20181128163302721.png">
 
-<link rel="canonical" href="http://example.com/2022/09/25/pytorch%E5%8F%AF%E8%A7%86%E5%8C%96/">
+<link rel="canonical" href="http://example.com/2022/10/09/PSNR-%E5%B3%B0%E5%80%BC%E4%BF%A1%E5%99%AA%E6%AF%94/">
 
 
 <script id="page-configurations">
@@ -50,7 +51,7 @@
   };
 </script>
 
-  <title>pytorch可视化 | jimore</title>
+  <title>PSNR-峰值信噪比 | jimore</title>
   
 
 
@@ -312,7 +313,7 @@ mjx-container[display="true"] + br {
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/09/25/pytorch%E5%8F%AF%E8%A7%86%E5%8C%96/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/10/09/PSNR-%E5%B3%B0%E5%80%BC%E4%BF%A1%E5%99%AA%E6%AF%94/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/hh.jpg">
@@ -325,7 +326,7 @@ mjx-container[display="true"] + br {
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          pytorch可视化
+          PSNR-峰值信噪比
         </h1>
 
         <div class="post-meta">
@@ -336,7 +337,7 @@ mjx-container[display="true"] + br {
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2022-09-25 16:14:06 / 修改时间：16:21:52" itemprop="dateCreated datePublished" datetime="2022-09-25T16:14:06+08:00">2022-09-25</time>
+              <time title="创建时间：2022-10-09 23:25:40 / 修改时间：23:37:11" itemprop="dateCreated datePublished" datetime="2022-10-09T23:25:40+08:00">2022-10-09</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -366,13 +367,27 @@ mjx-container[display="true"] + br {
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1>pytorch可视化</h1>
-<p>1.对于一个已经建立好的网络来说，加上以下代码便可以将自己的网络进行可视化。</p>
-<p>下图以resnet18为例</p>
+        <h1>PSNR-峰值信噪比</h1>
+<h2 id="1-introduction-of-PSNR">1.introduction of  PSNR</h2>
 <span id="more"></span>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 针对有网络模型，但还没有训练保存 .pth 文件的情况</span></span><br><span class="line"><span class="keyword">import</span> netron</span><br><span class="line"><span class="keyword">import</span> torch.onnx</span><br><span class="line"><span class="keyword">from</span> torch.autograd <span class="keyword">import</span> Variable</span><br><span class="line"><span class="keyword">from</span> torchvision.models <span class="keyword">import</span> resnet18  <span class="comment"># 以 resnet18 为例</span></span><br><span class="line"></span><br><span class="line">myNet = resnet18()  <span class="comment"># 实例化 自己定义的网络</span></span><br><span class="line">x = torch.randn(<span class="number">1</span>, <span class="number">1</span>, <span class="number">100</span>, <span class="number">100</span>)  <span class="comment"># 随机生成一个输入</span></span><br><span class="line">modelData = <span class="string">"./demo2.pth"</span>  <span class="comment"># 定义模型数据保存的路径</span></span><br><span class="line"><span class="comment"># modelData = "./demo.onnx"  # 有人说应该是 onnx 文件，但我尝试 pth 是可以的 </span></span><br><span class="line">torch.onnx.export(myNet, x, modelData)  <span class="comment"># 将 pytorch 模型以 onnx 格式导出并保存</span></span><br><span class="line">netron.start(modelData)  <span class="comment"># 输出网络结构</span></span><br></pre></td></tr></table></figure>
-<p>效果图：</p>
-<img src="https://img-blog.csdnimg.cn/20210714203012157.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1dlbnl1YW5ibw==,size_16,color_FFFFFF,t_70">
+<blockquote>
+<p>PSNR的全称为“Peak Signal-to-Noise Ratio”，直译为中文就是<a href="https://so.csdn.net/so/search?q=%E5%B3%B0%E5%80%BC%E4%BF%A1%E5%99%AA%E6%AF%94&amp;spm=1001.2101.3001.7020">峰值信噪比</a>。</p>
+<p>是一种<strong>衡量图像质量</strong>的指标。在很多领域都会需要这个指标，比如在<a href="https://so.csdn.net/so/search?q=%E8%B6%85%E5%88%86%E8%BE%A8%E7%8E%87&amp;spm=1001.2101.3001.7020">超分辨率</a>重建图像的时候，PSNR就是很重要的指标了。</p>
+</blockquote>
+<p>计算PSNR要先知道MSE(均方误差)的计算。两个m×n单色图像I和K，如果一个为另外一个的噪声近似，那么它们的的均方误差定义为：</p>
+<img src="https://img-blog.csdnimg.cn/20181128163302721.png">
+<p>MSE的概念应该是比较熟悉的，这也是常见的损失函数。而PSNR就是通过MSE得出来的，公式如下：</p>
+<img src="https://img-blog.csdnimg.cn/20181128163533114.png">
+<p>其中，MAXI是表示图像点颜色的最大数值，如果每个采样点用 8 位表示，那么就是 255。</p>
+<p>所以MSE越小，则PSNR越大；所以PSNR越大，代表着图像质量越好。</p>
+<blockquote>
+<p>PSNR高于40dB说明图像质量极好（即非常接近原始图像），</p>
+<p>在30—40dB通常表示图像质量是好的（即失真可以察觉但可以接受），</p>
+<p>在20—30dB说明图像质量差；</p>
+<p>最后，PSNR低于20dB图像不可接受</p>
+</blockquote>
+<h2 id="implementation-of-PSNR-with-python">implementation of PSNR with python</h2>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">'''</span></span><br><span class="line"><span class="string">compute PSNR with tensorflow</span></span><br><span class="line"><span class="string">'''</span></span><br><span class="line"><span class="keyword">import</span> tensorflow <span class="keyword">as</span> tf</span><br><span class="line"><span class="keyword">import</span> tensorflow.compat.v1 <span class="keyword">as</span> tf</span><br><span class="line">tf.disable_v2_behavior()</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line"><span class="keyword">def</span> <span class="title function_">read_img</span>(<span class="params">path</span>):</span><br><span class="line">	<span class="keyword">return</span> tf.image.decode_image(tf.io.read_file(path))</span><br><span class="line"> </span><br><span class="line"><span class="keyword">def</span> <span class="title function_">psnr</span>(<span class="params">tf_img1, tf_img2</span>):</span><br><span class="line">	<span class="keyword">return</span> tf.image.psnr(tf_img1, tf_img2, max_val=<span class="number">255</span>)</span><br><span class="line"> </span><br><span class="line"><span class="keyword">def</span> <span class="title function_">_main</span>():</span><br><span class="line">	t1 = read_img(<span class="string">"C:/Users/jimore/Documents/Tencent Files/3457822025/FileRecv/img/have/1(fixed).jpg"</span>)</span><br><span class="line">	t2 = read_img(<span class="string">"C:/Users/jimore/Documents/Tencent Files/3457822025/FileRecv/img/have/103.jpg"</span>)</span><br><span class="line">	<span class="keyword">with</span> tf.compat.v1.Session() <span class="keyword">as</span> sess:</span><br><span class="line">		sess.run(tf.compat.v1.global_variables_initializer())</span><br><span class="line">		y = sess.run(psnr(t1, t2))</span><br><span class="line">		<span class="built_in">print</span>(y)</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    _main()</span><br></pre></td></tr></table></figure>
 
     </div>
 
@@ -388,7 +403,7 @@ mjx-container[display="true"] + br {
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="http://example.com/2022/09/25/pytorch%E5%8F%AF%E8%A7%86%E5%8C%96/" title="pytorch可视化">http://example.com/2022/09/25/pytorch可视化/</a>
+    <a href="http://example.com/2022/10/09/PSNR-%E5%B3%B0%E5%80%BC%E4%BF%A1%E5%99%AA%E6%AF%94/" title="PSNR-峰值信噪比">http://example.com/2022/10/09/PSNR-峰值信噪比/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
@@ -408,12 +423,12 @@ mjx-container[display="true"] + br {
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2022/09/24/vi%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4/" rel="prev" title="vi常用指令">
-      <i class="fa fa-chevron-left"></i> vi常用指令
+    <a href="/2022/10/01/Anchor-Boxes/" rel="prev" title="Anchor Boxes">
+      <i class="fa fa-chevron-left"></i> Anchor Boxes
     </a></div>
       <div class="post-nav-item">
-    <a href="/2022/09/25/%E5%90%8E%E9%80%80%E7%AE%97%E6%B3%95%E8%AE%B2%E8%A7%A3/" rel="next" title="后退算法讲解">
-      后退算法讲解 <i class="fa fa-chevron-right"></i>
+    <a href="/2022/10/09/SSIM/" rel="next" title="SSIM">
+      SSIM <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
@@ -482,7 +497,7 @@ mjx-container[display="true"] + br {
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">1.</span> <span class="nav-text">pytorch可视化</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">1.</span> <span class="nav-text">PSNR-峰值信噪比</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-introduction-of-PSNR"><span class="nav-number">1.1.</span> <span class="nav-text">1.introduction of  PSNR</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#implementation-of-PSNR-with-python"><span class="nav-number">1.2.</span> <span class="nav-text">implementation of PSNR with python</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
